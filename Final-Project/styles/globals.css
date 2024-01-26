@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+background-color: rgba(239, 252, 248, 0.836);
+}
+
+  #google_translate_element .goog-te-combo {
+    background-color: #cab11e; /* Background color for the translate button */
+    color: #fff; /* Text color */
+    padding: 8px; /* Padding inside the button */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Border radius for rounded corners */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    
+  }
+
+  .btn {
+    padding: 15px 50px;
+    margin: 5px;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #cab11e;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Add transition for smooth scaling */
+  }
+  .register, .login{
+    background-color: #edcd22 ;
+  }
+button{
+  background-color:  #edcd22 !important;
+}
+  .btn:hover {
+    transform: scale(1.1); /* Grow slightly bigger on hover */
+  }
+
+
+
+
+  
