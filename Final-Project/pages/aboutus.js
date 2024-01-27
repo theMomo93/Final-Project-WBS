@@ -4,18 +4,18 @@ import Footer from "@/components/Footer";
 export default function aboutus() {
   return (
     <div>
-      <section class="flex items-center bg-gradient-to-r from-cyan-600 to-blue-950 text-black xl:h-screen font-poppins dark:bg-gray-800 mt-12 mb-12 ">
-        <div class="justify-center flex-1 max-w-6xl py-4 mx-auto lg:py-6 md:px-6">
-          <div class="flex flex-wrap ">
-            <div class="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
-              <div class="relative lg:max-w-md">
+      <section className="flex items-center bg-gradient-to-r from-cyan-600 to-blue-950 text-black xl:h-screen font-poppins dark:bg-gray-800 mt-12 mb-12 ">
+        <div className="justify-center flex-1 max-w-6xl py-4 mx-auto lg:py-6 md:px-6">
+          <div className="flex flex-wrap ">
+            <div className="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
+              <div className="relative lg:max-w-md">
                 <img
                   src="https://i.postimg.cc/rF0MKfBV/pexels-andrea-piacquadio-3760263.jpg"
                   alt="about"
-                  class="relative z-10 object-cover w-full rounded h-96"
+                  className="relative z-10 object-cover w-full rounded h-96"
                 />
-                <div class="absolute bottom-0 right-0 z-10 p-8 bg-white border-4 border-yellow-500 rounded shadow dark:border-yellow-400 lg:-mb-8 lg:-mr-11 sm:p-8 dark:text-gray-300 dark:bg-gray-800 ">
-                  <p class="text-lg font-semibold md:w-72">
+                <div className="absolute bottom-0 right-0 z-10 p-8 bg-white border-4 border-yellow-500 rounded shadow dark:border-yellow-400 lg:-mb-8 lg:-mr-11 sm:p-8 dark:text-gray-300 dark:bg-gray-800 ">
+                  <p className="text-lg font-semibold md:w-72">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -29,16 +29,16 @@ export default function aboutus() {
                 </div>
               </div>
             </div>
-            <div class="w-full px-6 mb-10 lg:w-1/2 lg:mb-0 ">
-              <div class="pl-4 mb-6 border-l-4 border-yellow-500 ">
-                <span class="text-sm text-gray-600 uppercase dark:text-gray-400">
+            <div className="w-full px-6 mb-10 lg:w-1/2 lg:mb-0 ">
+              <div className="pl-4 mb-6 border-l-4 border-yellow-500 ">
+                <span className="text-sm text-gray-600 uppercase dark:text-gray-400">
                   Welcome!
                 </span>
-                <h1 class="mt-2 text-3xl font-black text-gray-700 md:text-5xl dark:text-gray-300">
+                <h1 className="mt-2 text-3xl font-black text-gray-700 md:text-5xl dark:text-gray-300">
                   Let's talk about this project!
                 </h1>
               </div>
-              <p class="mb-6 text-base leading-7 text-gray-500 dark:text-gray-400">
+              <p className="mb-6 text-base leading-7 text-gray-500 dark:text-gray-400">
                 This project started out of personal experience. Having to deal
                 with administration alone in various subjects made me realize
                 that I need help. I reached out to the international community

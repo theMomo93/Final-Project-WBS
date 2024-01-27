@@ -14,12 +14,12 @@ export default function Register() {
     event.preventDefault();
 
     try {
-      const response = await fetch('/api/register', {
+      const response = await fetch('http://localhost:5000/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, email, password }),
+        body: JSON.stringify({username, email, password}),
       });
 
       if (response.ok) {
