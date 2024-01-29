@@ -1,8 +1,8 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-import cors from 'cors';
-import bcrypt from 'bcrypt';
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import cors from "cors";
+import bcrypt from "bcrypt";
 
 dotenv.config();
 
@@ -11,10 +11,12 @@ app.use(cors());
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URL,{ dbName: 'ImigrationProject' } );
-    console.log('MongoDB Connected');
+    await mongoose.connect(process.env.MONGODB_URL, {
+      dbName: "ImigrationProject",
+    });
+    console.log("MongoDB Connected");
   } catch (error) {
-    console.error('MongoDB Connection Failed:', error.message);
+    console.error("MongoDB Connection Failed:", error.message);
     process.exit(1);
   }
 };
@@ -22,16 +24,25 @@ const connectDB = async () => {
 connectDB();
 
 const userSchema = new mongoose.Schema({
-  username: String,
-  email: String,
-  password: String,
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+  password:{ type: String,
+  required: true,
+  }
 });
 
 // Add pre-save middleware to hash the password before saving
-userSchema.pre('save', async function (next) {
+userSchema.pre("save", async function (next) {
   try {
     // Only hash the password if it has been modified
-    if (!this.isModified('password')) {
+    if (!this.isModified("password")) {
       return next();
     }
 
@@ -43,21 +54,21 @@ userSchema.pre('save', async function (next) {
   }
 });
 
-const UserModel = mongoose.model('User', userSchema);
+const UserModel = mongoose.model("User", userSchema);
 
 app.use(express.json());
 
-app.post('/api/register', async (req, res) => {
+app.post("/api/register", async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
     if (!username || !email || !password) {
-      return res.status(400).json({ error: 'All fields are required' });
+      return res.status(400).json({ error: "All fields are required" });
     }
 
     const existingUser = await UserModel.findOne({ email });
     if (existingUser) {
-      return res.status(400).json({ error: 'User already exists' });
+      return res.status(400).json({ error: "User already exists" });
     }
 
     const newUser = new UserModel({
@@ -68,10 +79,10 @@ app.post('/api/register', async (req, res) => {
 
     await newUser.save();
 
-    res.status(200).json({ message: 'Registration successful' });
+    res.status(200).json({ message: "Registration successful" });
   } catch (error) {
-    console.error('Error during registration:', error.message);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error("Error during registration:", error.message);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
