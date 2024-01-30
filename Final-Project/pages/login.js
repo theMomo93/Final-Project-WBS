@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Footer from "@/components/Footer";
 import { useRouter } from "next/router";
 
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -10,7 +11,42 @@ export default function Login() {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+  
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log('Login successful:', responseData);
+  
+        // Check if the user ID is present in the response
+        const userId = responseData.userId; 
+        if (userId) {
+          localStorage.setItem('isLoggedIn', 'true');
+          localStorage.setItem('userId', responseData.userId);
+          // Log the userId before redirecting
+          console.log('Redirecting to Profile:', userId);
+          // Redirect to the user's profile page
+          router.push({
+            pathname: `/profile/${userId}`,
+            query: { userId }, // Pass userId as a query parameter
+          });
+        } else {
+          console.error('User ID not found in the response:', responseData);
+        }
+      } else {
+        // Handle login failure
+        const errorData = await response.json();
+        console.error('Login failed:', errorData.error);
+      }
+    } catch (error) {
+      console.error('Error during login:', error.message);
+    }
   };
 
   return (
@@ -42,8 +78,8 @@ export default function Login() {
               <form className="space-y-2 md:space-y-6" onSubmit={handleFormSubmit}>
                 <div>
                   <label
-                    for="email"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    htmlFor="email"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Your email
                   </label>
@@ -60,7 +96,7 @@ export default function Login() {
                 </div>
                 <div>
                   <label
-                    for="password"
+                    htmlFor="password"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Password
@@ -88,7 +124,7 @@ export default function Login() {
                   </div>
                   <div className="ml-3 text-sm">
                     <label
-                      for="terms"
+                      htmlFor="terms"
                       className="font-light text-gray-500 dark:text-gray-300"
                     >
                       I accept the{" "}
@@ -107,7 +143,7 @@ export default function Login() {
                 >
                   Login to an account
                 </button>
-                <p class="text-sm font-light text-gray-500 dark:text-gray-300">
+                <p className="text-sm font-light text-gray-500 dark:text-gray-300">
                   You don't have an account? Join us!{" "}
                   <a
                     href="/register"
