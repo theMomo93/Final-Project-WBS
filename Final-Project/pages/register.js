@@ -14,7 +14,7 @@ export default function Register() {
     event.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/api/register', {
+      const response = await fetch('http://localhost:5000/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -30,6 +30,7 @@ export default function Register() {
       } else {
         const errorData = await response.json();
         console.error('Registration failed:', errorData.error);
+        alert("Username / email already exists!")
       }
     } catch (error) {
       console.error('Error during registration:', error.message);
