@@ -1,14 +1,19 @@
 // components/Navbar.js
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useRouter } from 'next/router';
+import { useUser } from '@/contexts/userContext';
+import { UserContext } from "@/contexts/userContext";
+
 
 const Navbar = () => {
   const [isGoogleTranslateScriptLoaded, setIsGoogleTranslateScriptLoaded] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
   const [storedUserId, setStoredUserId] = useState(null);  // Declare storedUserId state
   const router = useRouter();
-
+  const { user, setUserId } = useUser();
+  const {setUser} =useContext(UserContext)
+  
   useEffect(() => {
     // Retrieve userId from local storage
     const userIdFromStorage = localStorage.getItem('userId');
@@ -16,10 +21,8 @@ const Navbar = () => {
       // Do something with userId
       console.log('User ID:', userIdFromStorage);
       setStoredUserId(userIdFromStorage);  // Set storedUserId state
-      setIsLoggedIn(true);
-    } else {
-      setIsLoggedIn(false); // Set to false if userId is not present
-    }
+      
+    } 
 
     // Check if the Google Translate script is already loaded
     if (!isGoogleTranslateScriptLoaded && (!window.google || !window.google.translate)) {
@@ -50,10 +53,11 @@ const Navbar = () => {
   };
 
   const handleLogout = () => {
-    setIsLoggedIn(false);
+    
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('userId');
-    setStoredUserId(null);  // Reset storedUserId state
+    setStoredUserId(null);
+    setUser(null);  
     router.push('/');
   };
 
@@ -79,7 +83,7 @@ const Navbar = () => {
             About us
           </Link>
 
-          {isLoggedIn ? (
+          {user ? (
             <>
               <Link href={`/profile/${storedUserId}`} className="text-white">
                 Profile

@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Footer from "@/components/Footer";
 import { useRouter } from "next/router";
+import { UserContext } from "@/contexts/userContext";
+
 
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
+  const {setUser} =useContext(UserContext);
+
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -27,15 +31,20 @@ export default function Login() {
         // Check if the user ID is present in the response
         const userId = responseData.userId; 
         if (userId) {
-          localStorage.setItem('isLoggedIn', 'true');
+          setUser(userId)
+          
           localStorage.setItem('userId', responseData.userId);
           // Log the userId before redirecting
           console.log('Redirecting to Profile:', userId);
           // Redirect to the user's profile page
-          router.push({
+          
+            router.push({
             pathname: `/profile/${userId}`,
             query: { userId }, // Pass userId as a query parameter
+            
           });
+          
+          
         } else {
           console.error('User ID not found in the response:', responseData);
         }
@@ -47,6 +56,7 @@ export default function Login() {
     } catch (error) {
       console.error('Error during login:', error.message);
     }
+    
   };
 
   return (

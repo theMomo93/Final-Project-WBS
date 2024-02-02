@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "@/components/Footer";
 
 export default function aboutus() {
+ 
   return (
     <div>
       <section className="flex items-center bg-gradient-to-r from-cyan-600 to-blue-950 text-black xl:h-screen font-poppins dark:bg-gray-800 mt-12 mb-12 ">

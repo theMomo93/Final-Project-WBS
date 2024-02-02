@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import Footer from '@/components/Footer';
 import { useRouter } from 'next/router';
-
 
 export default function Register() {
   const [username, setUsername] = useState('');
@@ -9,33 +9,31 @@ export default function Register() {
   const [password, setPassword] = useState('');
   const router = useRouter();
 
-
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({username, email, password}),
+      const response = await axios.post('http://localhost:5000/api/auth/register', {
+        username,
+        email,
+        password,
       });
 
-      if (response.ok) {
+      if (response.status === 200) {
         console.log('Registration successful');
-        alert("Registration successful");
-        router.push("/login")
-
+        alert('Registration successful');
+        router.push('/login');
+        alert('You will be taken to the login page now');
+        document.cookie = `userId=${userId}; samesite=strict`;
       } else {
-        const errorData = await response.json();
-        console.error('Registration failed:', errorData.error);
-        alert("Username / email already exists!")
+        console.error('Registration failed:', response.data.error);
+        alert('Username / email already exists!');
       }
     } catch (error) {
-      console.error('Error during registration:', error.message);
+      console.error('Error during registration: email/ user already exists', error.message);
     }
   };
+
 
   return (
     <div>

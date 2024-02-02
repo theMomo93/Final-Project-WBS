@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 
 const Home = () => {
+  
   return (
     <div>
       <div className="bg-white min-h-screen flex flex-col">

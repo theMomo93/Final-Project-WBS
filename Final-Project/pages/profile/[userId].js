@@ -1,12 +1,13 @@
 // pages/profile/[userId].js
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { UserContext } from "@/contexts/userContext";
 
 const UserProfile = () => {
   const router = useRouter();
   const { userId } = router.query;
-
   const [userData, setUserData] = useState(null);
+  const { setUser } = useContext(UserContext);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -16,6 +17,7 @@ const UserProfile = () => {
         if (response.ok) {
           const userData = await response.json();
           setUserData(userData);
+          setUser(userData);
         } else {
           console.error('Failed to fetch user data');
         }
@@ -27,16 +29,16 @@ const UserProfile = () => {
     if (userId) {
       fetchUserData();
     }
-  }, [userId]);
+  }, [userId, setUser]);
 
   if (!userId || userData === null) {
-    // Loading state or handle invalid user ID
+    
     return <div>Loading...</div>;
   }
 
   return (
     <div>
-      <h1>User Profile</h1>
+      <h1>Welcome {userData.username} </h1>
       <p>User ID: {userId}</p>
       <p>Username: {userData.username}</p>
       <p>Email: {userData.email}</p>
