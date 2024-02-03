@@ -1,30 +1,58 @@
-// userController.js
-import UserModel from "../models/authModel.js";
+import User from "../models/User.js";
 
-// Controller to get user data by ID
-export const getUserById = async (req, res) => {
+export const handleRegister = async (req, res) => {
   try {
-    const { userId } = req.params;
+    console.log("this is register", req.body);
 
-    if (!userId) {
-      return res.status(400).json({ error: 'User ID is missing in the request' });
-    }
+    const newUser = await User.create(req.body);
+    console.log("🚀 ~ newUser:", newUser);
 
-    const user = await UserModel.findById(userId);
+    res.send({ success: true });
+  } catch (error) {
+    console.log("🚀 ~ error in register:", error.message);
+
+    res.status(500).send({ success: false, error: error.message });
+  }
+};
+export const handleLogin = async (req, res) => {
+  try {
+    console.log("this is login");
+
+    const user = await User.findOne({
+      email: req.body.email, 
+    }).select("-password");
+    console.log("🚀 ~ user:", user);
 
     if (!user) {
-      return res.status(404).json({ error: 'User not found' });
+      return res.send({ success: false });
     }
 
-    // Respond with the user data
-    res.status(200).json({
-      _id: user._id,
-      username: user.username,
-      email: user.email,
-      // Add other fields as needed
-    });
+    res.send({ success: true, user });
   } catch (error) {
-    console.error('Error fetching user data:', error.message);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.log("🚀 ~ error in login:", error.message);
+
+    res.status(500).send(error.message);
+  }
+};
+
+export const handleUser = async (req, res) => {
+  try {
+    console.log("this is one User");
+
+    const userId = req.params.id; // Extract user ID from request parameters
+
+    const user = await User.findOne({ _id: userId }).select("-password");
+
+    if (!user) {
+      return res.status(404).send({ success: false, message: "User not found" });
+    }
+
+    console.log("🚀 ~ user:", user);
+
+    res.send({ success: true, user });
+  } catch (error) {
+    console.log("🚀 ~ error in get user:", error.message);
+
+    res.status(500).send({ success: false, error: error.message });
   }
 };

@@ -1,40 +1,37 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import Footer from '@/components/Footer';
+import { useState } from "react";
+import axios from "axios";
+import Footer from "@/components/Footer";
 import { useRouter } from 'next/router';
 
 export default function Register() {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername]=useState("");
+  const [email, setEmail]=useState("");
+  const [password, setPassword]=useState("");
   const router = useRouter();
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
+  const handleRegister = async (e) => {
+    e.preventDefault(); // Prevent the default form submission behavior
+    console.log("Form submitted"); // Check if the form submission is triggered
+  
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', {
+      const response = await axios.post("http://localhost:5000/users/register", {
         username,
         email,
         password,
       });
-
-      if (response.status === 200) {
-        console.log('Registration successful');
-        alert('Registration successful');
+  
+      if (response.data.success) {
+        console.log("Response", response.data);
         router.push('/login');
-        alert('You will be taken to the login page now');
-        document.cookie = `userId=${userId}; samesite=strict`;
       } else {
-        console.error('Registration failed:', response.data.error);
-        alert('Username / email already exists!');
+        // Handle unsuccessful registration
+        console.log('Registration failed:', response.data.message);
       }
     } catch (error) {
-      console.error('Error during registration: email/ user already exists', error.message);
+      // Handle any errors that occurred during the request
+      console.error('Error during registration:', error.message);
     }
-  };
-
-
+  }
   return (
     <div>
       <section className="bg-white-100 dark:bg-white-800">
@@ -58,7 +55,7 @@ export default function Register() {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-3xl dark:text-black">
                 Register here:
               </h1>
-              <form className="space-y-4 md:space-y-6" onSubmit={handleFormSubmit}>
+              <form method="post" className="space-y-4 md:space-y-6" onSubmit={handleRegister}>
                 <div>
                   <label
                     htmlFor="username"

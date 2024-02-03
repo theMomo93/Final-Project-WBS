@@ -1,10 +1,15 @@
-// userRoutes.js
-import express from 'express';
-import { getUserById } from '../controllers/userController.js';
+// routes/authRoutes.js
+import express from "express";
+import {
+    handleRegister,
+    handleLogin,
+    handleUser,
+    
+} from "../controllers/userController.js";
 
 const router = express.Router();
 
-// Define routes related to user data
-router.get('/:userId', getUserById);
-
+router.post("/register", handleRegister);
+router.post("/login", handleLogin); 
+router.get("/id/:id", handleUser )
 export default router;

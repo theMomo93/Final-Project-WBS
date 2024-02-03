@@ -1,15 +1,18 @@
-import Navbar from '@/components/Navbar'
+import Navbar from "../components/Navbar"
 import '@/styles/globals.css'
-// _app.js
-import React from 'react';
-import { UserProvider } from '@/contexts/userContext';
+import { UserProvider } from "../contexts/UserContext";
+
+
 
 function MyApp({ Component, pageProps }) {
   return (
+    <>
+      
     <UserProvider>
-      <Navbar/>
+    <Navbar/>
       <Component {...pageProps} />
     </UserProvider>
+    </>
   );
 }
 
