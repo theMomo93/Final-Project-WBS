@@ -69,8 +69,8 @@ const Navbar = () => {
   };
  
   return (
-    <nav className="bg-gradient-to-r from-cyan-900 to-blue-950">
-      <div className="container mx-auto flex justify-between items-center flex-wrap">
+    <nav className="bg-gradient-to-r from-cyan-900 to-blue-950 shadow-lg">
+      <div className="container mx-auto flex justify-between items-center flex-wrap px-16 ">
         <img
           src="https://picsum.photos/100/100?grayscale"
           alt=""
