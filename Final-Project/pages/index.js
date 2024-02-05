@@ -35,9 +35,13 @@ const Home = () => {
               </div>
             </div>
           </section>
-          <div class="container mx-auto my-8 p-8 bg-white rounded-md ">
-  <h1 class="text-5xl text-blue-900 font-bold text-center">Some Information that might be helpful:</h1>
-  <p class="text-sm text-gray-500 text-center">Disclaimer: This website is a Final project for WBS course for Fullstack Development.</p>
+          <div className="container mx-auto my-8 p-8 bg-white rounded-md ">
+  <h1 className="text-5xl text-blue-900 font-bold text-center">Some Information that might be helpful:</h1>
+  <p className="text-sm text-gray-500 text-center mx-28">Disclaimer: The content presented on this website has been compiled
+   and created as a final project for the WBS course in Fullstack Development by a student. While efforts have been made 
+   to ensure accuracy and completeness, it is important to note that the information provided may be subject to errors 
+   or inaccuracies. This website is not intended to serve as professional advice, and users are encouraged to independently 
+   verify any information before relying on it.</p>
 </div>
           <section className="flex items-center lg:h-screen/2 font-poppins dark:bg-white-100 mb-16">
             

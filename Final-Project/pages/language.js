@@ -99,14 +99,14 @@ export default function language() {
             </div>
         </div>
 
-        <div class="w-1/3 p-8">
-          <div class="bg-gray-200 p-4">
-            <h2 class="text-lg font-semibold mb-2">Useful Links</h2>
+        <div className="w-1/3 p-8">
+          <div className="bg-gray-200 p-4">
+            <h2 className="text-lg font-semibold mb-2">Useful Links</h2>
             <ul>
               <li>
                 <a
                   href="https://www.goethe.de/en/spr/kur/tsd.html"
-                  class="text-blue-800 hover:text-amber-400 "
+                  className="text-blue-800 hover:text-amber-400 "
                 >
                   Test Your German
                 </a>
@@ -114,7 +114,7 @@ export default function language() {
               <li>
                 <a
                   href="https://learngerman.dw.com/en/learn-german/s-9528"
-                  class="text-blue-800 hover:text-amber-400"
+                  className="text-blue-800 hover:text-amber-400"
                 >
                   Learn with Deutsche Welle
                 </a>
@@ -122,7 +122,7 @@ export default function language() {
               <li>
                 <a
                   href="https://www.esl-languages.com/en/online-language-tests/german-test"
-                  class="text-blue-800 hover:text-amber-400"
+                  className="text-blue-800 hover:text-amber-400"
                 >
                   ESL Language School
                 </a>
@@ -130,7 +130,7 @@ export default function language() {
               <li>
                 <a
                   href="https://germania-akademie.de/en/info-registration/levels/"
-                  class="text-blue-800 hover:text-amber-400"
+                  className="text-blue-800 hover:text-amber-400"
                 >
                   Course Level Description and placement Test
                 </a>
@@ -138,7 +138,7 @@ export default function language() {
               <li>
                 <a
                   href="https://www.die-deutschule.de/en/online-german-course/"
-                  class="text-blue-800 hover:text-amber-400"
+                  className="text-blue-800 hover:text-amber-400"
                 >
                   Online German Course with die deutSCHule
                 </a>
@@ -146,7 +146,7 @@ export default function language() {
               <li>
                 <a
                   href="https://alison.com/tag/german-language"
-                  class="text-blue-800 hover:text-amber-400"
+                  className="text-blue-800 hover:text-amber-400"
                 >
                   Free German Course with Alison
                 </a>
