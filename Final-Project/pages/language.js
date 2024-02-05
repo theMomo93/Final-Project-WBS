@@ -7,14 +7,14 @@ export default function language() {
       <div className="flex">
         <div className="w-2/3 p-12">
           <h1 className="text-3xl font-bold mb-4 ">Learning German Language</h1>
-          <p className=" indent-4">
+          <p className=" indent-4 text-lg">
             Learning the language of the country you live in is super important.
             It helps you find jobs easily, understand rental agreements, and
             communicate/make friends. When you speak the local language, getting
             around, shopping, and dealing with everyday struggles become much
             simpler.{" "}
           </p>
-          <p className="mb-8 indent-4">
+          <p className="mb-8 indent-4 text-lg">
             {" "}
             It's not just about words; it's about feeling at home and connecting
             with the people around you. So, if you're in a new place, learning
@@ -26,7 +26,7 @@ export default function language() {
               <h1 className="text-3xl font-bold pt-8 mt-12 mb-4">
                 What are your Options?
               </h1>
-              <ul className="list-disc ml-6">
+              <ul className="list-disc ml-6 text-lg">
                 <li className="mb-6 font-bold ">
                   An Integration Course
                   <p className="text-gray-600 font-semibold">
@@ -101,7 +101,7 @@ export default function language() {
 
         <div className="w-1/3 p-8">
           <div className="bg-gray-200 p-4">
-            <h2 className="text-lg font-semibold mb-2">Useful Links</h2>
+            <h2 className="text-xl font-semibold mb-2">Useful Links</h2>
             <ul>
               <li>
                 <a
