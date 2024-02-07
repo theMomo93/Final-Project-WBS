@@ -1,8 +1,17 @@
 import React from "react";
 import Footer from "@/components/Footer";
+import BreadCrumbs from "@/components/BreadCrumbs";
 
 export default function healthcare() {
+  const breadCrumbs =[
+    {name: "Home", url: "/"},
+    {name: "Information", url: "/information"},
+    {name: "Housing", url: "/housing"},
+    
+  ]
   return (
+    <>
+    <BreadCrumbs breadCrumbs={breadCrumbs}/>
     <div className="bg-gray-50">
       <div className="flex">
         <div className="w-2/3 p-12">
@@ -152,5 +161,6 @@ export default function healthcare() {
 
       <Footer />
     </div>
+    </>
   );
 }

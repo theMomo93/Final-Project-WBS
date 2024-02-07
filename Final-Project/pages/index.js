@@ -1,214 +1,57 @@
 import Footer from "@/components/Footer";
 import Link from 'next/link';
-
+import BreadCrumbs from "@/components/BreadCrumbs";
 
 const Home = () => {
-
-    
-  
+  const breadCrumbs =[
+    {name: "Home", url: "/"}
+  ]
+     
   return (
     <>
-   
+    <BreadCrumbs breadCrumbs={breadCrumbs}/>
     <div>
       <div className="bg-white min-h-screen flex flex-col">
-        <title>Immigrant Assistance</title>
+       
 
         <main className="flex-1">
-          <section className="pb-24 bg-gradient-to-r from-cyan-400 to-blue-900 text-black text-center py-16 flex flex-col md:flex-row md:items-center">
-            <div className="w-full md:w-3/5 flex flex-col justify-center items-center">
-              <img
-                src="https://img.freepik.com/free-vector/people-background-design_23-2147679670.jpg?w=740&t=st=1707163077~exp=1707163677~hmac=5e3c89a8be75ac7ed3d0300fcb6304e3dc9591115343aca63413930cbca619df"
-                alt="people holding hands"
-                className="w-full h-auto max-w-xl rounded-lg"
-              />
+          <section className="">
+          <div class="flex  px-6 md:px-20  items-center justify-center bg-hero md:h-screen overflow-hidden">
+    <div class="flex flex-col  gap-6 md:flex-row items-center max-w-8xl">
+        <div class="w-full md:w-1/2 lg:pr-24">
+            <h2 class="text-4xl lg:text-5xl text-center md:text-left text-blue-900 leading-tight font-medium">There is no 
+                            better way to get information.</h2>
+            <h3
+                class="mt-6 md:mt-10 text-md lg:text-xl text-center md:text-left text-gray-700 font-light tracking-wider leading-relaxed">
+                Port Germany is designed with immigrants in mind. Provide information and forum to
+                deliver helpful content right where your people need it, all in one place, all for You.
+            </h3>
+            <div class="mt-10 flex flex-col sm:flex-row justify-center md:justify-start">
+                <button className=" mb-2 md:mb-0 mr-0 md:mr-2 btn btn-intermediate">Register</button>
+                <button className="mb-2 md:mb-0 mr-0 md:mr-2 btn btn-intermediate">Login</button>
             </div>
-            <div className="w-full md:w-2/5 text-center md:text-left mt-4 md:mt-0">
-              <h1 className="text-4xl font-bold mb-4 ">Port Germany</h1>
-              <p className="text-xl flex align-left mr-12 mb-8 mt-4 ">
-              Empower your immigration journey with our community! 
-               Join our Immigration Page for valuable information, 
-              support, and a forum to navigate everyday challenges. 
-              Create your account now and let's build a stronger, united 
-              community together!  
-              </p>
-              <div className="flex flex-col md:flex-row items-center md:mt-4">
-                <Link href="/register" className=" register mb-2 md:mb-0 mr-0 md:mr-2 btn btn-intermediate">
-                 Register
-                </Link>
-                <Link href="/login" className=" login mb-2 md:mb-0 mr-0 md:mr-2 btn btn-intermediate">
-                  Login
-                </Link>
-              </div>
-            </div>
+        </div>
+        <div className="w-2/5 md:w-1/2 flex justify-center md:justify-end rounded">
+            <img 
+            className="py-16"
+            src="https://img.freepik.com/free-photo/rearview-diverse-people-hugging-each-other_53876-105340.jpg?w=740&t=st=1707314724~exp=1707315324~hmac=3a36b8c16d902d63099713f65bf22324058e463800de0b3b7ea06408b95c827e"/>
+        </div>
+    </div>
+</div>
           </section>
+          <div>
+          <h1 className="text-5xl text-blue-900 leading-tight font-bold text-center my-8">Our Goal and what we offer:</h1>
+          
+          </div>
           <div className="container mx-auto  p-24 bg-white rounded-md bg-orange-50 ">
-  <h1 className="text-5xl text-blue-900 font-bold text-center">Some Information that might be helpful:</h1>
-  <p className=" pt-4 text-sm text-gray-500 text-center mx-28">Disclaimer: The content presented on this website has been compiled
+  <h1 className="text-3xl text-blue-950 font-bold text-center">Disclaimer:</h1>
+  <p className=" pt-4 text-sm text-gray-500 text-center mx-28"> The content presented on this website has been compiled
    and created as a final project for the WBS course in Fullstack Development by a student. While efforts have been made 
    to ensure accuracy and completeness, it is important to note that the information provided may be subject to errors 
    or inaccuracies. This website is not intended to serve as professional advice, and users are encouraged to independently 
    verify any information before relying on it.</p>
 </div>
-          <section className="flex items-center lg:h-screen/2 font-poppins dark:bg-white-100 pb-24 bg-orange-50">
-            
-            <div className="justify-center max-w-6xl px-4 py-4 mx-auto lg:py-0">
-              <div className="flex flex-wrap justify-center -mx-3 pt-11 ">
-                <div className="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/3">
-                  <div className="p-4 bg-white rounded-b shadow-md transition-transform transform hover:scale-105 hover:bg-gray-100 duration-300">
-                    <h2 className="text-xl font-semibold text-black">
-                      Language Courses
-                    </h2>
-                    <p className="mt-2 text-sm text-gray-700">
-                      Explore language courses to adapt quickly and discover
-                      your possibilities.
-                    </p>
-                    <a
-                      href="/language"
-                      className="flex items-center mt-2 text-sm font-semibold text-amber-600 hover:text-blue-600"
-                    >
-                      Learn more
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        className="ml-1 bi bi-arrow-right"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-
-                <div className="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/3">
-                  <div className="p-4 bg-white rounded-b shadow-md transition-transform transform hover:scale-105 hover:bg-gray-100 duration-300">
-                    <h2 className="text-xl font-semibold text-black">
-                      Employment
-                    </h2>
-                    <p className="mt-2 text-sm text-gray-700">
-                      Discover whether to look for jobs, your prospects and opportunities in Germany .
-                    </p>
-                    <a
-                      href="work"
-                      className="flex items-center mt-2 text-sm font-semibold text-amber-600 hover:text-blue-600"
-                    >
-                      Learn more
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        className="ml-1 bi bi-arrow-right"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-
-                <div className="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/3">
-                  <div className="p-4 bg-white rounded-b shadow-md transition-transform transform hover:scale-105 hover:bg-gray-100 duration-300">
-                    <h2 className="text-xl font-semibold text-black">
-                      Health Insurance
-                    </h2>
-                    <p className="mt-2 text-sm text-gray-700">
-                      Read about information on healthcare and healthcare
-                      providers.
-                    </p>
-                    <a
-                      href="healthcare"
-                      className="flex items-center mt-2 text-sm font-semibold text-amber-600 hover:text-blue-600"
-                    >
-                      Learn more
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        className="ml-1 bi bi-arrow-right"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-
-                <div className="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/3">
-                  <div className="p-4 bg-white rounded-b shadow-md transition-transform transform hover:scale-105 hover:bg-gray-100 duration-300">
-                    <h2 className="text-xl font-semibold text-black">
-                      Housing
-                    </h2>
-                    <p className="mt-2 text-sm text-gray-700">
-                      Find information on where to look for Apartments and what
-                      is necessary to get one.
-                    </p>
-                    <a
-                      href="/housing"
-                      className="flex items-center mt-2 text-sm font-semibold text-amber-600 hover:text-blue-600"
-                    >
-                      Learn more
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        className="ml-1 bi bi-arrow-right"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-
-                <div className="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/3">
-                  <div className="p-4 bg-white rounded-b shadow-md transition-transform transform hover:scale-105 hover:bg-gray-100 duration-300">
-                    <h2 className="text-xl font-semibold text-black">
-                      Integration
-                    </h2>
-                    <p className="mt-2 text-sm text-gray-700">
-                      Learn about integration programs and where to find social
-                      events.
-                    </p>
-                    <a
-                      href="/integration"
-                      className="flex items-center mt-2 text-sm font-semibold text-amber-600 hover:text-blue-600"
-                    >
-                      Learn more
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        className="ml-1 bi bi-arrow-right"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+          
         </main>
       </div>
       <Footer />

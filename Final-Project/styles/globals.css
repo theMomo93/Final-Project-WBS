@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-background-color: rgba(239, 252, 248, 0.836);
+background-color: white;
 }
 
   #google_translate_element .goog-te-combo {

@@ -23,7 +23,7 @@ export default function housing() {
             can retreat and feel safe. It is not only essential to have a home
             but it also needs to be well adjusted to your needs and income.
             There are many factors that can influence that and almost all of
-            them depend you.{" "}
+            them depends you.{" "}
           </p>
           <p className="mb-2 indent-4 text-lg">
             {" "}
