@@ -1,8 +1,16 @@
 import React from "react";
 import Footer from "@/components/Footer";
+import BreadCrumbs from "@/components/BreadCrumbs";
 
 export default function language() {
+  const breadCrumbs =[
+    {name: "Home", url: "/"},
+    {name: "Information", url: "/information"},
+    {name: "Language", url: "/language"},
+  ]
   return (
+    <>
+    <BreadCrumbs breadCrumbs={breadCrumbs}/>
     <div className="bg-gray-50">
       <div className="flex">
         <div className="w-2/3 p-12">
@@ -29,7 +37,7 @@ export default function language() {
               <ul className="list-disc ml-6 text-lg">
                 <li className="mb-6 font-bold ">
                   An Integration Course
-                  <p className="text-gray-600 font-semibold">
+                  <p className="text-gray-900 font-medium font-normal">
                     With integration courses you will learn German language as
                     well as more about people and culture. To get more
                     information about integration courses visit the official
@@ -37,6 +45,7 @@ export default function language() {
                     <a
                       className="text-amber-400"
                       href="https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/integrationskurse-node.html"
+                      target="_blank"
                     >
                       BAMF (Federal Office for Migration and Refugees).
                     </a>
@@ -44,12 +53,13 @@ export default function language() {
                 </li>
                 <li className="mb-6 font-bold">
                   Free or Paid Online Classes
-                  <p className="text-gray-600 font-semibold">
+                  <p className="text-gray-900 font-medium font-normal">
                     There are many language schools that teach German, one of
                     them is:
                     <a
                       className="text-amber-400"
                       href="https://www.goethe.de/de/spr/kur/doln/doi.html"
+                      target="_blank"
                     >
                       {" "}
                       Goethe Institut
@@ -58,6 +68,7 @@ export default function language() {
                     <a
                       className="text-amber-400"
                       href="https://www.volkshochschule.de/"
+                      target="_blank"
                     >
                       {" "}
                       Volkschochschul{" "}
@@ -66,14 +77,16 @@ export default function language() {
                     with some free apps{" "}
                     <a
                       className="text-amber-400"
-                      href="https://www.duolingo.com/"
+                      href="https://handbookgermany.de/en/learning-german"
+                      target="_blank"
                     >
-                      Duolingo
+                      Learning German Handbook Germany
                     </a>
                     or free videos on{" "}
                     <a
                       className="text-amber-400"
                       href="https://www.youtube.com/watch?v=RuGmc662HDg&list=PLF9mJC4RrjIhS4MMm0x72-qWEn1LRvPuW"
+                      target="_blank"
                     >
                       YouTube
                     </a>
@@ -81,13 +94,14 @@ export default function language() {
                 </li>
                 <li className="mb-6 font-bold">
                   Hands-on Experience with Volunteer Native Speakers
-                  <p className="text-gray-600 font-semibold">
+                  <p className="text-gray-900 font-medium font-normal">
                     Immerse yourself in the language by interacting with native
                     speakers through volunteer opportunities.Check for events
                     happening around you{" "}
                     <a
                       className="text-amber-400"
                       href="https://www.eventim.de/"
+                      target="_blank"
                     >
                       {" "}
                       Eventim{" "}
@@ -103,49 +117,55 @@ export default function language() {
           <div className="bg-gray-200 p-4">
             <h2 className="text-xl font-semibold mb-2">Useful Links</h2>
             <ul>
-              <li>
+            <li className="mb-1">
                 <a
                   href="https://www.goethe.de/en/spr/kur/tsd.html"
+                  target="_blank"
                   className="text-blue-800 hover:text-amber-400 "
                 >
                   Test Your German
                 </a>
               </li>
-              <li>
+              <li className="mb-1">
                 <a
                   href="https://learngerman.dw.com/en/learn-german/s-9528"
+                  target="_blank"
                   className="text-blue-800 hover:text-amber-400"
                 >
                   Learn with Deutsche Welle
                 </a>
               </li>
-              <li>
+              <li className="mb-1">
                 <a
                   href="https://www.esl-languages.com/en/online-language-tests/german-test"
+                  target="_blank"
                   className="text-blue-800 hover:text-amber-400"
                 >
                   ESL Language School
                 </a>
               </li>
-              <li>
+              <li className="mb-1">
                 <a
                   href="https://germania-akademie.de/en/info-registration/levels/"
+                  target="_blank"
                   className="text-blue-800 hover:text-amber-400"
                 >
                   Course Level Description and placement Test
                 </a>
               </li>
-              <li>
+              <li className="mb-1">
                 <a
                   href="https://www.die-deutschule.de/en/online-german-course/"
+                  target="_blank"
                   className="text-blue-800 hover:text-amber-400"
                 >
                   Online German Course with die deutSCHule
                 </a>
               </li>
-              <li>
+              <li className="mb-1">
                 <a
                   href="https://alison.com/tag/german-language"
+                  target="_blank"
                   className="text-blue-800 hover:text-amber-400"
                 >
                   Free German Course with Alison
@@ -163,5 +183,6 @@ export default function language() {
 
       <Footer />
     </div>
+    </>
   );
 }

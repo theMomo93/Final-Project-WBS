@@ -1,29 +1,35 @@
 import Footer from "@/components/Footer";
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 
 const Home = () => {
+
+    
+  
   return (
+    <>
+   
     <div>
       <div className="bg-white min-h-screen flex flex-col">
         <title>Immigrant Assistance</title>
 
         <main className="flex-1">
-          <section className="mt-8 mb-8 bg-gradient-to-r from-cyan-300 to-blue-400 text-black text-center py-16 flex flex-col md:flex-row md:items-center">
+          <section className="pb-24 bg-gradient-to-r from-cyan-400 to-blue-900 text-black text-center py-16 flex flex-col md:flex-row md:items-center">
             <div className="w-full md:w-3/5 flex flex-col justify-center items-center">
               <img
-                src="https://picsum.photos/500/300?grayscale"
+                src="https://img.freepik.com/free-vector/people-background-design_23-2147679670.jpg?w=740&t=st=1707163077~exp=1707163677~hmac=5e3c89a8be75ac7ed3d0300fcb6304e3dc9591115343aca63413930cbca619df"
                 alt="people holding hands"
-                className="rounded-xl"
+                className="w-full h-auto max-w-xl rounded-lg"
               />
             </div>
             <div className="w-full md:w-2/5 text-center md:text-left mt-4 md:mt-0">
-              <h1 className="text-4xl font-bold mb-4 ">Immigration</h1>
-              <p className="text-xl flex align-left mr-12 mb-8 mt-4">
-                Your guide to navigating life in Germany. Here you will find
-                information that will help you reach your hsahsdfbfdsj j jjasgsa
-                jdh assd.
+              <h1 className="text-4xl font-bold mb-4 ">Port Germany</h1>
+              <p className="text-xl flex align-left mr-12 mb-8 mt-4 ">
+              Empower your immigration journey with our community! 
+               Join our Immigration Page for valuable information, 
+              support, and a forum to navigate everyday challenges. 
+              Create your account now and let's build a stronger, united 
+              community together!  
               </p>
               <div className="flex flex-col md:flex-row items-center md:mt-4">
                 <Link href="/register" className=" register mb-2 md:mb-0 mr-0 md:mr-2 btn btn-intermediate">
@@ -35,15 +41,15 @@ const Home = () => {
               </div>
             </div>
           </section>
-          <div className="container mx-auto my-8 p-8 bg-white rounded-md ">
+          <div className="container mx-auto  p-24 bg-white rounded-md bg-orange-50 ">
   <h1 className="text-5xl text-blue-900 font-bold text-center">Some Information that might be helpful:</h1>
-  <p className="text-sm text-gray-500 text-center mx-28">Disclaimer: The content presented on this website has been compiled
+  <p className=" pt-4 text-sm text-gray-500 text-center mx-28">Disclaimer: The content presented on this website has been compiled
    and created as a final project for the WBS course in Fullstack Development by a student. While efforts have been made 
    to ensure accuracy and completeness, it is important to note that the information provided may be subject to errors 
    or inaccuracies. This website is not intended to serve as professional advice, and users are encouraged to independently 
    verify any information before relying on it.</p>
 </div>
-          <section className="flex items-center lg:h-screen/2 font-poppins dark:bg-white-100 mb-16">
+          <section className="flex items-center lg:h-screen/2 font-poppins dark:bg-white-100 pb-24 bg-orange-50">
             
             <div className="justify-center max-w-6xl px-4 py-4 mx-auto lg:py-0">
               <div className="flex flex-wrap justify-center -mx-3 pt-11 ">
@@ -84,7 +90,7 @@ const Home = () => {
                       Employment
                     </h2>
                     <p className="mt-2 text-sm text-gray-700">
-                      Discover whete to look for jobs, your prospects and opportunities in Germany .
+                      Discover whether to look for jobs, your prospects and opportunities in Germany .
                     </p>
                     <a
                       href="work"
@@ -207,6 +213,7 @@ const Home = () => {
       </div>
       <Footer />
     </div>
+    </>
   );
 };
 

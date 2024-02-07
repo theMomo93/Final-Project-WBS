@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Footer from '@/components/Footer';
 import axios from 'axios';
+import BreadCrumbs from "@/components/BreadCrumbs";
 import { useRouter } from 'next/router';
 
 export default function login() {
@@ -36,9 +37,17 @@ export default function login() {
     }
   };
 
+  const breadCrumbs =[
+    {name: "Home", url: "/"},
+    {name: "Log in", url: "/login"} 
+    
+  ]
   return (
+   
+      
     
       <div>
+        <BreadCrumbs breadCrumbs={breadCrumbs}/>
         <section className="bg-white-100 dark:bg-white-800">
           <a
             href="#"

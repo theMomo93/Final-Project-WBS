@@ -72,7 +72,7 @@ const Navbar = () => {
     <nav className="bg-gradient-to-r from-cyan-900 to-blue-950 shadow-lg">
       <div className="container mx-auto flex justify-between items-center flex-wrap px-16 ">
         <img
-          src="https://picsum.photos/100/100?grayscale"
+          src="..\img\planet-earth_921490.png"
           alt=""
           className="rounded-3xl mr-8"
         />
