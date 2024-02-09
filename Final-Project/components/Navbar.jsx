@@ -99,6 +99,7 @@ const Navbar = () => {
     <Link href={`/profile/${storedUserId}`} className="text-white">
       User Profile
     </Link>
+    
     <button onClick={handleLogout} className="text-white cursor-pointer">
       Logout
     </button>

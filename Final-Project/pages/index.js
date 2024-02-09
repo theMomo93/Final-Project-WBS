@@ -1,5 +1,5 @@
 import Footer from "@/components/Footer";
-import Link from 'next/link';
+
 import BreadCrumbs from "@/components/BreadCrumbs";
 
 const Home = () => {

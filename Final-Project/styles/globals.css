@@ -31,9 +31,7 @@ background-color: white;
   .register, .login{
     background-color: #edcd22 ;
   }
-button{
-  background-color:  #edcd22 !important;
-}
+
   .btn:hover {
     transform: scale(1.1); /* Grow slightly bigger on hover */
   }

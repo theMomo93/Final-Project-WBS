@@ -1,0 +1,80 @@
+import axios from "axios";
+import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
+
+
+export default function addQuestion() {
+  const router = useRouter();
+  const { itemId } = router.query;
+
+console.log("ITEM_ID ", itemId)
+
+  useEffect(()=> {
+    const fetchData = async () => {
+      const response = await axios.get(`http://localhost:5000/question/get/one?id=${itemId}`);
+      console.log("response", response);
+      if (response.data.success) {
+        setQuestion(response.data.question);
+      }
+    };
+
+    if (itemId) {
+        fetchData();
+      }
+    }, [itemId]);
+
+  const [question, setQuestion] = useState({
+    itemId: "",
+    title: "",
+    content: "",
+  });
+  
+ const handleSave = async () => {
+    
+        const response = await axios.put(
+            "http://localhost:5000/question/edit", 
+      {
+        question,
+      }
+    );
+    console.log("🚀 ~ response:", response);
+
+    if (response.data.success) router.push("/forum");
+  };
+  return (
+    <div className="flex items-center justify-center h-screen bg-gray-100">
+      <div className="bg-white p-8 rounded-lg shadow-md w-96">
+        <h1 className="text-2xl font-semibold mb-4">Forum</h1>
+        <div className="mb-4">
+          <label htmlFor="title" className="block text-gray-600 mb-2">
+            Title:
+          </label>
+          <input
+          value={question.title}
+          onChange={(e)=> setQuestion({...question, title: e.target.value})}
+            type="text"
+            id="title"
+            className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="content" className="block text-gray-600 mb-2">
+            Content:
+          </label>
+          <textarea
+          value={question.content}
+          onChange={(e)=> setQuestion({...question, content:e.target.value})}
+            id="content"
+            className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
+            rows="4"
+          ></textarea>
+        </div>
+        <button 
+        onClick={handleSave}
+        className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 focus:outline-none">
+          Ask Question
+        </button>
+      </div>
+    </div>
+  );
+}
