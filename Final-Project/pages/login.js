@@ -26,7 +26,11 @@ export default function login() {
         // Store user ID in local storage
         localStorage.setItem("userId", response.data.user._id);
         localStorage.setItem("user", JSON.stringify(response.data.user)); // Store the entire user object if needed
-        router.push(`/profile/${response.data.user._id}`);
+        location.reload();
+        router.push(`/profile/${response.data.user._id}`).then(() => {
+          // After the navigation is complete, reload the page
+          location.reload();
+      });
       } else {
         console.log("Login failed. Additional details:", response.data.message);
         // Handle unsuccessful login (e.g., display an error message to the user)
