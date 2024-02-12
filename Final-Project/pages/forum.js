@@ -106,7 +106,7 @@ function handleOpenPost(itemId){
                 
                 <h2 className="text-xl font-bold mb-2  p-4">{item.title}
                  <span className="text-xs font-light mb-2 ml-4">posted by {item.username}
-                 </span> <span>comments </span></h2>
+                 </span> </h2>
                 <hr className="w-16 ml-4" />
                 <p className="text-gray-600 p-4 mt-2">{item.content}</p>
                 <div className="flex flex-col font-normal ml-4">

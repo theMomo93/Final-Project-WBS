@@ -112,7 +112,7 @@ export default function OpenPost() {
 
           <div>
             <h3
-              onClick={() => handleGetComments(item._id)}
+              
               className="block text-xl font-semibold px-4 py-2 text-gray-600 "
             >
               Comment section:
