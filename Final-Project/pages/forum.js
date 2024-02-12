@@ -4,11 +4,22 @@ import { useRouter } from "next/router";
 import Footer from "@/components/Footer";
 import axios from "axios";
 import withAuth from "./withAuth";
+import BreadCrumbs from "@/components/BreadCrumbs";
 
 
 const Forum = (props) => {
+  const breadCrumbs =[
+    {name: "Forum", url: "/forum"},
+      ]
+
   const [questions, setQuestions] = useState([]);
-   const router = useRouter();
+  
+  const user = localStorage.getItem("user");
+  const userObject = JSON.parse(user);
+  const username = userObject.username;
+
+     const router = useRouter();
+//DELETE FUNCTIONALITY
 
   const handleDeleteQuestion = async (itemId) => {
     try {
@@ -28,6 +39,8 @@ const Forum = (props) => {
     }
   };
 
+
+// GET ALL QUESTIONS
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch("http://localhost:5000/question/get/all");
@@ -38,14 +51,38 @@ const Forum = (props) => {
     };
     fetchData();
   }, []);
+  //GET USERNAME
+  const getUsername = async (userId) => {
+    try {
+      const userResponse = await fetch(`http://localhost:5000/user/${userId}`);
+      const userData = await userResponse.json();
 
-  function handleClick() {
+      if (userData.success) {
+        // Assuming user object has a username property
+        return userData.user.username;
+      } else {
+        return null; // Handle the case when user data is not available
+      }
+    } catch (error) {
+      console.error("Error fetching user information:", error);
+      return null;
+    }
+  };
+
+
+
+function handleClick() {
     router.push("/addQuestion");
   }
 function handleEdit(itemId){
     router.push(`/editQuestion/${itemId}`);
 }
+function handleOpenPost(itemId){
+  router.push(`/openPost/${itemId}`)
+}
   return (
+    <>
+     <BreadCrumbs breadCrumbs={breadCrumbs}/>
     <div className="w-screen mt-8">
       <div className="flex flex-col items-center justify-center text-center">
         <h1>Forum</h1>
@@ -66,11 +103,21 @@ function handleEdit(itemId){
                 key={item._id}
                 className="mb-4 shadow-md m-2 flex flex-col justify-between relative"
               >
-                <h2 className="text-xl font-bold mb-2  p-4">{item.title}</h2>
+                
+                <h2 onClick={() => handleOpenPost(item._id)} className="text-xl font-bold mb-2  p-4">{item.title} <span className="text-xs font-light mb-2 ml-4">posted by {item.username}</span></h2>
                 <hr className="w-16 ml-4" />
                 <p className="text-gray-600 p-4 mt-2">{item.content}</p>
+                <div className="flex flex-col font-normal ml-4">
+                  
+                  
+                </div> 
+                
                 <div className="flex items-end justify-end shadow-md">
                   
+                <h3 onClick={() => handleOpenPost(item._id)} className="mr-28 block px-4 py-2 text-gray-600 hover:bg-gray-100">Open Thread</h3>
+
+                {item.username === username && (
+                      <>
                   <button
                   onClick={() => handleEdit(item._id)}
                    
@@ -84,6 +131,8 @@ function handleEdit(itemId){
                     >
                       Delete
                     </button>
+                    </>
+                    )}
                 </div>
               </div>
             ))}
@@ -94,6 +143,7 @@ function handleEdit(itemId){
 
       <Footer />
     </div>
+    </>
   );
 }
 

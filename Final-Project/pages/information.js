@@ -17,7 +17,7 @@ export default function information() {
           Welcome, to our Information Page, choose a category you are interested in.
         </h1>
 
-        <p className="text-lg mb-8 mx-96 text-center">
+        <p className="text-lg mb-8 mx-52 text-center">
           New to Germany and not quite sure how everything works? Our topics may
           offer you useful information about living and working, staying in
           Germany.
@@ -26,9 +26,9 @@ export default function information() {
         <section className="flex items-center lg:h-screen/2 font-poppins dark:bg-white-100 pb-24 ">
             
             <div className="justify-center max-w-6xl px-4 py-4 mx-auto lg:py-0">
-              <div className="flex flex-wrap justify-center -mx-3 pt-11 ">
-                <div className="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/3">
-                  <Link href="/language">
+              <div className="flex flex-wrap justify-center mx-3 pt-11 ">
+                <div className="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/2">
+                  <Link href="information/language">
                   <div className="p-4 bg-white rounded-b shadow-md transition-transform transform hover:scale-105 hover:bg-gray-100 duration-300">
                     <h2 className="text-3xl font-semibold text-black">
                       Language Courses
@@ -41,8 +41,8 @@ export default function information() {
                   </Link>
                 </div>
 
-                <div className="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/3">
-                <Link href="/work">
+                <div className="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/2">
+                <Link href="information/work">
                   <div className="p-4 bg-white rounded-b shadow-md transition-transform transform hover:scale-105 hover:bg-gray-100 duration-300">
                     <h2 className="text-3xl font-semibold text-black">
                       Work
@@ -55,23 +55,23 @@ export default function information() {
                   </Link>
                 </div>
 
-                <div className="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/3">
-                <Link href="/healthcare">
+                <div className="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/2">
+                <Link href="information/healthcare">
                   <div className="p-4 bg-white rounded-b shadow-md transition-transform transform hover:scale-105 hover:bg-gray-100 duration-300">
                     <h2 className="text-3xl font-semibold text-black">
                       Health Insurance
                     </h2>
                     <p className="mt-2 text-l text-gray-700">
-                      Read about information on healthcare and healthcare
-                      providers.
+                      Here you will find information on healthcare and healthcare
+                      providers and healthcare costs.
                     </p>
                     
                   </div>
                   </Link>
                 </div>
 
-                <div className="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/3">
-                <Link href="/housing">
+                <div className="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/2">
+                <Link href="information/housing">
                   <div className="p-4 bg-white rounded-b shadow-md transition-transform transform hover:scale-105 hover:bg-gray-100 duration-300">
                     <h2 className="text-3xl font-semibold text-black">
                       Housing
@@ -85,15 +85,15 @@ export default function information() {
                   </Link>
                 </div>
 
-                <div className="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/3">
-                <Link href="/integration">
+                <div className="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/2">
+                <Link href="information/integration">
                   <div className="p-4 bg-white rounded-b shadow-md transition-transform transform hover:scale-105 hover:bg-gray-100 duration-300">
                     <h2 className="text-3xl font-semibold text-black">
                       Integration
                     </h2>
                     <p className="mt-2 text-l text-gray-700">
                       Learn about integration programs and where to find social
-                      events.
+                      events. Meeting new people makes it easier to call home!
                     </p>
                     
                   </div>

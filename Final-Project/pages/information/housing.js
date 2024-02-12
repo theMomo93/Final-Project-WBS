@@ -6,7 +6,7 @@ export default function housing() {
     const breadCrumbs =[
         {name: "Home", url: "/"},
         {name: "Information", url: "/information"},
-        {name: "Housing", url: "/housing"},
+        {name: "Housing", url: "/information/housing"},
         
       ]
   return (

@@ -23,8 +23,8 @@ const BreadCrumbs = ({ breadCrumbs }) => {
             href={breadCrumb.url}
             className={`${
               index <= currentIndex
-                ? 'hover:text-blue-600 dark:text-gray-400 dark:hover:text-white'
-                : 'inline-flex items-center text-sm font-medium text-black'
+                ? 'hover:text-blue-600 dark:text-gray-300 dark:hover:text-white'
+                : 'hover:text-blue-600 dark:text-gray-300 dark:hover:text-white'
             }`}
           >
             {breadCrumb.name}

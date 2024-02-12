@@ -6,7 +6,7 @@ export default function healthcare() {
   const breadCrumbs =[
     {name: "Home", url: "/"},
     {name: "Information", url: "/information"},
-    {name: "Housing", url: "/housing"},
+    {name: "HealthCare", url: "/information/healthcare"},
     
   ]
   return (
