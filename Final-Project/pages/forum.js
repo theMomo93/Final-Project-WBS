@@ -13,12 +13,17 @@ const Forum = (props) => {
       ]
 
   const [questions, setQuestions] = useState([]);
+  const [username, setUsername] = useState("");
+   const router = useRouter();
+   
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      const userObject = JSON.parse(user);
+      setUsername(userObject.username);
+    }
+  }, []);
   
-  const user = localStorage.getItem("user");
-  const userObject = JSON.parse(user);
-  const username = userObject.username;
-
-     const router = useRouter();
 //DELETE FUNCTIONALITY
 
   const handleDeleteQuestion = async (itemId) => {

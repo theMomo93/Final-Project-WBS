@@ -23,15 +23,15 @@ background-color: white;
     margin: 5px;
     font-size: 20px;
     font-weight: 600;
-    background-color: #cab11e;
-    color: black;
+    background-color: #edbf37;
+    color: rgb(3, 23, 79);
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: transform 0.3s ease; /* Add transition for smooth scaling */
   }
   .register, .login{
-    background-color: #edcd22 ;
+    background-color: #edbf37 ;
   }
 
   .btn:hover {

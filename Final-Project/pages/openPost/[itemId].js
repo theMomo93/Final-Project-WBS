@@ -8,6 +8,26 @@ export default function OpenPost() {
   const { itemId } = router.query;
   const [comment, setComment] = useState("");
   const [allComments, setAllComments] = useState([]);
+
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedComment, setEditedComment] = useState("");
+  const [editCommentId, setEditCommentId] = useState(null);
+
+
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    // Check if localStorage is available
+    const user = typeof window !== "undefined" ? localStorage.getItem("user") : null;
+
+    if (user) {
+      const userObject = JSON.parse(user);
+      setUsername(userObject.username);
+    }
+  }, []);
+
+
+
   const breadCrumbs = [
     { name: "Forum", url: "/forum" },
     { name: "Question", url: `/openPost/${itemId}` },
@@ -18,6 +38,17 @@ export default function OpenPost() {
     title: "",
     content: "",
   });
+
+  const openEditPopup = (commentContent) => {
+    setIsEditing(true);
+    setEditedComment(commentContent);
+  };
+
+  const closeEditPopup = () => {
+    setIsEditing(false);
+    setEditedComment("");
+  };
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -86,7 +117,68 @@ export default function OpenPost() {
       fetchData();
     }
   }, [itemId]);
+  const handleEditComment = (commentId) => {
+    // Open the edit popup with the current comment content
+    const selectedComment = allComments.find((comment) => comment._id === commentId);
+    setEditCommentId(commentId);
+    openEditPopup(selectedComment.content);
+  };
 
+  const handleSaveEdit = async () => {
+    try {
+      const updatedCommentData = {
+        content: editedComment,
+        // Add other properties as needed
+      };
+  
+      const response = await axios.put(`http://localhost:5000/comment/edit`, {
+        commentId: editCommentId,  // Send the comment ID in the request body
+        comment: updatedCommentData,
+      });
+  
+      console.log(response.data); // Log the server response
+  
+      if (response.data.success) {
+        // Close the edit popup and update the comment locally
+        closeEditPopup();
+        setAllComments((prevComments) =>
+          prevComments.map((comment) =>
+            comment._id === editCommentId ? { ...comment, content: editedComment } : comment
+          )
+        );
+      } else {
+        console.log("Edit comment failed:", response.data.message);
+        // Implement error handling (e.g., show a message to the user)
+      }
+    } catch (error) {
+      console.error("Error editing comment:", error);
+      // Implement error handling (e.g., show a message to the user)
+    }
+  };
+  
+  const handleDeleteComment = async (commentId) => {
+    try {
+      
+  
+      const response = await axios.delete(
+        `http://localhost:5000/comment/delete/${commentId}`
+      );
+  
+      console.log("response", response);
+  
+      if (response.data.success) {
+        setAllComments((prevComments) =>
+          prevComments.filter((comment) => comment._id !== commentId)
+        );
+      } else {
+        console.log("Comment deletion failed:", response.data.message);
+        // Implement error handling (e.g., show a message to the user)
+      }
+    } catch (error) {
+      console.error("Error deleting comment:", error);
+      // Implement error handling (e.g., show a message to the user)
+    }
+  };
   return (
     <>
       <BreadCrumbs breadCrumbs={breadCrumbs} />
@@ -117,13 +209,55 @@ export default function OpenPost() {
             >
               Comment section:
             </h3>
-
+<div className={isEditing ? "overlay" : "hidden"} onClick={closeEditPopup}>
+        {/* Clicking outside the edit popup will close it */}
+      </div>
+      <div className={isEditing ? "edit-popup" : "hidden"}>
+        <textarea
+          value={editedComment}
+          onChange={(e) => setEditedComment(e.target.value)}
+          placeholder="Edit your comment..."
+          className="w-full h-32 border border-gray-300 p-2 rounded mb-2 focus:outline-none focus:border-blue-500"
+        ></textarea>
+        <button
+          onClick={handleSaveEdit}
+          className="bg-blue-500 text-white p-2 rounded hover:bg-amber-400 text-black focus:outline-none mr-2"
+        >
+          Save
+        </button>
+        <button
+          onClick={closeEditPopup}
+          className="bg-gray-300 text-black p-2 rounded hover:bg-gray-400 focus:outline-none"
+        >
+          Cancel
+        </button>
+      </div>
             <div className="block px-4 py-2 text-l">
-              {allComments.map((comment) => (
-                <div key={comment._id} className="m-6 hover:bg-gray-100 p-4 ">
-                  <p className="text-xl">{comment.content} </p> <span className="text-xs font-light mb-2 ml-4"> by {comment.username} </span>
-                </div>
-              ))}
+            {allComments.map((comment) => (
+  <div key={comment._id} className="m-6 hover:bg-gray-100 p-4">
+    <p className="text-xl">{comment.content} </p>
+    <span className="text-xs font-light mb-2 ml-4"> by {comment.username} </span>
+    
+    {comment.username === username && (
+      <>
+      <button
+        onClick={() => handleDeleteComment(comment._id)}
+        className="block px-4 py-2 text-red-600 hover:bg-gray-100"
+      >
+        Delete
+      </button>
+      <button 
+      onClick={() => handleEditComment(comment._id)}
+        className="block px-4 py-2 text-red-600 hover:bg-gray-100"
+        >Edit
+        
+      </button>
+      </>
+    )}
+  </div>
+))}
+
+              
             </div>
           </div>
           <form className="flex flex-col">

@@ -43,4 +43,38 @@ export const handleGetAllComments = async (req, res) => {
 };
 
 
+export const handleDeleteComment = async (req, res) => {
+  try {
+    console.log("this is delete comment", req.params.id);
+    const comment = await Comment.findByIdAndDelete(req.params.id);
 
+    console.log("comment", comment);
+    res.send({success:true});
+    
+  }catch (error){
+  console.log("error in delete comment", error.message);
+  res.status(500).send({success:false, error: error.message});
+}
+}
+
+
+export const handleEditComment = async (req, res) => {
+  try {
+    console.log("this is edit comment", req.body);
+
+    const comment = await Comment.findByIdAndUpdate(
+      req.body.comment._id,
+      {
+        ...req.body.comment,
+      },
+      { new: true }
+    );
+    console.log("🚀 ~ comment:", comment);
+
+    res.send({ success: true });
+  } catch (error) {
+    console.log("🚀 ~ error in edit comment:", error.message);
+
+    res.status(500).send({ success: false, error: error.message });
+  }
+};
