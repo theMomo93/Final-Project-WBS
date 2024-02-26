@@ -181,107 +181,135 @@ export default function OpenPost() {
   };
   return (
     <>
-      <BreadCrumbs breadCrumbs={breadCrumbs} />
-      <div className="w-10/12 m-8">
-        <div className="bg-white border rounded-md p-8 shadow-md w-full">
-          <div className="mb-4">
-            <label htmlFor="title" className="block text-gray-600 mb-2"></label>
-            <h2 className="text-2xl font-semibold mb-2">
-              {question.title}{" "}
-              <span className="text-xs font-light mb-2 ml-4">
-                posted by {question.username}
-              </span>
-            </h2>
-          </div>
-          <div className="mb-4">
-            <label
-              htmlFor="content"
-              className="block text-gray-600 mb-2"
-            ></label>
-            <p className="my-8 text-xl text-gray-800">{question.content}</p>
-          </div>
-          <hr />
-
-          <div>
-            <h3
-              
-              className="block text-xl font-semibold px-4 py-2 text-gray-600 "
-            >
-              Comment section:
-            </h3>
-<div className={isEditing ? "overlay" : "hidden"} onClick={closeEditPopup}>
-        {/* Clicking outside the edit popup will close it */}
-      </div>
-      <div className={isEditing ? "edit-popup" : "hidden"}>
-        <textarea
-          value={editedComment}
-          onChange={(e) => setEditedComment(e.target.value)}
-          placeholder="Edit your comment..."
-          className="w-full h-32 border border-gray-300 p-2 rounded mb-2 focus:outline-none focus:border-blue-500"
-        ></textarea>
-        <button
-          onClick={handleSaveEdit}
-          className="bg-blue-500 text-white p-2 rounded hover:bg-amber-400 text-black focus:outline-none mr-2"
-        >
-          Save
-        </button>
-        <button
-          onClick={closeEditPopup}
-          className="bg-gray-300 text-black p-2 rounded hover:bg-gray-400 focus:outline-none"
-        >
-          Cancel
-        </button>
-      </div>
-            <div className="block px-4 py-2 text-l">
-            {allComments.map((comment) => (
-  <div key={comment._id} className="m-6 hover:bg-gray-100 p-4">
-    <p className="text-xl">{comment.content} </p>
-    <span className="text-xs font-light mb-2 ml-4"> by {comment.username} </span>
-    
-    {comment.username === username && (
-      <>
-      <button
-        onClick={() => handleDeleteComment(comment._id)}
-        className="block px-4 py-2 text-red-600 hover:bg-gray-100"
-      >
-        Delete
-      </button>
-      <button 
-      onClick={() => handleEditComment(comment._id)}
-        className="block px-4 py-2 text-red-600 hover:bg-gray-100"
-        >Edit
+  <BreadCrumbs breadCrumbs={breadCrumbs} />
+  <div className="w-10/12 m-8">
+    <div className="bg-white border rounded-md p-8 shadow-md w-full">
+      <div className="mb-2">
+        <div className="border border-black p-4 rounded">
+        <h2 className="text-3xl font-semibold mb-2">
+          {question.title}{" "}
+          <span className="text-xs font-light mb-2 ml-4">
+            posted by {question.username}
+          </span>
+        </h2>
+      
+      <div className="mb-4">
         
-      </button>
-      </>
-    )}
-  </div>
-))}
-
-              
-            </div>
-          </div>
-          <form className="flex flex-col">
-            <label
-              htmlFor="comment"
-              className="block text-gray-600 mb-2"
-            ></label>
-            <textarea
-              placeholder="Your Comment..."
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-              id="comment"
-              name="comment"
-              className="w-200 h-200 border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
-            ></textarea>
-            <button
-              onClick={handleAddComment}
-              className="bg-blue-500 text-white p-2 rounded hover:bg-amber-400 text-black focus:outline-none mt-2 w-36"
-            >
-              Leave Comment
-            </button>
-          </form>
-        </div>
+        <p className="my-8 text-xl text-gray-800">{question.content}</p>
       </div>
-    </>
-  );
+    
+      </div>
+      </div>
+      <div>
+        <h3
+          className="block text-xl font-semibold px-4 py-2 text-gray-600 "
+        >
+          Comments section:
+        </h3>
+        <form className="flex flex-col">
+          <label
+            htmlFor="comment"
+            className="block text-gray-600 mb-2"
+          ></label>
+          <textarea
+            placeholder="Your Comment..."
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+            id="comment"
+            name="comment"
+            className="w-200 h-200 border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
+          ></textarea>
+          <button
+            onClick={handleAddComment}
+            className="bg-blue-500 text-white p-2 rounded hover:bg-amber-400 text-black focus:outline-none mt-2 w-36"
+          >
+            Leave Comment
+          </button>
+        </form>
+        <div className={isEditing ? "overlay" : "hidden"} onClick={closeEditPopup}>
+          {/* Clicking outside the edit popup will close it */}
+        </div>
+        <div className={isEditing ? "edit-popup" : "hidden"}>
+          <textarea
+            value={editedComment}
+            onChange={(e) => setEditedComment(e.target.value)}
+            placeholder="Edit your comment..."
+            className="w-full h-32 border border-gray-300 p-2 rounded mb-2 focus:outline-none focus:border-blue-500"
+          ></textarea>
+          <button
+            onClick={handleSaveEdit}
+            className="bg-blue-500 text-white p-2 rounded hover:bg-amber-400 text-black focus:outline-none mr-2"
+          >
+            Save
+          </button>
+          <button
+            onClick={closeEditPopup}
+            className="bg-gray-300 text-black p-2 rounded hover:bg-gray-400 focus:outline-none"
+          >
+            Cancel
+          </button>
+        </div>
+        <div className="block px-4 py-2 text-xl">
+          {allComments.map((comment) => (
+            <div key={comment._id} className="p-8 mb-6 bg-gray-100 rounded-lg shadow-xl">
+              <footer className="flex justify-between items-center mb-2">
+                <div className="flex items-center">
+                  <p className="inline-flex items-center mr-3 text-xl text-amber-600 font-semibold">
+                   
+                    {comment.username}
+                  </p>
+                 
+                  
+                </div>
+
+              </footer>
+              <p className="text-gray-800 dark:text-gray-800">{comment.content}</p>
+              <div className="flex items-center mt-4 space-x-4">
+                <button
+                  type="button"
+                  className="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400 font-medium"
+                >
+                  <svg
+                    className="mr-1.5 w-3.5 h-3.5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 18"
+                  >
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"
+                    />
+                  </svg>
+                  Reply
+                </button>
+                {comment.username === username && (
+                  <div className="inline-flex space-x-2">
+                    <button
+                      onClick={() => handleDeleteComment(comment._id)}
+                      className="text-sm  hover:text-red-600 dark:text-gray-400"
+                    >
+                      Delete
+                    </button>
+                    <button
+                      onClick={() => handleEditComment(comment._id)}
+                      className="text-sm text-blue-500 hover:text-blue-500 dark:text-gray-400"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</>
+  )
 }

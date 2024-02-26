@@ -25,20 +25,30 @@ export const handleLogin = async (req, res) => {
   try {
     console.log("this is login");
 
-    const user = await User.findOne({
-      email: req.body.email, 
-    }).select("-password");
+    const { email, password } = req.body;
+
+    const user = await User.findOne({ email });
     console.log("🚀 ~ user:", user);
 
     if (!user) {
-      return res.send({ success: false });
+      return res.send({ success: false, message: "Invalid email or password" });
     }
 
-    res.send({ success: true, user });
+    // Compare the entered password with the hashed password in the database
+    const passwordMatch = await bcrypt.compare(password, user.password);
+
+    if (passwordMatch) {
+      const token = jwt.sign({ userId: user._id }, 'your-secret-key', { expiresIn: '1h' });
+
+      res.send({ success: true, user, token });
+    } else {
+      
+      return res.send({ success: false, message: "Invalid email or password" });
+    }
   } catch (error) {
     console.log("🚀 ~ error in login:", error.message);
 
-    res.status(500).send(error.message);
+    res.status(500).send({ success: false, error: error.message });
   }
 };
 

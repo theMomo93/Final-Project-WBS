@@ -20,7 +20,7 @@ export default function login() {
       });
   
       if (response.data) {
-        console.log(response.data);
+        console.log(response.data.success);
         console.log("ID", response.data.user._id);
   
         // Store user ID in local storage
@@ -28,16 +28,16 @@ export default function login() {
         localStorage.setItem("user", JSON.stringify(response.data.user)); // Store the entire user object if needed
         location.reload();
         router.push(`/profile/${response.data.user._id}`).then(() => {
-          // After the navigation is complete, reload the page
+         
           location.reload();
       });
       } else {
         console.log("Login failed. Additional details:", response.data.message);
-        // Handle unsuccessful login (e.g., display an error message to the user)
+        alert("You need to be registered to login")
       }
     } catch (error) {
       console.error("Error during login:", error);
-      // Handle other error scenarios
+      alert("Invalid Email or Password")
     }
   };
 
