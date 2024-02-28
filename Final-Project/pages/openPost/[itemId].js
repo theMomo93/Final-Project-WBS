@@ -5,6 +5,7 @@ import BreadCrumbs from "@/components/BreadCrumbs";
 
 export default function OpenPost() {
   const router = useRouter();
+
   const { itemId } = router.query;
   const [comment, setComment] = useState("");
   const [allComments, setAllComments] = useState([]);
@@ -118,6 +119,7 @@ export default function OpenPost() {
     }
   }, [itemId]);
   const handleEditComment = (commentId) => {
+    window.scrollTo({ top: 300, behavior: 'smooth' });
     // Open the edit popup with the current comment content
     const selectedComment = allComments.find((comment) => comment._id === commentId);
     setEditCommentId(commentId);
@@ -182,10 +184,10 @@ export default function OpenPost() {
   return (
     <>
   <BreadCrumbs breadCrumbs={breadCrumbs} />
-  <div className="w-10/12 m-8">
-    <div className="bg-white border rounded-md p-8 shadow-md w-full">
+  <div className="w-full max-w-screen-xl mx-auto mt-8">
+    <div className="bg-blue-50 border rounded-md p-8 shadow-md w-full">
       <div className="mb-2">
-        <div className="border border-black p-4 rounded">
+        <div className="border border-black p-4 rounded bg-white">
         <h2 className="text-3xl font-semibold mb-2">
           {question.title}{" "}
           <span className="text-xs font-light mb-2 ml-4">
@@ -257,6 +259,7 @@ export default function OpenPost() {
                   <p className="inline-flex items-center mr-3 text-xl text-amber-600 font-semibold">
                    
                     {comment.username}
+                    
                   </p>
                  
                   

@@ -38,7 +38,7 @@ export const handleLogin = async (req, res) => {
     const passwordMatch = await bcrypt.compare(password, user.password);
 
     if (passwordMatch) {
-      const token = jwt.sign({ userId: user._id }, 'your-secret-key', { expiresIn: '1h' });
+      const token = jwt.sign({ userId: user._id }, process.env.SECRET, { expiresIn: '1h' });
 
       res.send({ success: true, user, token });
     } else {

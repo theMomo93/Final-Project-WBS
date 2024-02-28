@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from 'next/router';
+import Image from "next/image";
+import logoPort from "../img/logoPort.png"
+
 
 const Navbar = () => {
   const [isGoogleTranslateScriptLoaded, setIsGoogleTranslateScriptLoaded] =
@@ -71,45 +74,42 @@ const Navbar = () => {
   return (
     <nav className="bg-gradient-to-r from-cyan-900 to-blue-950 shadow-lg">
       <div className="container mx-auto flex justify-between items-center flex-wrap px-16 ">
-        <img
-          src=""
-          alt=""
-          className="rounded-3xl mr-8"
-        />
-        <div className="m-0 text-white text-2xl font-bold">
+        <Image src={logoPort} width={"200"}/>
+        <div className="m-0 text-white text-4xl font-bold">
           Warm Hearts and Open Minds
         </div>
 
         <div className="space-x-4 mt-3">
-          <Link href="/" className="text-white">
-            Home
+          <Link href="/" className="text-white hover:animate-pulse">
+          
+            Home 
           </Link>
-          <Link href="/forum" className="text-white">
+          <Link href="/forum" className="text-white hover:animate-pulse">
             Forum
           </Link>
-          <Link href="/information" className="text-white">
+          <Link href="/information" className="text-white hover:animate-pulse">
             Information
           </Link>
-          <Link href="/aboutus" className="text-white">
+          <Link href="/aboutus" className="text-white hover:animate-pulse">
             About us
           </Link>
 
           {storedUserId ? (
   <>
-    <Link href={`/profile/${storedUserId}`} className="text-white">
+    <Link href={`/profile/${storedUserId}`} className="text-white hover:animate-pulse">
       User Profile
     </Link>
     
-    <button onClick={handleLogout} className="text-white cursor-pointer">
+    <button onClick={handleLogout} className="text-white cursor-pointer hover:animate-pulse">
       Logout
     </button>
   </>
 ) : (
   <>
-    <Link href="/register" className="text-white">
+    <Link href="/register" className="text-white hover:animate-pulse">
       Register
     </Link>
-    <Link href="/login" className="text-white">
+    <Link href="/login" className="text-white hover:animate-pulse">
       Log in
     </Link>
   </>

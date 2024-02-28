@@ -43,8 +43,8 @@ export default function AddQuestion() {
   return (
     <>
      <BreadCrumbs breadCrumbs={breadCrumbs}/>
-    <div className="flex items-center justify-center h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-4/5">
+    <div className="flex items-center justify-center h-screen bg-white-100">
+      <div className="bg-blue-50 p-8 rounded-lg shadow-md w-4/5">
         <h1 className="text-2xl font-semibold mb-4">Ask your question here:</h1>
         
         <div className="mb-4 ">

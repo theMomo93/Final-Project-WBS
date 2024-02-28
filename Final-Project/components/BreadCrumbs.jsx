@@ -15,16 +15,16 @@ const BreadCrumbs = ({ breadCrumbs }) => {
   return (
     <div>
       <section >
-  <div className='flex px-5 py-3 text-black border border-gray-200 rounded bg-white dark:bg-blue-950 dark:border-black-700' aria-label="Breadcrumb">
+  <div className='flex px-5 py-3 text-black bg-gradient-to-r from-cyan-900 to-blue-950 dark:border-black-700' aria-label="Breadcrumb">
     <ol className='inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse'>
       {breadCrumbs?.map((breadCrumb, index) => (
-        <li key={index} className='inline-flex items-center'>
+        <li key={index} className='inline-flex items-center ml-8'>
           <Link
             href={breadCrumb.url}
             className={`${
               index <= currentIndex
-                ? 'hover:text-blue-600 dark:text-gray-300 dark:hover:text-white'
-                : 'hover:text-blue-600 dark:text-gray-300 dark:hover:text-white'
+                ? 'text-xl hover:text-blue-600 dark:text-gray-300 dark:hover:text-white'
+                : 'text-xl hover:text-blue-600 dark:text-gray-300 dark:hover:text-white'
             }`}
           >
             {breadCrumb.name}

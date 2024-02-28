@@ -41,4 +41,26 @@ background-color: white;
 
 
 
+  .font-roboto {
+    font-family: 'Roboto', sans-serif;
+  }
   
+
+ 
+  @keyframes animate-pulse {
+    0% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.2);
+    }
+    50% {
+      transform: scale(1);
+    }
+    75% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(15);
+    }
+  }
