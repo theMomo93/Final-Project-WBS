@@ -4,7 +4,7 @@ const UserProfile = () => {
   const [userData, setUserData] = useState({});
   const [userId, setUserId] = useState("");
   const [loading, setLoading] = useState(true);
-  const [userImage, setUserImage] = useState("");
+  
 
   useEffect(() => {
     const storedUserId = localStorage.getItem("userId");
@@ -50,7 +50,12 @@ const UserProfile = () => {
         <h3 className="text-4xl font-bold  text-gray-900 bg-amber-400 p-6">
             User Profile
         </h3>
-        
+        <div>
+          <h3>Add Image:</h3>
+        </div>
+      
+
+              
         <p className="mt-1 max-w-2xl text-m text-black-500">
             Your Information:
         </p>

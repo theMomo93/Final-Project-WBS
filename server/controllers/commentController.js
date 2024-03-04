@@ -25,6 +25,22 @@ export const handleAddComment = async (req, res) => {
   }
 };
 
+export const handleGetOneComment = async (req, res) => {
+  try {
+    console.log("this is get one comment", req.query);
+
+    const comment = await Comment.findById(req.query.id);
+    const replies = await Reply.find({ commentId: req.query.id });
+
+    console.log("🚀 ~ comment:", comment);
+    console.log("🚀 ~ replies:", replies);
+
+    res.send({ success: true, comment, replies });
+  } catch (error) {
+    console.log("🚀 ~ error in get one comment:", error.message);
+    res.status(500).send({ success: false, error: error.message });
+  }
+};
 
 
 export const handleGetAllComments = async (req, res) => {

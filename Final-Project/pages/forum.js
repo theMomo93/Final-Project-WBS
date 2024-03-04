@@ -17,10 +17,15 @@ const Forum = (props) => {
   const router = useRouter();
 
   useEffect(() => {
-    const user = localStorage.getItem("user");
-    if (user) {
-      const userObject = JSON.parse(user);
-      setUsername(userObject.username);
+    try {
+      const user = localStorage.getItem("user");
+      if (user) {
+        const userObject = JSON.parse(user);
+        setUsername(userObject.username);
+      }
+    } catch (error) {
+      console.error("Error parsing user data:", error);
+      // Handle the error as needed
     }
   }, []);
 
@@ -144,11 +149,12 @@ const Forum = (props) => {
 
         <div className="flex items-center justify-center">
           <div className="w-10/12 m-8">
-            <div className=" bg-blue-50 border rounded-md p-8 shadow-md w-full">
+            <div className=" border rounded-md p-12 shadow-md w-full bg-gray-100">
               {filteredQuestions.map((item) => (
                 <div
                   key={item._id}
-                  className="mb-4 shadow-md m-2 flex flex-col justify-between relative bg-white"
+                  onClick={() => handleOpenPost(item._id)}
+                  className="mb-4 shadow-md m-2 flex flex-col justify-between relative bg-white hover:bg-blue-50 "
                 >
                   <h2 className="text-xl font-bold mb-2  p-4">
                     {item.title}
@@ -160,25 +166,25 @@ const Forum = (props) => {
                   <p className="text-gray-600 p-4 mt-2">{item.content}</p>
                   <div className="flex flex-col font-normal ml-4"></div>
 
-                  <div className="flex items-end justify-end shadow-md">
+                  <div className="flex items-start justify-start shadow-md">
                     <h3
                       onClick={() => handleOpenPost(item._id)}
-                      className="mr-4 block px-4 py-2 text-gray-600 hover:bg-green-100 m-2"
+                      className="mr-4 block px-4 py-2 text-gray-600  rounded font-semibold m-2"
                     >
-                      Open Thread
+                      Comments 
                     </h3>
 
                     {item.username === username && (
                       <>
                         <button
                           onClick={() => handleEdit(item._id)}
-                          className="block px-4 py-2 text-gray-600 hover:bg-blue-100 m-2"
+                          className="block px-4 py-2 text-gray-600 hover:text-blue-600 m-2"
                         >
                           Edit
                         </button>
                         <button
                           onClick={() => handleDeleteQuestion(item._id)}
-                          className="block px-4 py-2 text-gray-600 hover:bg-red-100 m-2"
+                          className="block px-4 py-2 text-gray-600 hover:text-red-600 m-2"
                         >
                           Delete
                         </button>

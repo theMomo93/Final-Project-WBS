@@ -45,8 +45,6 @@ background-color: white;
     font-family: 'Roboto', sans-serif;
   }
   
-
- 
   @keyframes animate-pulse {
     0% {
       transform: scale(1);
@@ -64,3 +62,5 @@ background-color: white;
       transform: scale(15);
     }
   }
+
+

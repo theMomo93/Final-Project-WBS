@@ -2,6 +2,8 @@ import Navbar from "../components/Navbar"
 import '@/styles/globals.css'
 import { UserProvider } from "../contexts/UserContext";
 import { Montserrat, Poppins, Merriweather, Ubuntu } from "@next/font/google";
+import { Toaster } from "react-hot-toast";
+
 
 
 const montserrat = Montserrat({ 
@@ -29,7 +31,9 @@ function MyApp({ Component, pageProps }) {
     <UserProvider>
    
     <main className={poppins.className}>
+    <Toaster position="top-center" />
        <Navbar />
+     
       <Component {...pageProps} />
     </main>  
     </UserProvider>

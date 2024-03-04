@@ -14,32 +14,39 @@ export default function login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/users/login", {
-        email,
-        password,
-      });
-  
-      if (response.data) {
-        console.log(response.data.success);
-        console.log("ID", response.data.user._id);
-  
-        // Store user ID in local storage
-        localStorage.setItem("userId", response.data.user._id);
-        localStorage.setItem("user", JSON.stringify(response.data.user)); // Store the entire user object if needed
-        location.reload();
-        router.push(`/profile/${response.data.user._id}`).then(() => {
-         
-          location.reload();
-      });
+        const response = await axios.post("http://localhost:5000/users/login", {
+            email,
+            password,
+        });
+
+        if (response.data.success) {
+          console.log(response.data.message);
+        
+          // Store user data in localStorage
+        
+      localStorage.setItem("userId", response.data.user._id);
+      localStorage.setItem("user", JSON.stringify({
+        _id: response.data.user._id,
+        email: response.data.user.email,
+        username: response.data.user.username, // Include username
+        
+      }));
+      
+          // Navigate to the user's profile and reload the page
+          router.push(`/profile/${response.data.user._id}`).then(() => {
+            location.reload();
+          });
+                
       } else {
-        console.log("Login failed. Additional details:", response.data.message);
-        alert("You need to be registered to login")
+          console.error("Invalid response format:", response.data);
+          alert("Invalid Email or Password");
       }
     } catch (error) {
-      console.error("Error during login:", error);
-      alert("Invalid Email or Password")
+        console.error("Error during login:", error);
+        alert("An error occurred during login");
     }
-  };
+};
+
 
   const breadCrumbs =[
     {name: "Home", url: "/"},

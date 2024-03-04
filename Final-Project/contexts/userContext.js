@@ -11,7 +11,8 @@ export const UserProvider = ({ children }) => {
 
     if (responseData) {
       localStorage.setItem('userId', responseData.userId);
-      
+      localStorage.setItem("user", responseData)
+      console.log(user)
     }
   };
 

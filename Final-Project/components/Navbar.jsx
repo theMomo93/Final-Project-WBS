@@ -74,7 +74,7 @@ const Navbar = () => {
   return (
     <nav className="bg-gradient-to-r from-cyan-900 to-blue-950 shadow-lg">
       <div className="container mx-auto flex justify-between items-center flex-wrap px-16 ">
-        <Image src={logoPort} width={"200"}/>
+        <Image src={logoPort} width={"200"} alt="logo of people holding hands"/>
         <div className="m-0 text-white text-4xl font-bold">
           Warm Hearts and Open Minds
         </div>

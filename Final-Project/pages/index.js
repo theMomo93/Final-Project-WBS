@@ -62,7 +62,7 @@ const Home = () => {
                     </div>
                   </div>
                   <div className="w-2/5 md:w-1/2 flex justify-center md:justify-end rounded">
-                    <Image src={homePage} />
+                    <Image src={homePage} alt="group of people holding hands" />
                   </div>
                 </div>
               </div>

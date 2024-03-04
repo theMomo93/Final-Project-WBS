@@ -5,6 +5,7 @@ import connectDB from './utils/connectDB.js';
 import userRoutes from './routes/userRoutes.js';
 import questionRoutes from "./routes/questionRoutes.js";
 import commentRoutes from "./routes/commentRoutes.js";
+import replyRoutes from "./routes/replyRoutes.js"
 import dotenv from "dotenv";
 import morgan from "morgan";
 
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use('/users', userRoutes); // Use the user routes
 app.use("/question", questionRoutes);
 app.use("/comment", commentRoutes);
+app.use("/reply", replyRoutes)
 
 connectDB();
 

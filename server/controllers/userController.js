@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 
 export const handleRegister = async (req, res) => {
   try {
-    console.log("this is register", req.body);
+    
 
     const { password, ...userData } = req.body;
 
@@ -23,10 +23,10 @@ export const handleRegister = async (req, res) => {
 };
 export const handleLogin = async (req, res) => {
   try {
-    console.log("this is login");
+    console.log("this is login server", req.body);
 
     const { email, password } = req.body;
-
+    
     const user = await User.findOne({ email });
     console.log("🚀 ~ user:", user);
 
@@ -36,7 +36,8 @@ export const handleLogin = async (req, res) => {
 
     // Compare the entered password with the hashed password in the database
     const passwordMatch = await bcrypt.compare(password, user.password);
-
+    console.log("this is login server passwordMatch", passwordMatch);
+    
     if (passwordMatch) {
       const token = jwt.sign({ userId: user._id }, process.env.SECRET, { expiresIn: '1h' });
 

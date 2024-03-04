@@ -23,7 +23,7 @@ export const handleAddQuestion = async (req, res) => {
   
       res.send({ success: true, question });
     } catch (error) {
-      console.log("🚀 ~ error in get one post:", error.message);
+      console.log("🚀 ~ error in get one question:", error.message);
   
       res.status(500).send({ success: false, error: error.message });
     }

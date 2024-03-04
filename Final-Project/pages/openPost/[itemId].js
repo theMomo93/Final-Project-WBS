@@ -2,6 +2,9 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import BreadCrumbs from "@/components/BreadCrumbs";
+import QuestionComponent from "@/components/QuestionComponent";
+import CommentComponent from "@/components/CommentComponent";
+
 
 export default function OpenPost() {
   const router = useRouter();
@@ -24,6 +27,7 @@ export default function OpenPost() {
     if (user) {
       const userObject = JSON.parse(user);
       setUsername(userObject.username);
+      console.log("This is open post username",username)
     }
   }, []);
 
@@ -88,13 +92,15 @@ export default function OpenPost() {
         userId: userId,
         username: username,
       });
-
+      if (data.success) {
+        
+      }
       console.log("🚀 ~ response:", response);
 
       
     } catch (error) {
       console.error("Error adding comment:", error);
-      // Implement error handling (e.g., show a message to the user)
+      
     }
   };
 
@@ -118,12 +124,17 @@ export default function OpenPost() {
       fetchData();
     }
   }, [itemId]);
+
+
   const handleEditComment = (commentId) => {
-    window.scrollTo({ top: 300, behavior: 'smooth' });
     // Open the edit popup with the current comment content
     const selectedComment = allComments.find((comment) => comment._id === commentId);
     setEditCommentId(commentId);
     openEditPopup(selectedComment.content);
+    window.scrollTo({
+      top: 400,
+      behavior: 'smooth' // for smooth scrolling, if supported by the browser
+    });
   };
 
   const handleSaveEdit = async () => {
@@ -184,24 +195,9 @@ export default function OpenPost() {
   return (
     <>
   <BreadCrumbs breadCrumbs={breadCrumbs} />
-  <div className="w-full max-w-screen-xl mx-auto mt-8">
+  <div className="w-10/12 m-8 ">
     <div className="bg-blue-50 border rounded-md p-8 shadow-md w-full">
-      <div className="mb-2">
-        <div className="border border-black p-4 rounded bg-white">
-        <h2 className="text-3xl font-semibold mb-2">
-          {question.title}{" "}
-          <span className="text-xs font-light mb-2 ml-4">
-            posted by {question.username}
-          </span>
-        </h2>
-      
-      <div className="mb-4">
-        
-        <p className="my-8 text-xl text-gray-800">{question.content}</p>
-      </div>
-    
-      </div>
-      </div>
+      <QuestionComponent question={question} />
       <div>
         <h3
           className="block text-xl font-semibold px-4 py-2 text-gray-600 "
@@ -216,6 +212,7 @@ export default function OpenPost() {
           <textarea
             placeholder="Your Comment..."
             value={comment}
+            required
             onChange={(e) => setComment(e.target.value)}
             id="comment"
             name="comment"
@@ -251,65 +248,12 @@ export default function OpenPost() {
             Cancel
           </button>
         </div>
-        <div className="block px-4 py-2 text-xl">
-          {allComments.map((comment) => (
-            <div key={comment._id} className="p-8 mb-6 bg-gray-100 rounded-lg shadow-xl">
-              <footer className="flex justify-between items-center mb-2">
-                <div className="flex items-center">
-                  <p className="inline-flex items-center mr-3 text-xl text-amber-600 font-semibold">
-                   
-                    {comment.username}
-                    
-                  </p>
-                 
-                  
-                </div>
-
-              </footer>
-              <p className="text-gray-800 dark:text-gray-800">{comment.content}</p>
-              <div className="flex items-center mt-4 space-x-4">
-                <button
-                  type="button"
-                  className="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400 font-medium"
-                >
-                  <svg
-                    className="mr-1.5 w-3.5 h-3.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 20 18"
-                  >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"
-                    />
-                  </svg>
-                  Reply
-                </button>
-                {comment.username === username && (
-                  <div className="inline-flex space-x-2">
-                    <button
-                      onClick={() => handleDeleteComment(comment._id)}
-                      className="text-sm  hover:text-red-600 dark:text-gray-400"
-                    >
-                      Delete
-                    </button>
-                    <button
-                      onClick={() => handleEditComment(comment._id)}
-                      className="text-sm text-blue-500 hover:text-blue-500 dark:text-gray-400"
-                    >
-                      Edit
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-        
+        <CommentComponent 
+  allComments={allComments} 
+  handleDeleteComment={handleDeleteComment} 
+  handleEditComment={handleEditComment}
+  username={username}
+/>        
       </div>
     </div>
   </div>
