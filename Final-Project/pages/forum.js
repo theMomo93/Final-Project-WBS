@@ -1,11 +1,16 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
 import Footer from "@/components/Footer";
 import axios from "axios";
 import withAuth from "./withAuth";
 import BreadCrumbs from "@/components/BreadCrumbs";
 import { FaArrowDown } from "react-icons/fa";
+import CommentNumber from "@/components/CommentNumber";
+import { toast } from 'react-hot-toast';
+import { UserContext } from "@/contexts/UserContext";
+
+
 
 const Forum = (props) => {
   
@@ -14,6 +19,8 @@ const Forum = (props) => {
   const [questions, setQuestions] = useState([]);
   const [username, setUsername] = useState("");
   const [searchQuery, setSearchQuery] = useState('');
+  const{user, setUser}=useContext(UserContext)
+
   const router = useRouter();
 
   useEffect(() => {
@@ -43,6 +50,7 @@ const Forum = (props) => {
         setQuestions((prevQuestions) =>
           prevQuestions.filter((item) => item._id !== itemId)
         );
+        toast.success('Question deleted successfully!');
       }
     } catch (error) {
       console.error("Error deleting question:", error);
@@ -58,26 +66,11 @@ const Forum = (props) => {
       console.log("This is data", data);
 
       if (data.success) setQuestions([...data.allQuestions]);
+     
     };
     fetchData();
   }, []);
-  //GET USERNAME
-  const getUsername = async (userId) => {
-    try {
-      const userResponse = await fetch(`http://localhost:5000/user/${userId}`);
-      const userData = await userResponse.json();
-
-      if (userData.success) {
-        // Assuming user object has a username property
-        return userData.user.username;
-      } else {
-        return null; // Handle the case when user data is not available
-      }
-    } catch (error) {
-      console.error("Error fetching user information:", error);
-      return null;
-    }
-  };
+  
 
   function handleClick() {
     router.push("/addQuestion");
@@ -91,11 +84,15 @@ const Forum = (props) => {
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
+      
+
   const filteredQuestions = questions.filter((item) =>
   item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
   item.content.toLowerCase().includes(searchQuery.toLowerCase()) ||
-  item.username.toLowerCase().includes(searchQuery.toLowerCase())
+  item.username.toLowerCase().includes(searchQuery.toLowerCase()) 
 );
+
+
   return (
     <>
       <BreadCrumbs breadCrumbs={breadCrumbs} />
@@ -136,15 +133,29 @@ const Forum = (props) => {
           </button>
           
         </div>
-        <div className="flex flex-col items-center justify-end text-center pt-2 pb-4">
-  <input
-    type="text"
-    placeholder="Search questions..."
-    className="w-full max-w-xs py-2 px-4 border rounded mt-4"
-    value={searchQuery}
-    onChange={handleSearchChange}
-  />
+        <div className="flex flex-col items-center justify-end text-center pt-2 pb-4 mt-2">
+  
+  <div className="relative">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="absolute w-6 h-6 text-gray-500 top-1/2 left-3 transform -translate-y-1/2"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+    </svg>
+    <input
+      type="text"
+      placeholder="Search questions..."
+      className="w-full max-w-xs py-2 pl-10 pr-4 border rounded mt-4"
+      value={searchQuery}
+      onChange={handleSearchChange}
+    />
+  </div>
 </div>
+
 
 
         <div className="flex items-center justify-center">
@@ -153,28 +164,46 @@ const Forum = (props) => {
               {filteredQuestions.map((item) => (
                 <div
                   key={item._id}
-                  onClick={() => handleOpenPost(item._id)}
+                  
                   className="mb-4 shadow-md m-2 flex flex-col justify-between relative bg-white hover:bg-blue-50 "
                 >
                   <h2 className="text-xl font-bold mb-2  p-4">
                     {item.title}
                     <span className="text-xs font-light mb-2 ml-4">
                       posted by {item.username}
+                     
                     </span>
+               
+                     
                   </h2>
                   <hr className="w-1/4 ml-4 h-1 bg-blue-900" />
                   <p className="text-gray-600 p-4 mt-2">{item.content}</p>
                   <div className="flex flex-col font-normal ml-4"></div>
 
                   <div className="flex items-start justify-start shadow-md">
-                    <h3
-                      onClick={() => handleOpenPost(item._id)}
-                      className="mr-4 block px-4 py-2 text-gray-600  rounded font-semibold m-2"
-                    >
-                      Comments 
-                    </h3>
+                  <h3
+  onClick={() => handleOpenPost(item._id)}
+  className="mr-4 block px-4 py-2 text-gray-600 rounded font-semibold m-2 flex items-center"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth="1.5"
+    stroke="currentColor"
+    className="w-6 h-6 mr-2"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z"
+    />
+  </svg>
+  <CommentNumber  questionId={item._id}/>
+  
+</h3>
 
-                    {item.username === username && (
+                    {item.username === user.username && (
                       <>
                         <button
                           onClick={() => handleEdit(item._id)}

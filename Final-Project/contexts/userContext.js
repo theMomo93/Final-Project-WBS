@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
 
 export const  UserContext = createContext();
@@ -6,15 +6,12 @@ export const  UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-    async (email, password) => {
-    const responseData = await (email, password);
-
-    if (responseData) {
-      localStorage.setItem('userId', responseData.userId);
-      localStorage.setItem("user", responseData)
-      console.log(user)
-    }
-  };
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("User"));
+    console.log("🚀 ~ User:", storedUser);
+    
+    if (storedUser) setUser(storedUser);
+  }, []);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

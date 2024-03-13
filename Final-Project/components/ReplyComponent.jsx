@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
+import { UserContext } from "@/contexts/UserContext";
+import { useContext } from 'react';
+
 
 export default function ReplyComponent({ commentId, username }) {
     const [reply, setReply] = useState("");
@@ -11,6 +14,11 @@ export default function ReplyComponent({ commentId, username }) {
     const [isEditing, setIsEditing] = useState(false);
     const [editedReply, setEditedReply] = useState("");
     const [editReplyId, setEditReplyId] = useState(null);
+    const [numReplies, setNumReplies] = useState(0);
+
+
+    const {user,setUser}=useContext(UserContext);
+    
   
     const openEditPopup = (replyId, replyContent) => {
       setIsEditing(true);
@@ -25,11 +33,13 @@ export default function ReplyComponent({ commentId, username }) {
     };
 
   const handleAddReply = async () => {
+    const userId = localStorage.getItem("userId");
+    
     try {
       const response = await axios.post(`http://localhost:5000/reply/add/${commentId}`, {
         content: reply,
         commentId: commentId,
-        username: username,
+        username: user.username,
       });
 
       if (response.data.success) {
@@ -38,6 +48,7 @@ export default function ReplyComponent({ commentId, username }) {
         setReply("");
 
         setAllReplies((prevReplies) => [...prevReplies, response.data.reply]);
+        setNumReplies((prevNumReplies) => prevNumReplies + 1);
 
         console.log("Reply added successfully", response.data.reply);
       } else {
@@ -61,6 +72,7 @@ export default function ReplyComponent({ commentId, username }) {
 
         if (data.success) {
           setAllReplies([...data.allReplies]);
+          setNumReplies(data.allReplies.length);
           
         }
       } catch (error) {
@@ -86,6 +98,7 @@ export default function ReplyComponent({ commentId, username }) {
           prevReplies.filter((reply) => reply._id !== replyId)
         );
         toast.success('Successfully deleted!');
+        setNumReplies((prevNumReplies) => prevNumReplies - 1);
       } else {
         console.log("Reply deletion failed:", response.data.message);
         // Implement error handling (e.g., show a message to the user)
@@ -172,10 +185,10 @@ return (
         <br />
   
         <button
-          className='mx-4 mt-2 text-base'
+          className="mx-4 mt-2 text-base"
           onClick={() => setAreRepliesVisible(!areRepliesVisible)}
         >
-          {areRepliesVisible ? 'Hide' : 'Show Replies'}
+          {areRepliesVisible ? `Hide  (${numReplies})` : `Show Replies (${numReplies})`}
         </button>
   
         {areRepliesVisible && (
@@ -186,7 +199,7 @@ return (
                   <span className="text-sm text-gray-500 mb-2">Reply by {reply.username}:</span>
                   <p className="text-gray-800 mr-2 px-8">{reply.content}</p>
                 </div>
-                {reply.username === username && (
+                {reply.username === user.username && (
                   <div className="inline-flex space-x-2  mt-4 justify-end w-full">
                     <button
                       onClick={() => handleDeleteReply(reply._id)}

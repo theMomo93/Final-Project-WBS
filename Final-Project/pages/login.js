@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Footer from '@/components/Footer';
 import axios from 'axios';
 import BreadCrumbs from "@/components/BreadCrumbs";
 import { useRouter } from 'next/router';
+import { UserContext } from "@/contexts/UserContext";
 
 export default function login() {
   
   const [email, setEmail]= useState("");
   const [password, setPassword]=useState("");
+  const {setUser}=useContext(UserContext);
   const router = useRouter();
 
 
@@ -20,21 +22,17 @@ export default function login() {
         });
 
         if (response.data.success) {
-          console.log(response.data.message);
+          console.log(response.data.user);
+          setUser(response.data.user);
         
           // Store user data in localStorage
         
-      localStorage.setItem("userId", response.data.user._id);
-      localStorage.setItem("user", JSON.stringify({
-        _id: response.data.user._id,
-        email: response.data.user.email,
-        username: response.data.user.username, // Include username
-        
-      }));
+          localStorage.setItem("User", JSON.stringify(response.data.user));
+          localStorage.setItem("UserId",response.data.user._id)
       
           // Navigate to the user's profile and reload the page
           router.push(`/profile/${response.data.user._id}`).then(() => {
-            location.reload();
+            
           });
                 
       } else {

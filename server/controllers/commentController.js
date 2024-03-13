@@ -94,3 +94,15 @@ export const handleEditComment = async (req, res) => {
     res.status(500).send({ success: false, error: error.message });
   }
 };
+
+export const handleCommentsCount = async (req, res) => {
+  try {
+    const questionId = req.params.questionId; // Extract questionId from request parameters
+    const count = await Comment.countDocuments({ questionId });
+
+    res.json({ questionId, count });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};

@@ -3,11 +3,31 @@ import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import BreadCrumbs from "@/components/BreadCrumbs";
 import { toast } from 'react-hot-toast';
+import { UserContext } from '@/contexts/UserContext';
+import { useContext } from "react";
+
 
 export default function AddQuestion() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [username, setUsername] = useState("");
+  const{user, setUser}=useContext(UserContext); // THIS IS IMPORTANT STUFF RIGHT
+
+
+ const errorToast=(message)=>{
+  toast.error(message, {
+    style:{
+      borderLeft: '15px solid #960018'
+    }
+  })
+ }
+  const successToast = (message) => {
+    toast.success(message, {
+      style: {
+        borderLeft: '15px solid #28a745'
+      },
+    });
+  };
 
   const breadCrumbs = [
     { name: "Forum", url: "/forum" },
@@ -16,44 +36,44 @@ export default function AddQuestion() {
 
   const router = useRouter();
 
-  useEffect(() => {
-    try {
-      const user = localStorage.getItem("user");
-      if (user) {
-        const userObject = JSON.parse(user);
-        setUsername(userObject.username);
-      }
-    } catch (error) {
-      console.error("Error parsing user data:", error);
-      // Handle the error as needed
-    }
-  }, []);
+  
   
 
   const handleSave = async () => {
     try {
-      const user = localStorage.getItem("user"); // Add this line
-      console.log("Username:", username);
+      if (!title || !content) {
+        // Display a notification when fields are empty
+        errorToast('Please fill in all fields.');
+        return;
+      }
+
+      
       if (user) {
-        const storedUser = JSON.parse(user);
+        const storedUser = JSON.parse(localStorage.getItem("User"));
+    
         const response = await axios.post("http://localhost:5000/question/add", {
           title,
           content,
-          username,
+          username: user.username,
         });
-  
+        
         console.log("🚀 ~ response:", response);
+
         router.push('/forum');
-        toast.success('Question asked successfully!');
+        successToast('Question asked successfully!');
       } else {
         // Handle the case when user data is not available
         console.error("User data not found in localStorage");
+
       }
     } catch (error) {
       console.error("Error posting question:", error);
       // Handle error (e.g., show a message to the user)
     }
   };
+  function handleCancel(){
+    router.back();
+  }
 
   return (
     <>
@@ -71,6 +91,7 @@ export default function AddQuestion() {
               onChange={(e) => setTitle(e.target.value)}
               type="text"
               id="title"
+              aria-required
               className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
             />
           </div>
@@ -80,6 +101,7 @@ export default function AddQuestion() {
             </label>
             <textarea
               value={content}
+              aria-required
               onChange={(e) => setContent(e.target.value)}
               id="content"
               className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
@@ -88,9 +110,15 @@ export default function AddQuestion() {
           </div>
           <button
             onClick={handleSave}
-            className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 focus:outline-none"
+            className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 focus:outline-none mr-8"
           >
             Ask Question
+          </button>
+          <button
+            onClick={handleCancel}
+            className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 focus:outline-none"
+          >
+            Cancel
           </button>
         </div>
       </div>

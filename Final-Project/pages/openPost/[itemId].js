@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import BreadCrumbs from "@/components/BreadCrumbs";
 import QuestionComponent from "@/components/QuestionComponent";
 import CommentComponent from "@/components/CommentComponent";
+import { toast } from 'react-hot-toast';
+import { UserContext } from "@/contexts/UserContext";
 
 
 export default function OpenPost() {
@@ -12,13 +14,28 @@ export default function OpenPost() {
   const { itemId } = router.query;
   const [comment, setComment] = useState("");
   const [allComments, setAllComments] = useState([]);
+  
 
   const [isEditing, setIsEditing] = useState(false);
   const [editedComment, setEditedComment] = useState("");
   const [editCommentId, setEditCommentId] = useState(null);
-
-
   const [username, setUsername] = useState("");
+  const {user,setUser}=useContext(UserContext);
+
+  const errorToast=(message)=>{
+    toast.error(message, {
+      style:{
+        borderLeft: '15px solid #960018'
+      }
+    })
+   }
+    const successToast = (message) => {
+      toast.success(message, {
+        style: {
+          borderLeft: '15px solid #28a745'
+        },
+      });
+    };
 
   useEffect(() => {
     // Check if localStorage is available
@@ -76,25 +93,32 @@ export default function OpenPost() {
   }, [itemId]);
 
   const handleAddComment = async () => {
-    const userId = localStorage.getItem("userId"); // Assuming user ID is stored in local storage
-    const user = localStorage.getItem("user");
+  
 
+    const userId = localStorage.getItem("userId"); // Assuming user ID is stored in local storage
+    //const user = localStorage.getItem("user");
     try {
       // Corrected the variable name here
-      const userObject = JSON.parse(user);
-      const username = userObject.username;
-
-      console.log("Username from local storage:", username);
+      //const userObject = JSON.parse(user);
+      //const username = userObject.username;
+      //console.log("")
+      //console.log("Username from local storage:", username);
 
       const response = await axios.post("http://localhost:5000/comment/add", {
         content: comment,
         questionId: itemId,
-        userId: userId,
-        username: username,
+        userId: user._id,
+        username: user.username,
       });
-      if (data.success) {
+      if (response.data.success) {
+        const newComment = response.data.comment; // Assuming your API returns the newly added comment
+
+        // Update the state with the new comment
+        setAllComments((prevComments) => [...prevComments, newComment]);
+
+        successToast('Comment added successfully!');
         
-      }
+    }
       console.log("🚀 ~ response:", response);
 
       
@@ -114,6 +138,7 @@ export default function OpenPost() {
 
         if (data.success) {
           setAllComments([...data.allComments]);
+          
         }
       } catch (error) {
         console.error("Error fetching comments:", error.message);
@@ -126,15 +151,14 @@ export default function OpenPost() {
   }, [itemId]);
 
 
+
   const handleEditComment = (commentId) => {
     // Open the edit popup with the current comment content
     const selectedComment = allComments.find((comment) => comment._id === commentId);
     setEditCommentId(commentId);
     openEditPopup(selectedComment.content);
-    window.scrollTo({
-      top: 400,
-      behavior: 'smooth' // for smooth scrolling, if supported by the browser
-    });
+    window.scrollTo({ top: 400, behavior: 'smooth' });
+    
   };
 
   const handleSaveEdit = async () => {
@@ -158,7 +182,10 @@ export default function OpenPost() {
           prevComments.map((comment) =>
             comment._id === editCommentId ? { ...comment, content: editedComment } : comment
           )
+          
         );
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        successToast('Edit Successful!', { autoClose: 5000 });
       } else {
         console.log("Edit comment failed:", response.data.message);
         // Implement error handling (e.g., show a message to the user)
@@ -183,6 +210,7 @@ export default function OpenPost() {
         setAllComments((prevComments) =>
           prevComments.filter((comment) => comment._id !== commentId)
         );
+        successToast('Delete Comment Successful!');
       } else {
         console.log("Comment deletion failed:", response.data.message);
         // Implement error handling (e.g., show a message to the user)
@@ -219,8 +247,8 @@ export default function OpenPost() {
             className="w-200 h-200 border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
           ></textarea>
           <button
-            onClick={handleAddComment}
-            className="bg-blue-500 text-white p-2 rounded hover:bg-amber-400 text-black focus:outline-none mt-2 w-36"
+            onClick={(e) => handleAddComment(e)}
+            className="bg-blue-500 mb-8 text-white p-2 rounded hover:bg-amber-400 text-black focus:outline-none mt-2 w-36"
           >
             Leave Comment
           </button>
@@ -232,8 +260,7 @@ export default function OpenPost() {
           <textarea
             value={editedComment}
             onChange={(e) => setEditedComment(e.target.value)}
-            placeholder="Edit your comment..."
-            className="w-full h-32 border border-gray-300 p-2 rounded mb-2 focus:outline-none focus:border-blue-500"
+            className="w-full h-32 border border-gray-800 p-2 rounded mb-2 focus:outline-none focus:border-blue-500"
           ></textarea>
           <button
             onClick={handleSaveEdit}

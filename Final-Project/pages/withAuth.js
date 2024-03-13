@@ -7,8 +7,8 @@ const withAuth = (WrappedComponent) => {
   
       useEffect(() => {
         // Check if the user is authenticated
-        const userId = localStorage.getItem("userId");
-  
+        const user = JSON.parse(localStorage.getItem("User"));
+        const userId =user._id
         if (!userId) {
           // Redirect to the login page if not authenticated
           router.replace("/login");

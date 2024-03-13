@@ -1,7 +1,13 @@
 import React from 'react'
 import ReplyComponent from './ReplyComponent'
+import { UserContext} from "../contexts/UserContext"
+import { useContext } from 'react';
+
 
 export default function CommentComponent({allComments, username , handleDeleteComment, handleEditComment}) {
+  const{user, setUser}=useContext(UserContext);
+ 
+
   return (
     <div>
         <div className="block px-4 py-2 text-xl">
@@ -12,7 +18,7 @@ export default function CommentComponent({allComments, username , handleDeleteCo
                   <p className="inline-flex items-center mr-3 text-xl text-amber-600 font-semibold">
                    
                     {comment.username}
-                    
+                     
                   </p>
                  
                   
@@ -20,7 +26,7 @@ export default function CommentComponent({allComments, username , handleDeleteCo
 
               </footer>
               <p className="text-gray-800 dark:text-gray-800">{comment.content}</p>
-              {comment.username === username && (
+              {comment.username === user.username && (
                   <div className="inline-flex space-x-2 mb-4 mt-4">
                     <button
                       onClick={() => handleDeleteComment(comment._id)}
@@ -30,7 +36,7 @@ export default function CommentComponent({allComments, username , handleDeleteCo
                     </button>
                     <button
                       onClick={() => handleEditComment(comment._id)}
-                      className="text-sm text-blue-500 hover:text-blue-500 dark:text-gray-400"
+                      className="text-sm text-blue-500 hover:text-blue-500 dark:text-gray-400 "
                     >
                       Edit
                     </button>

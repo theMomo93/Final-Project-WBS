@@ -1,15 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from 'next/router';
 import Image from "next/image";
 import logoPort from "../img/logoPort.png"
+import { UserContext } from "@/contexts/UserContext";
+
 
 
 const Navbar = () => {
   const [isGoogleTranslateScriptLoaded, setIsGoogleTranslateScriptLoaded] =
     useState(false);
   const [storedUserId, setStoredUserId] = useState("");
+  //const [userData, setUserData] = useState({});
+  const {user, setUser}=useContext(UserContext);
+
   const router = useRouter();
+
+
   
   useEffect(() => {
     // Retrieve userId from local storage
@@ -21,6 +28,23 @@ const Navbar = () => {
       
     }
 
+   // const fetchUserData = async () => {
+   //   try {
+   //     const response = await fetch(`http://localhost:5000/users/id/${userId}`);
+   //     if (response.ok) {
+   //       const userData = await response.json();
+   //       console.log("User Data:", userData);
+   //       setUserData(userData);
+   //     } else {
+   //       console.error('Failed to fetch user data');
+   //     }
+   //   } catch (error) {
+   //     console.error('Error during fetch:', error.message);
+   //   } finally {
+    //   
+    //  }
+      
+   // };
     // Check if the Google Translate script is already loaded
     if (
       !isGoogleTranslateScriptLoaded &&
@@ -43,7 +67,7 @@ const Navbar = () => {
         };
         
       }
-      
+   //   fetchUserData();
     }
   }, [isGoogleTranslateScriptLoaded]);
 
@@ -60,14 +84,14 @@ const Navbar = () => {
 
   const handleLogout = () => {
     // Clear local storage
-    localStorage.removeItem("socialUser");
+    localStorage.removeItem("User");
     localStorage.removeItem("userId");
-    
+    setUser({});
     // Redirect to the login page or any other desired page
     console.log(router)
     router.push('/').then(() => {
       // This code will run after the navigation is complete
-      location.reload();
+    
     });
   };
  
@@ -78,6 +102,8 @@ const Navbar = () => {
         <div className="m-0 text-white text-4xl font-bold">
           Warm Hearts and Open Minds
         </div>
+        
+        <img className="w-20 h-20 border-none rounded-full mt-6 object-fit" src={user?.profileImage}/>
 
         <div className="space-x-4 mt-3">
           <Link href="/" className="text-white hover:animate-pulse">
@@ -94,9 +120,16 @@ const Navbar = () => {
             About us
           </Link>
 
-          {storedUserId ? (
+          
+
+    
+          {user?._id ? (
   <>
-    <Link href={`/profile/${storedUserId}`} className="text-white hover:animate-pulse">
+
+
+
+  
+    <Link href={`/profile/${user?._id}`} className="text-white hover:animate-pulse">
       User Profile
     </Link>
     

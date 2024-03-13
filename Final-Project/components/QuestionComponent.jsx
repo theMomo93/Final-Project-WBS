@@ -1,7 +1,11 @@
 import React from 'react'
 
+
 export default function QuestionComponent({question}) {
+  
+
   return (
+    <>
     <div>
         <div className="mb-2">
         <div className="border border-black p-4 rounded bg-white">
@@ -10,6 +14,7 @@ export default function QuestionComponent({question}) {
           <span className="text-xs font-light mb-2 ml-4">
             posted by {question.username}
           </span>
+         
         </h2>
       
       <div className="mb-4">
@@ -19,6 +24,9 @@ export default function QuestionComponent({question}) {
     
       </div>
       </div>
+      
     </div>
+   
+    </>
   )
 }

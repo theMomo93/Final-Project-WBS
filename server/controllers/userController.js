@@ -74,3 +74,56 @@ export const handleUser = async (req, res) => {
     res.status(500).send({ success: false, error: error.message });
   }
 };
+
+export const uploadProfileImage = async (req, res) => {
+  try {
+    const userId = req.params.id;
+
+    // Check if user exists
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Check if an image was uploaded to Cloudinary
+    if (!req.file) {
+      return res.status(400).json({ error: "No image uploaded" });
+    }
+
+    // Save Cloudinary URL to user document
+    user.profileImage = req.file.path; // Assuming the Cloudinary URL is in req.file.path
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Image uploaded and linked to user successfully",
+      profileImage: user.profileImage, // Include the profile image URL in the response
+    });
+  
+  } catch (error) {
+    console.error("Error during image upload:", error.message);
+    res.status(500).json({ error: "Internal server error" });
+  }
+}
+
+export const handleGetUsername = async (req, res) => {
+  try {
+    console.log("this is one User");
+
+    const username = req.params.username; // Extract user ID from request parameters
+
+    const user = await User.findOne({ username: username }).select("-password");
+
+    if (!user) {
+      return res.status(404).send({ success: false, message: "User not found" });
+    }
+
+    console.log("🚀 ~ user:", user);
+
+    res.send({ success: true, user });
+  } catch (error) {
+    console.log("🚀 ~ error in get user:", error.message);
+
+    res.status(500).send({ success: false, error: error.message });
+  }
+};
