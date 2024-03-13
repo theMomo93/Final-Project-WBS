@@ -84,9 +84,12 @@ const UserProfile = () => {
 
       if (response.ok) {
         const result = await response.json();
-        console.log("Result",result); 
-        console.log("Profile Image URL:", user?.profileImage);
-        successToast("Image added successfully")
+        setUser((prevUser) => ({ ...prevUser, profileImage: result.profileImage }));
+      
+        // Update local storage with the new user data
+        localStorage.setItem("User", JSON.stringify({ ...user, profileImage: result.profileImage }));
+        successToast("Image added successfully");
+      
       
       } else {
         console.error("Failed to upload image");

@@ -5,6 +5,7 @@ import BreadCrumbs from "@/components/BreadCrumbs";
 import { toast } from 'react-hot-toast';
 import { UserContext } from '@/contexts/UserContext';
 import { useContext } from "react";
+import Footer from "@/components/Footer";
 
 
 export default function AddQuestion() {
@@ -36,8 +37,9 @@ export default function AddQuestion() {
 
   const router = useRouter();
 
-  
-  
+
+    // Scroll to the middle of the page when the component mounts
+
 
   const handleSave = async () => {
     try {
@@ -79,7 +81,7 @@ export default function AddQuestion() {
     <>
       <BreadCrumbs breadCrumbs={breadCrumbs} />
       <div className="flex items-center justify-center h-screen bg-white-100">
-        <div className="bg-blue-50 p-8 rounded-lg shadow-md w-4/5">
+        <div className="bg-blue-50 p-12 rounded-lg shadow-xl w-4/5">
           <h1 className="text-2xl font-semibold mb-4">Ask your question here:</h1>
 
           <div className="mb-4 ">
@@ -122,6 +124,7 @@ export default function AddQuestion() {
           </button>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

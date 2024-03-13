@@ -10,6 +10,9 @@ export default function integration() {
   return (
     <div>
         <BreadCrumbs breadCrumbs={breadCrumbs}/>
+
+
+        
     </div>
   )
 }
