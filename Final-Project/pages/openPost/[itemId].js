@@ -254,7 +254,7 @@ export default function OpenPost() {
           </button>
         </form>
         <div className={isEditing ? "overlay" : "hidden"} onClick={closeEditPopup}>
-          {/* Clicking outside the edit popup will close it */}
+        
         </div>
         <div className={isEditing ? "edit-popup" : "hidden"}>
           <textarea

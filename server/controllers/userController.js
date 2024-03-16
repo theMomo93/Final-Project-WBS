@@ -127,3 +127,16 @@ export const handleGetUsername = async (req, res) => {
     res.status(500).send({ success: false, error: error.message });
   }
 };
+
+export const handleDeleteUser=async(req, res)=>{
+  try {
+    console.log("This is delete user", req.params.id);
+    const user = await User.findByIdAndDelete(req.params.id);
+    console.log("user", user);
+    res.send({success:true});
+    
+  }catch (error){
+  console.log("error in delete question", error.message);
+  res.status(500).send({success:false, error: error.message});
+}
+}

@@ -103,7 +103,7 @@ const Navbar = () => {
           Warm Hearts and Open Minds
         </div>
         
-        <img className="w-20 h-20 border-none rounded-full mt-6 object-fit" src={user?.profileImage}/>
+        <img className="w-20 h-20 border-none rounded-full mt-6 object-fit " src={user?.profileImage}/>
 
         <div className="space-x-4 mt-3">
           <Link href="/" className="text-white hover:animate-pulse">

@@ -23,6 +23,21 @@ const Forum = (props) => {
 
   const router = useRouter();
 
+  const errorToast=(message)=>{
+    toast.error(message, {
+      style:{
+        borderLeft: '15px solid #960018'
+      }
+    })
+   }
+    const successToast = (message) => {
+      toast.success(message, {
+        style: {
+          borderLeft: '15px solid #28a745'
+        },
+      });
+    };
+    
   useEffect(() => {
     try {
       const user = localStorage.getItem("user");
@@ -33,6 +48,7 @@ const Forum = (props) => {
     } catch (error) {
       console.error("Error parsing user data:", error);
       // Handle the error as needed
+      errorToast("Please Register and Login to access")
     }
   }, []);
 
@@ -50,7 +66,7 @@ const Forum = (props) => {
         setQuestions((prevQuestions) =>
           prevQuestions.filter((item) => item._id !== itemId)
         );
-        toast.success('Question deleted successfully!');
+        successToast('Question deleted successfully!');
       }
     } catch (error) {
       console.error("Error deleting question:", error);
@@ -60,10 +76,11 @@ const Forum = (props) => {
 
   // GET ALL QUESTIONS
   useEffect(() => {
+    console.log("GET ALL QUestions is running");
     const fetchData = async () => {
       const response = await fetch("http://localhost:5000/question/get/all");
       const data = await response.json();
-      console.log("This is data", data);
+      console.log("This is data 1", data);
 
       if (data.success) setQuestions([...data.allQuestions]);
      
@@ -142,7 +159,7 @@ const Forum = (props) => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className="absolute w-6 h-6 text-gray-500 top-1/2 left-3 transform -translate-y-1/2"
+      className="absolute w-6 h-6 text-gray-500 top-1/2 left-3 transform -translate-y-1/2 mt-2"
     >
       <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
     </svg>

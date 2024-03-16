@@ -2,14 +2,14 @@ import React, { useState, useEffect, useContext } from 'react';
 import Footer from '@/components/Footer';
 import { UserContext } from '@/contexts/UserContext';
 import { toast } from 'react-hot-toast';
-
+import { useRouter } from "next/router";
 
 const UserProfile = () => {
-  const [userData, setUserData] = useState({});
+ 
   const [userId, setUserId] = useState("");
   const [loading, setLoading] = useState(false);
   const [image, setImage] = useState(null);
-
+  const router = useRouter();
 
   const{user, setUser}=useContext(UserContext); // THIS IS IMPORTANT STUFF RIGHT
 
@@ -105,16 +105,40 @@ const UserProfile = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
+  const handleDeleteUser = async () => {
+    try {
+            const response = await fetch(`http://localhost:5000/users/delete/${userId}`, {
+        method: "DELETE",
+      });
 
+      if (response.ok) {
+        // Clear user data from local storage and context
+        localStorage.removeItem("User");
+        localStorage.removeItem("UserId");
+        setUser(null);
+        successToast("User deleted successfully!");
+        router.push("/")
+      } else {
+        // Handle error response
+        errorToast("Failed to delete user");
+      }
+    } catch (error) {
+      console.error("Error during user deletion:", error.message);
+      errorToast("Failed to delete user: server side error!");
+    }
+  };
+
+  
+  
   return (
     <>
     <div className="flex items-center justify-center mt-16 mb-16 ">
       <div className="bg-white shadow-xl rounded-lg border w-2/3 w-fit h-fit">
         <div className="px-4 py-5 sm:px-6 bg-gray-50">
           <div className=' '>
-          <div>
-            <h3>Add Image:</h3>
-            <input type="file" accept="image/*" onChange={handleImageChange} />
+          <div className='max-w-lg mx-auto'>
+            <h3 className='block bg-amber-400  mb-4 text-sm font-medium text-black dark:text-gray-700 p-4 rounded font-semibold'>Add Image:</h3>
+            <input className='mb-4 p-8 block w-full text-sm text-black border border-gray-300 rounded-lg cursor-pointer dark:text-gray-400 focus:outline-none dark:border-gray-600 dark:placeholder-gray-400' type="file" accept="image/*" onChange={handleImageChange} />
             <button className='mb-12 bg-amber-400 p-4 rounded text-white hover-text-black' onClick={handleImageUpload}>Upload Image</button>
           </div>
         </div>
@@ -128,16 +152,12 @@ const UserProfile = () => {
               alt="User Profile"
               width="200"
               height="200"
-              className="rounded-full m-12 p-2 mx-auto bg-amber-300"
+              className="rounded-full m-12 p-2 mx-auto"
         
             />
             
           </div>
         </div>
-   
-          
-
-       
         
         <div className="border-t border-gray-200 px-4 py-5 sm:p-0 bg-gray-50">
           <dl className="sm:divide-y sm:divide-gray-200">
@@ -164,7 +184,11 @@ const UserProfile = () => {
               <dd className="mt-1 text-xl text-gray-900 sm:mt-0 sm:col-span-2">
                 {userId}
               </dd>
+              <button
+              className='my-4 bg-blue-950 text-white p-2 rounded hover:text-red'
+               onClick={handleDeleteUser}>Delete Account</button>
             </div>
+            
           </dl>
         </div>
       </div>

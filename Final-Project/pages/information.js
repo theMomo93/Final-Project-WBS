@@ -97,14 +97,13 @@ export default function information() {
               </div>
 
               <div className="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/2">
-                <Link href="information/integration">
+                <Link href="information/eventSharing">
                   <div className="p-4 bg-white rounded-b shadow-md transition-transform transform hover:scale-105 hover:bg-blue-50 duration-300">
                     <h2 className="text-3xl font-semibold text-black">
-                      Integration
+                      Event Sharing
                     </h2>
                     <p className="mt-2 text-l text-gray-700">
-                      Learn about integration programs and where to find social
-                      events. Meeting new people makes it easier to call home!
+                      Learn about events happening near you!. Meeting new people makes it easier to call this place  a home!
                     </p>
                     <div className="flex items-center mt-2">
                       <span className="mr-2">Learn More</span>
