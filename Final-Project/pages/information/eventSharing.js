@@ -61,7 +61,8 @@ function eventSharing() {
       });
 
       if (response.data.success) {
-        toast.success("Event Added Successfully");
+        successToast("Event Added Successfully");
+        
       } else {
         console.error("Failed to add reply");
       }
