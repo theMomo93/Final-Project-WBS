@@ -63,4 +63,17 @@ background-color: white;
     }
   }
 
+  .custom-Image{
+width: 500px;
+height: 441px;
+object-fit:cover;
+border: 1px solid black;
+
+  }
+  .custom-Image2{
+    width: 500px;
+height: 536px;
+object-fit:cover;
+border: 1px solid black;
+  }
 

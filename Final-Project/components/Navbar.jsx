@@ -98,12 +98,16 @@ const Navbar = () => {
   return (
     <nav className="bg-gradient-to-r from-cyan-900 to-blue-950 shadow-lg">
       <div className="container mx-auto flex justify-between items-center flex-wrap px-16 ">
-        <Image src={logoPort} width={"200"} alt="logo of people holding hands"/>
-        <div className="m-0 text-white text-4xl font-bold">
+      <img
+            className="w-16 h-16 mr-2 rounded-full border border-solid border-1 border-black"
+            src="https://images.unsplash.com/photo-1630475338242-339bd74c449d?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="logo"
+          />        <div className="m-0 text-white text-4xl font-bold">
           Warm Hearts and Open Minds
         </div>
         
-        <img className="w-20 h-20 border-none rounded-full mt-6 object-fit " src={user?.profileImage}/>
+        {user?.profileImage && <img className="w-20 h-20 rounded-full mt-6 object-fit " src={user?.profileImage}/>
+}
 
         <div className="space-x-4 mt-3">
           <Link href="/" className="text-white hover:animate-pulse">

@@ -30,8 +30,8 @@ const Home = () => {
               </div>
               <div className="flex px-8 md:px-20  items-center justify-center md:h-screen overflow-hidden">
                 
-                <div className="flex flex-col  gap-6 md:flex-row items-center max-w-8xl">
-                  <div className="w-full md:w-1/2 lg:pr-24">
+                <div className="flex flex-col  gap-6 md:flex-row items-center max-w-8xl p-8 ">
+                  <div className="w-full md:w-1/2 lg:pr-24 ">
                     <h2 className="text-4xl lg:text-5xl text-center md:text-left text-blue-900 leading-tight font-medium">
                       Gateway to Information and Community Support.
                     </h2>
@@ -61,8 +61,9 @@ const Home = () => {
                       </button>
                     </div>
                   </div>
-                  <div className="w-2/5 md:w-1/2 flex justify-center md:justify-end rounded">
+                  <div className="w-2/5 md:w-1/2 flex justify-center md:justify-end rounded ">
                     <Image priority={true}
+                     className="border-solid border-black border-1"
                      src={homePage} alt="group of people holding hands" />
                   </div>
                 </div>

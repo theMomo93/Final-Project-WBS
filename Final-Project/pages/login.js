@@ -53,8 +53,8 @@ export default function login() {
           className="flex items-center mb-6 text-4xl font-semibold text-gray-900 dark:text-black justify-center mt-16"
         >
           <img
-            className="w-8 h-8 mr-2"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
+            className="w-10 h-10 mr-2 rounded-full"
+            src="https://images.unsplash.com/photo-1630475338242-339bd74c449d?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="logo"
           />
           Warm hearts and open minds
@@ -66,10 +66,11 @@ export default function login() {
             Sharing!
           </h1>
         </div>
-        <div className="flex flex-row items-center justify-around px-16  mx-auto md:h-screen lg:py-0 w-fit shadow-xl">
+        <div className="bg-gray-50 flex flex-row items-center justify-around px-16  mx-auto md:h-screen bg-gray-50 lg:py-0 w-fit shadow-2xl">
           <img
-            className="hidden md:block"
-            src="https://picsum.photos/450/440"
+            
+            className="hidden md:block  custom-Image"
+            src="https://images.unsplash.com/photo-1509822929063-6b6cfc9b42f2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           ></img>
 
           <div className="w-full bg-white  shadow-xl dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
