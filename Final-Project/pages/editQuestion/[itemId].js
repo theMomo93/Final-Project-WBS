@@ -1,8 +1,19 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import containsBannedWords from "@/components/BannedWords";
+import { toast } from 'react-hot-toast';
 
 
+
+
+const errorToast=(message)=>{
+  toast.error(message, {
+    style:{
+      borderLeft: '15px solid #960018'
+    }
+  })
+ }
 export default function addQuestion() {
   const router = useRouter();
   const { itemId } = router.query;
@@ -29,17 +40,24 @@ console.log("ITEM_ID ", itemId)
     content: "",
   });
   
- const handleSave = async () => {
-    
-        const response = await axios.put(
-            "http://localhost:5000/question/edit", 
-      {
-        question,
-      }
-    );
-    console.log("🚀 ~ response:", response);
+  const handleSave = async () => {
+    // Check for banned words in title and content
+    if (containsBannedWords(question.title) || containsBannedWords(question.content)) {
+      errorToast('Your question contains banned words.');
+      return;
+    }
 
-    if (response.data.success) router.push("/forum");
+    try {
+      const response = await axios.put("http://localhost:5000/question/edit", {
+        question,
+      });
+      console.log("🚀 ~ response:", response);
+
+      if (response.data.success) router.push("/forum");
+    } catch (error) {
+      console.error("Error editing question:", error);
+      // Handle error (e.g., show a message to the user)
+    }
   };
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">

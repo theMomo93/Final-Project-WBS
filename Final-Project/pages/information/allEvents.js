@@ -5,6 +5,7 @@ import { toast } from "react-hot-toast";
 import { UserContext } from "../../contexts/UserContext";
 import { IoSearchSharp } from "react-icons/io5";
 import EventComponent from "@/components/EventComponent";
+import containsBannedWords from "@/components/BannedWords";
 
 export default function AllEvents() {
   const [allEvents, setAllEvents] = useState([]);
@@ -37,14 +38,19 @@ export default function AllEvents() {
 
   const handleSaveEdit = async () => {
     try {
+      // Check if the edited event title or description contains banned words
+      if (containsBannedWords(editedEvent.title) || containsBannedWords(editedEvent.description) || containsBannedWords(editedEvent.street) || containsBannedWords(editedEvent.city)) {
+        errorToast('Your event title or description contains banned words.');
+        return;
+      }
+      
       const response = await axios.put(
         `http://localhost:5000/event/edit/${editEventId}`,
         editedEvent
       );
       console.log(response.data);
-
+  
       if (response.data.success) {
-       
         setEditEventId(null);
         setEditedEvent({
           title: "",
@@ -53,29 +59,29 @@ export default function AllEvents() {
           city: "",
           street: "",
         });
-
+  
         // Show success toast
         successToast("Edit Successful!");
         // Update the event in the allEvents state
-      setAllEvents((prevEvents) => {
-        const updatedEvents = prevEvents.map((event) => {
-          if (event._id === editEventId) {
-            // Return the updated event if it matches the edited event ID
-            return {
-              ...event,
-              title: editedEvent.title,
-              description: editedEvent.description,
-              time: editedEvent.time,
-              city: editedEvent.city,
-              street: editedEvent.street,
-            };
-          } else {
-            // Return the original event if it doesn't match the edited event ID
-            return event;
-          }
+        setAllEvents((prevEvents) => {
+          const updatedEvents = prevEvents.map((event) => {
+            if (event._id === editEventId) {
+              // Return the updated event if it matches the edited event ID
+              return {
+                ...event,
+                title: editedEvent.title,
+                description: editedEvent.description,
+                time: editedEvent.time,
+                city: editedEvent.city,
+                street: editedEvent.street,
+              };
+            } else {
+              // Return the original event if it doesn't match the edited event ID
+              return event;
+            }
+          });
+          return updatedEvents;
         });
-        return updatedEvents;
-      });
       } else {
         // Handle edit failure
         console.log("Edit Event failed:", response.data.message);

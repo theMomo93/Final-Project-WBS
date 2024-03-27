@@ -5,6 +5,7 @@ import { MdEdit } from "react-icons/md";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+
 export default function EventComponent({
   setEditEventId,
   event,

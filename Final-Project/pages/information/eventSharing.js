@@ -9,11 +9,26 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import { FaCircleArrowRight } from "react-icons/fa6";
 import { FaArrowDown } from "react-icons/fa";
-
+import containsBannedWords from "@/components/BannedWords";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 
+
+const errorToast = (message) => {
+  toast.error(message, {
+    style: {
+      borderLeft: "15px solid #960018",
+    },
+  });
+};
+const successToast = (message) => {
+  toast.success(message, {
+    style: {
+      borderLeft: "15px solid #28a745",
+    },
+  });
+};
 function eventSharing() {
   const { user, setUser } = useContext(UserContext);
   const [title, setTitle] = useState("");
@@ -30,26 +45,26 @@ function eventSharing() {
     { name: "Event Sharing", url: "/information/eventSharing" },
   ];
 
-  const errorToast = (message) => {
-    toast.error(message, {
-      style: {
-        borderLeft: "15px solid #960018",
-      },
-    });
-  };
-  const successToast = (message) => {
-    toast.success(message, {
-      style: {
-        borderLeft: "15px solid #28a745",
-      },
-    });
-  };
+  
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setUser(localStorage.getItem("user"));
     console.log("User", user);
     setUsername(user.username);
     console.log("Username", username);
+
+
+      if (
+        containsBannedWords(title) ||
+        containsBannedWords(description) ||
+        containsBannedWords(street) ||
+        containsBannedWords(city)
+      ) {
+        errorToast("Your event title, description, street, or city contains banned words.");
+        return;
+      }
+  
     try {
       const response = await axios.post(`http://localhost:5000/event/add`, {
         title: title,
@@ -61,6 +76,13 @@ function eventSharing() {
       });
 
       if (response.data.success) {
+        // Reset input fields
+        setTitle("");
+        setTime(new Date());
+        setDescription("");
+        setStreet("");
+        setCity("");
+  
         successToast("Event Added Successfully");
         
       } else {

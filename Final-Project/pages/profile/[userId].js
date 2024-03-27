@@ -139,7 +139,7 @@ const UserProfile = () => {
           <div className='max-w-lg mx-auto'>
             <h3 className='block bg-amber-400  mb-4 text-sm font-medium text-black dark:text-gray-700 p-4 rounded font-semibold'>Add Image:</h3>
             <input className='mb-4 p-8 block w-full text-sm text-black border border-gray-300 rounded-lg cursor-pointer dark:text-gray-400 focus:outline-none dark:border-gray-600 dark:placeholder-gray-400' type="file" accept="image/*" onChange={handleImageChange} />
-            <button className='mb-12 bg-amber-400 p-4 rounded text-white hover-text-black' onClick={handleImageUpload}>Upload Image</button>
+            <button className='mb-12 bg-amber-400 p-4 rounded text-white hover:text-black' onClick={handleImageUpload}>Upload Image</button>
           </div>
         </div>
           <h3 className="text-4xl font-bold text-gray-900 bg-amber-400 p-6 text-center">

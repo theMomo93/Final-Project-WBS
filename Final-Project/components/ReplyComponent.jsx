@@ -3,8 +3,20 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { UserContext } from "@/contexts/UserContext";
 import { useContext } from 'react';
+import containsBannedWords from './BannedWords';
 
 
+
+
+
+
+const errorToast=(message)=>{
+  toast.error(message, {
+    style:{
+      borderLeft: '15px solid #960018'
+    }
+  })
+ }
 export default function ReplyComponent({ commentId, username }) {
     const [reply, setReply] = useState("");
     const [isFormVisible, setIsFormVisible] = useState(false);
@@ -34,7 +46,10 @@ export default function ReplyComponent({ commentId, username }) {
 
   const handleAddReply = async () => {
     const userId = localStorage.getItem("userId");
-    
+    if (containsBannedWords(reply)) {
+      errorToast('Your reply contains banned words.');
+      return;
+    }
     try {
       const response = await axios.post(`http://localhost:5000/reply/add/${commentId}`, {
         content: reply,
@@ -119,6 +134,10 @@ export default function ReplyComponent({ commentId, username }) {
   };
   
   const handleSaveEdit = async () => {
+    if (containsBannedWords(editedReply)) {
+      errorToast('Your question contains banned words.');
+      return;
+    }
     try {
       const updatedReplyData = {
         content: editedReply,

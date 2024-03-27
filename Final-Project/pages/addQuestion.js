@@ -6,7 +6,7 @@ import { toast } from 'react-hot-toast';
 import { UserContext } from '@/contexts/UserContext';
 import { useContext } from "react";
 import Footer from "@/components/Footer";
-
+import containsBannedWords from "@/components/BannedWords";
 
 export default function AddQuestion() {
   const [title, setTitle] = useState("");
@@ -46,6 +46,10 @@ export default function AddQuestion() {
       if (!title || !content) {
         // Display a notification when fields are empty
         errorToast('Please fill in all fields.');
+        return;
+      }
+      if (containsBannedWords(title) || containsBannedWords(content)) {
+        errorToast('Your question contains banned words.');
         return;
       }
 

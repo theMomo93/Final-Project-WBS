@@ -6,7 +6,7 @@ import QuestionComponent from "@/components/QuestionComponent";
 import CommentComponent from "@/components/CommentComponent";
 import { toast } from 'react-hot-toast';
 import { UserContext } from "@/contexts/UserContext";
-
+import containsBannedWords from "@/components/BannedWords";
 
 export default function OpenPost() {
   const router = useRouter();
@@ -93,27 +93,28 @@ export default function OpenPost() {
   }, [itemId]);
 
   const handleAddComment = async () => {
-  
+    
+    // Check if the comment contains banned words
+
 
     const userId = localStorage.getItem("userId"); // Assuming user ID is stored in local storage
     //const user = localStorage.getItem("user");
     try {
-      // Corrected the variable name here
-      //const userObject = JSON.parse(user);
-      //const username = userObject.username;
-      //console.log("")
-      //console.log("Username from local storage:", username);
-
+     if (containsBannedWords(comment)) {
+      errorToast('Your comment contains banned words.');
+      return;
+    }
+      
       const response = await axios.post("http://localhost:5000/comment/add", {
         content: comment,
         questionId: itemId,
         userId: user._id,
         username: user.username,
       });
+      
+      console.log("This is username:" ,username)
       if (response.data.success) {
         const newComment = response.data.comment; // Assuming your API returns the newly added comment
-
-        // Update the state with the new comment
         setAllComments((prevComments) => [...prevComments, newComment]);
 
         successToast('Comment added successfully!');
@@ -162,6 +163,10 @@ export default function OpenPost() {
   };
 
   const handleSaveEdit = async () => {
+    if (containsBannedWords(editedComment)) {
+      errorToast('Your comment contains banned words.');
+      return;
+    }
     try {
       const updatedCommentData = {
         content: editedComment,

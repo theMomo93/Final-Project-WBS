@@ -3,7 +3,6 @@ import ReplyComponent from './ReplyComponent'
 import { UserContext} from "../contexts/UserContext"
 import { useContext } from 'react';
 
-
 export default function CommentComponent({allComments, username , handleDeleteComment, handleEditComment}) {
   const{user, setUser}=useContext(UserContext);
  
