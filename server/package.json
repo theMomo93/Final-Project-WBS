@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "are-we-there-yet": "^4.0.2",
     "bcrypt": "^5.0.0",
     "config": "^3.3.11",
     "connect-mongo": "^5.1.0",
