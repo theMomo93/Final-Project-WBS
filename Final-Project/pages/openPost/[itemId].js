@@ -76,7 +76,7 @@ export default function OpenPost() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/question/get/one?id=${itemId}`
+          `https://portgermanyserver.onrender.com/question/get/one?id=${itemId}`
         );
         console.log("response", response);
         if (response.data.success) {
@@ -105,7 +105,7 @@ export default function OpenPost() {
       return;
     }
       
-      const response = await axios.post("http://localhost:5000/comment/add", {
+      const response = await axios.post("https://portgermanyserver.onrender.com/comment/add", {
         content: comment,
         questionId: itemId,
         userId: user._id,
@@ -133,7 +133,7 @@ export default function OpenPost() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/comment/get/all/${itemId}`
+          `https://portgermanyserver.onrender.com/comment/get/all/${itemId}`
         );
         const data = await response.json();
 
@@ -173,7 +173,7 @@ export default function OpenPost() {
         // Add other properties as needed
       };
   
-      const response = await axios.put(`http://localhost:5000/comment/edit`, {
+      const response = await axios.put(`https://portgermanyserver.onrender.com/comment/edit`, {
         commentId: editCommentId,  // Send the comment ID in the request body
         comment: updatedCommentData,
       });
@@ -206,7 +206,7 @@ export default function OpenPost() {
       
   
       const response = await axios.delete(
-        `http://localhost:5000/comment/delete/${commentId}`
+        `https://portgermanyserver.onrender.com/comment/delete/${commentId}`
       );
   
       console.log("response", response);

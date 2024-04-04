@@ -66,7 +66,7 @@ function eventSharing() {
       }
   
     try {
-      const response = await axios.post(`http://localhost:5000/event/add`, {
+      const response = await axios.post(`https://portgermanyserver.onrender.com/event/add`, {
         title: title,
         time: time,
         description: description,

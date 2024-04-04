@@ -45,7 +45,7 @@ export default function AllEvents() {
       }
       
       const response = await axios.put(
-        `http://localhost:5000/event/edit/${editEventId}`,
+        `https://portgermanyserver.onrender.com/event/edit/${editEventId}`,
         editedEvent
       );
       console.log(response.data);
@@ -117,7 +117,7 @@ export default function AllEvents() {
   useEffect(() => {
     const handleGetAll = async () => {
       try {
-        const response = await fetch("http://localhost:5000/event/all");
+        const response = await fetch("https://portgermanyserver.onrender.com/event/all");
         const data = await response.json();
 
         if (data.success) {
@@ -149,7 +149,7 @@ export default function AllEvents() {
   const handleDeleteEvent = async (eventId) => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/event/delete/${eventId}`
+        `https://portgermanyserver.onrender.com/event/delete/${eventId}`
       );
       console.log("response", response);
 

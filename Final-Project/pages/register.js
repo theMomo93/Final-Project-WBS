@@ -16,7 +16,7 @@ export default function Register() {
     console.log("Form submitted"); // Check if the form submission is triggered
   
     try {
-      const response = await axios.post("http://localhost:5000/users/register", {
+      const response = await axios.post("https://portgermanyserver.onrender.com/users/register", {
         username,
         email,
         password,

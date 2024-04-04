@@ -22,7 +22,7 @@ console.log("ITEM_ID ", itemId)
 
   useEffect(()=> {
     const fetchData = async () => {
-      const response = await axios.get(`http://localhost:5000/question/get/one?id=${itemId}`);
+      const response = await axios.get(`https://portgermanyserver.onrender.com/question/get/one?id=${itemId}`);
       console.log("response", response);
       if (response.data.success) {
         setQuestion(response.data.question);
@@ -48,7 +48,7 @@ console.log("ITEM_ID ", itemId)
     }
 
     try {
-      const response = await axios.put("http://localhost:5000/question/edit", {
+      const response = await axios.put("https://portgermanyserver.onrender.com/question/edit", {
         question,
       });
       console.log("🚀 ~ response:", response);

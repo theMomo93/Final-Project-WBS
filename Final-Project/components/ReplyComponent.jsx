@@ -51,7 +51,7 @@ export default function ReplyComponent({ commentId, username }) {
       return;
     }
     try {
-      const response = await axios.post(`http://localhost:5000/reply/add/${commentId}`, {
+      const response = await axios.post(`https://portgermanyserver.onrender.com/reply/add/${commentId}`, {
         content: reply,
         commentId: commentId,
         username: user.username,
@@ -82,7 +82,7 @@ export default function ReplyComponent({ commentId, username }) {
   useEffect(() => {
     const handleAllReplies = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/reply/all/${commentId}`);
+        const response = await fetch(`https://portgermanyserver.onrender.com/reply/all/${commentId}`);
         const data = await response.json();
 
         if (data.success) {
@@ -103,7 +103,7 @@ export default function ReplyComponent({ commentId, username }) {
   const handleDeleteReply = async (replyId) => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/reply/delete/${replyId}`
+        `https://portgermanyserver.onrender.com/reply/delete/${replyId}`
       );
   
       console.log("response", response);
@@ -144,7 +144,7 @@ export default function ReplyComponent({ commentId, username }) {
         
       };
   
-      const response = await axios.put(`http://localhost:5000/reply/edit`, {
+      const response = await axios.put(`https://portgermanyserver.onrender.com/reply/edit`, {
   reply: {
     _id: editReplyId,
     content: editedReply,

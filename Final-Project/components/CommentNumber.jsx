@@ -7,7 +7,7 @@ export default function CommentNumber({ questionId }) {
     // Fetch comment count when the component mounts
     const fetchCommentCount = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/comment/commentsCount/${questionId}`);
+        const response = await fetch(`https://portgermanyserver.onrender.com/comment/commentsCount/${questionId}`);
         
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);

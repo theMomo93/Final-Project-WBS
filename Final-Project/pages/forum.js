@@ -9,6 +9,7 @@ import { FaArrowDown } from "react-icons/fa";
 import CommentNumber from "@/components/CommentNumber";
 import { toast } from 'react-hot-toast';
 import { UserContext } from "@/contexts/UserContext";
+import ReportUser from "@/components/ReportUser";
 
 
 
@@ -57,7 +58,7 @@ const Forum = (props) => {
   const handleDeleteQuestion = async (itemId) => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/question/delete/${itemId}`
+        `https://portgermanyserver.onrender.com/question/delete/${itemId}`
       );
       console.log("🚀 ~ response:", response);
 
@@ -78,7 +79,7 @@ const Forum = (props) => {
   useEffect(() => {
     console.log("GET ALL QUestions is running");
     const fetchData = async () => {
-      const response = await fetch("http://localhost:5000/question/get/all");
+      const response = await fetch("https://portgermanyserver.onrender.com/question/get/all");
       const data = await response.json();
       console.log("This is data 1", data);
 
@@ -234,6 +235,7 @@ const Forum = (props) => {
                         >
                           Delete
                         </button>
+                        <ReportUser/>
                       </>
                     )}
                   </div>

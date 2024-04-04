@@ -57,7 +57,7 @@ export default function AddQuestion() {
       if (user) {
         const storedUser = JSON.parse(localStorage.getItem("User"));
     
-        const response = await axios.post("http://localhost:5000/question/add", {
+        const response = await axios.post("https://portgermanyserver.onrender.com/question/add", {
           title,
           content,
           username: user.username,

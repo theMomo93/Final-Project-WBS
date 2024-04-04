@@ -15,10 +15,8 @@
     "@mui/material": "^5.15.9",
     "@next/font": "^14.1.0",
     "@prisma/client": "^5.7.1",
-    "@react-google-maps/api": "^2.19.3",
     "axios": "^1.6.7",
     "cookies-next": "^4.1.0",
-    "leaflet": "^1.9.4",
     "next": "14.0.4",
     "next-i18next": "^15.2.0",
     "popover": "^2.4.1",
@@ -27,7 +25,6 @@
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^5.0.1",
-    "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.21.1",
     "rsuite": "^5.50.0"
   },

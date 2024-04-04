@@ -3,8 +3,10 @@ import { useRouter } from "next/router";
 import BreadCrumbs from "@/components/BreadCrumbs";
 import Image from "next/image";
 import homePage from "../img/homePageYellow.png";
+import { useState } from "react";
 
 const Home = () => {
+  const[isParagraphVisible, setIsParagraphVisible]=useState(false);
   const breadCrumbs = [{ name: "Home", url: "/" }];
 
   const router = useRouter();
@@ -13,6 +15,9 @@ const Home = () => {
   }
   function handleLogin() {
     router.push("/login");
+  }
+  function handleClick(){
+    setIsParagraphVisible(!isParagraphVisible)
   }
   return (
     <>
@@ -44,7 +49,7 @@ const Home = () => {
                       immigrants. Our platform is designed to make your journey
                       in a new country smoother. With a one-stop solution, we
                       offer valuable information and a vibrant community forum,
-                      catering to the diverse needs of immigrants and travelers.
+                      fit to the diverse needs of immigrants and travelers.
                     </h3>
                     <div className="mt-10 flex flex-col sm:flex-row justify-center md:justify-start">
                       <button
@@ -74,11 +79,11 @@ const Home = () => {
 
               <div className="w-full max-w-4xl px-24 pb-12 text-center mt-8  border-solid border-slate-800 border-x-2">
                 <h1 className="text-5xl text-blue-900 leading-tight font-bold my-8">
-                  Our Goal: Centralized Information for Easy Integration
+                  Our Goal: Easy access to Information. 
                 </h1>
                 <p className="text-gray-700">
-                  At Port Germany, our primary goal is to consolidate valuable
-                  information in one accessible place, making it effortless for
+                  At Port Germany, our goal is to gather valuable
+                  information in one accessible place, making it easy for
                   immigrants and travelers to conduct research, seek guidance,
                   and engage with the community. We understand that every
                   question matters, and every piece of information contributes
@@ -113,16 +118,22 @@ const Home = () => {
                 <h1 className="text-3xl text-blue-900 font-bold text-center mb-4">
                   Disclaimer:
                 </h1>
-                <p className="text-sm text-gray-500 text-center p-8 m-">
-                  The content presented on this website has been compiled and
-                  created as a final project for the WBS course in Fullstack
-                  Development by a student. While efforts have been made to
-                  ensure accuracy and completeness, it is important to note that
-                  the information provided may be subject to errors or
-                  inaccuracies. This website is not intended to serve as
-                  professional advice, and users are encouraged to independently
-                  verify any information before relying on it.
-                </p>
+                <div className="flex justify-center">
+                <button className="mb-2 md:mb-0 mr-0 md:mr-2 text-white bg-amber-400 py-4 px-4 hover:text-black rounded text-l font-semibold"
+                onClick={handleClick}>Show</button>
+               </div> 
+      {isParagraphVisible && (
+        <p className="text-sm text-gray-500 text-center p-8">
+          The content presented on this website has been compiled and
+          created as a final project for the WBS course in Fullstack
+          Development by a student. While efforts have been made to
+          ensure accuracy and completeness, it is important to note that
+          the information provided may be subject to errors or
+          inaccuracies. This website is not intended to serve as
+          professional advice, and users are encouraged to independently
+          verify any information before relying on it.
+        </p>
+      )}
               </div>
             </section>
           </main>
