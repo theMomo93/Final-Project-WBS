@@ -1,3 +1,4 @@
+import React from "react";
 import Footer from "@/components/Footer";
 import { useRouter } from "next/router";
 import BreadCrumbs from "@/components/BreadCrumbs";
@@ -6,7 +7,7 @@ import homePage from "../img/homePageYellow.png";
 import { useState } from "react";
 
 const Home = () => {
-  const[isParagraphVisible, setIsParagraphVisible]=useState(false);
+  const [isParagraphVisible, setIsParagraphVisible] = useState(false);
   const breadCrumbs = [{ name: "Home", url: "/" }];
 
   const router = useRouter();
@@ -16,8 +17,8 @@ const Home = () => {
   function handleLogin() {
     router.push("/login");
   }
-  function handleClick(){
-    setIsParagraphVisible(!isParagraphVisible)
+  function handleClick() {
+    setIsParagraphVisible(!isParagraphVisible);
   }
   return (
     <>
@@ -26,15 +27,13 @@ const Home = () => {
       <div>
         <div className="bg-gray-50 min-h-screen flex flex-col">
           <main className="flex-1">
-            
             <section className="bg-gray-50">
-            <div className="w-full text-center px-8 sm:px-16 md:px-24 lg:px-32 xl:px-48">
+              <div className="w-full text-center px-8 sm:px-16 md:px-24 lg:px-32 xl:px-48">
                 <h1 className="text-6xl text-gray-900 font-bold mt-24">
                   Register. Login. Connect.
                 </h1>
               </div>
               <div className="flex px-8 md:px-20  items-center justify-center md:h-screen overflow-hidden">
-                
                 <div className="flex flex-col  gap-6 md:flex-row items-center max-w-8xl p-8 ">
                   <div className="w-full md:w-1/2 lg:pr-24 ">
                     <h2 className="text-4xl lg:text-5xl text-center md:text-left text-blue-900 leading-tight font-medium">
@@ -45,7 +44,7 @@ const Home = () => {
                       <span className=" text-2xl font-semibold">
                         Port Germany,
                       </span>{" "}
-                      we're dedicated to creating a welcoming space for
+                      we&apos;re dedicated to creating a welcoming space for
                       immigrants. Our platform is designed to make your journey
                       in a new country smoother. With a one-stop solution, we
                       offer valuable information and a vibrant community forum,
@@ -67,27 +66,28 @@ const Home = () => {
                     </div>
                   </div>
                   <div className="w-2/5 md:w-1/2 flex justify-center md:justify-end rounded ">
-                    <Image priority={true}
-                     className="border-solid border-black border-1"
-                     src={homePage} alt="group of people holding hands" />
+                    <Image
+                      priority={true}
+                      className="border-solid border-black border-1"
+                      src={homePage}
+                      alt="group of people holding hands"
+                    />
                   </div>
                 </div>
               </div>
             </section>
             <section className="flex flex-col items-center justify-center  w-full">
-              
-
               <div className="w-full max-w-4xl px-24 pb-12 text-center mt-8  border-solid border-slate-800 border-x-2">
                 <h1 className="text-5xl text-blue-900 leading-tight font-bold my-8">
-                  Our Goal: Easy access to Information. 
+                  Our Goal: Easy access to Information.
                 </h1>
                 <p className="text-gray-700">
-                  At Port Germany, our goal is to gather valuable
-                  information in one accessible place, making it easy for
-                  immigrants and travelers to conduct research, seek guidance,
-                  and engage with the community. We understand that every
-                  question matters, and every piece of information contributes
-                  to a smoother transition into a new chapter of life.
+                  At Port Germany, our goal is to gather valuable information in
+                  one accessible place, making it easy for immigrants and
+                  travelers to conduct research, seek guidance, and engage with
+                  the community. We understand that every question matters, and
+                  every piece of information contributes to a smoother
+                  transition into a new chapter of life.
                 </p>
 
                 <h1 className="text-5xl text-blue-900 leading-tight font-bold my-8">
@@ -104,13 +104,13 @@ const Home = () => {
                   Together, We Build Bridges
                 </h1>
                 <p className="text-gray-700">
-                  Port Germany is more than a platform; it's a community that
+                  Port Germany is more than a platform; it&apos;s a community that
                   understands the importance of unity in diversity. Our
                   commitment is to empower you with the knowledge and support
                   needed to thrive in your new environment. Register today and
                   embark on a journey where information meets community,
                   creating a seamless integration experience for all. Welcome to
-                  Port Germany – Where Your Journey Begins!
+                  Port Germany  Where Your Journey Begins!
                 </p>
               </div>
 
@@ -119,21 +119,25 @@ const Home = () => {
                   Disclaimer:
                 </h1>
                 <div className="flex justify-center">
-                <button className="mb-2 md:mb-0 mr-0 md:mr-2 text-white bg-amber-400 py-4 px-4 hover:text-black rounded text-l font-semibold"
-                onClick={handleClick}>Show</button>
-               </div> 
-      {isParagraphVisible && (
-        <p className="text-sm text-gray-500 text-center p-8">
-          The content presented on this website has been compiled and
-          created as a final project for the WBS course in Fullstack
-          Development by a student. While efforts have been made to
-          ensure accuracy and completeness, it is important to note that
-          the information provided may be subject to errors or
-          inaccuracies. This website is not intended to serve as
-          professional advice, and users are encouraged to independently
-          verify any information before relying on it.
-        </p>
-      )}
+                  <button
+                    className="mb-2 md:mb-0 mr-0 md:mr-2 text-white bg-amber-400 py-4 px-4 hover:text-black rounded text-l font-semibold"
+                    onClick={handleClick}
+                  >
+                    Show
+                  </button>
+                </div>
+                {isParagraphVisible && (
+                  <p className="text-sm text-gray-500 text-center p-8">
+                    The content presented on this website has been compiled and
+                    created as a final project for the WBS course in Fullstack
+                    Development by a student. While efforts have been made to
+                    ensure accuracy and completeness, it is important to note
+                    that the information provided may be subject to errors or
+                    inaccuracies. This website is not intended to serve as
+                    professional advice, and users are encouraged to
+                    independently verify any information before relying on it.
+                  </p>
+                )}
               </div>
             </section>
           </main>

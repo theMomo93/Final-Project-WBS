@@ -29,7 +29,7 @@ const successToast = (message) => {
     },
   });
 };
-function eventSharing() {
+function EventSharing() {
   const { user, setUser } = useContext(UserContext);
   const [title, setTitle] = useState("");
   const [time, setTime] = useState(new Date());
@@ -42,7 +42,7 @@ function eventSharing() {
   const breadCrumbs = [
     { name: "Home", url: "/" },
     { name: "Information", url: "/information" },
-    { name: "Event Sharing", url: "/information/eventSharing" },
+    { name: "Event Sharing", url: "/information/EventSharing" },
   ];
 
   
@@ -82,9 +82,8 @@ function eventSharing() {
         setDescription("");
         setStreet("");
         setCity("");
-  
         successToast("Event Added Successfully");
-        
+        window.location.reload();
       } else {
         console.error("Failed to add reply");
       }
@@ -197,4 +196,4 @@ function eventSharing() {
   );
 }
 
-export default withAuth(eventSharing);
+export default withAuth(EventSharing);

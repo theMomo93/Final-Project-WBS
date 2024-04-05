@@ -4,23 +4,21 @@ import { useState, useEffect } from "react";
 import containsBannedWords from "@/components/BannedWords";
 import { toast } from 'react-hot-toast';
 
-
-
-
-const errorToast=(message)=>{
+const errorToast = (message) => {
   toast.error(message, {
-    style:{
+    style: {
       borderLeft: '15px solid #960018'
     }
-  })
- }
-export default function addQuestion() {
+  });
+};
+
+const AddQuestion = () => {
   const router = useRouter();
   const { itemId } = router.query;
 
-console.log("ITEM_ID ", itemId)
+  console.log("ITEM_ID ", itemId);
 
-  useEffect(()=> {
+  useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(`https://portgermanyserver.onrender.com/question/get/one?id=${itemId}`);
       console.log("response", response);
@@ -30,16 +28,16 @@ console.log("ITEM_ID ", itemId)
     };
 
     if (itemId) {
-        fetchData();
-      }
-    }, [itemId]);
+      fetchData();
+    }
+  }, [itemId]);
 
   const [question, setQuestion] = useState({
     itemId: "",
     title: "",
     content: "",
   });
-  
+
   const handleSave = async () => {
     // Check for banned words in title and content
     if (containsBannedWords(question.title) || containsBannedWords(question.content)) {
@@ -59,6 +57,7 @@ console.log("ITEM_ID ", itemId)
       // Handle error (e.g., show a message to the user)
     }
   };
+
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-96">
@@ -68,8 +67,8 @@ console.log("ITEM_ID ", itemId)
             Title:
           </label>
           <input
-          value={question.title}
-          onChange={(e)=> setQuestion({...question, title: e.target.value})}
+            value={question.title}
+            onChange={(e) => setQuestion({ ...question, title: e.target.value })}
             type="text"
             id="title"
             className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
@@ -80,19 +79,22 @@ console.log("ITEM_ID ", itemId)
             Content:
           </label>
           <textarea
-          value={question.content}
-          onChange={(e)=> setQuestion({...question, content:e.target.value})}
+            value={question.content}
+            onChange={(e) => setQuestion({ ...question, content: e.target.value })}
             id="content"
             className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
             rows="4"
           ></textarea>
         </div>
-        <button 
-        onClick={handleSave}
-        className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 focus:outline-none">
+        <button
+          onClick={handleSave}
+          className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 focus:outline-none"
+        >
           Ask Question
         </button>
       </div>
     </div>
   );
-}
+};
+
+export default AddQuestion;

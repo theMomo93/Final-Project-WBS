@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import BreadCrumbs from "@/components/BreadCrumbs";
 import { FiChevronsRight } from "react-icons/fi";
 
-export default function information() {
+export default function Information() {
   const breadCrumbs = [
     { name: "Home", url: "/" },
     { name: "Information", url: "/information" },
@@ -50,7 +50,7 @@ export default function information() {
                     <h2 className="text-3xl font-semibold text-black">Work</h2>
                     <p className="mt-2 text-l text-gray-700">
                       Discover whether to look for jobs, your prospects and
-                      opportunities in Germany .
+                      opportunities in Germany.
                     </p>
                     <div className="flex items-center mt-2">
                       <span className="mr-2">Learn More</span>
@@ -103,7 +103,7 @@ export default function information() {
                       Event Sharing
                     </h2>
                     <p className="mt-2 text-l text-gray-700">
-                      Learn about events happening near you!. Meeting new people makes it easier to call this place  a home!
+                      Learn about events happening near you!. Meeting new people makes it easier to call this place a home!
                     </p>
                     <div className="flex items-center mt-2">
                       <span className="mr-2">Learn More</span>

@@ -54,9 +54,9 @@ export default function Contact() {
     <div className="flex flex-col items-center justify-center p-28  bg-blue-50">
       <h1 className="text-5xl mb-4 font-semibold">Contact Us!</h1>
         <p className="bg-blue-50 mb-12 p-8 mx-72 text-xl"> 
-         Welcome to our Contact Us page! We're thrilled that you're
+         Welcome to our Contact Us page! We are thrilled that you are
         considering reaching out to us. Whether you have a question, comment, or
-        just want to say hello, we're here and eager to hear from you. Your
+        just want to say hello, we are here and eager to hear from you. Your
         feedback is invaluable to us as we strive to improve and provide you
         with the best possible experience.
     </p> 

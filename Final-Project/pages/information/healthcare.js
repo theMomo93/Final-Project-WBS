@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "@/components/Footer";
 import BreadCrumbs from "@/components/BreadCrumbs";
 
-export default function healthcare() {
+export default function Healthcare() {
   const breadCrumbs = [
     { name: "Home", url: "/" },
     { name: "Information", url: "/information" },
@@ -15,13 +15,13 @@ export default function healthcare() {
         <div className="flex">
           <div className="w-2/3 p-12">
             <h1 className="text-3xl font-bold mb-4 ">Health Care in Germany</h1>
-            <p className=" indent-4 text-lg">
-              Everyone has a right to basic healthcare no matter their financial
-              status or immigration status. Virtually anyone can receive
-              emergency treatment or simple doctor visit to receive medications.
-              The most of the costs for the treatment are covered by your
-              healthcare provider.{" "}
-            </p>
+            <p className="indent-4 text-lg">
+  Everyone has a right to basic healthcare no matter their financial
+  status or immigration status. Virtually anyone can receive
+  emergency treatment or simple doctor visit to receive medications.
+  The most of the costs for the treatment are covered by your
+  healthcare provider.{" "}
+</p>
             <p className="mb-2 indent-4 text-lg">
               {" "}
               Not only physical health is valued in Germany. Mental illnesses
@@ -41,7 +41,7 @@ export default function healthcare() {
                     There are special programs put in place to help diagnose
                     sickness in children early, or to make sure a child is
                     developing properly. To put it simply those are regular
-                    check-ups know under "U-Untersuchungen. You can more about
+                    check-ups know under U-Untersuchungen. You can more about
                     this topic here:{" "}
                     <a
                       className="text-amber-400"
@@ -69,10 +69,10 @@ export default function healthcare() {
                     The card is used at the Doctors and Hospitals as a proof of
                     insurance. <br />
                     Most residents are insured via statuatory health insurance.
-                    This ist paid for equally by the employer and the
-                    individual, but will be taken away from you paycheck „before
-                    tax“ as a percentage of your income. Childrens statuatory
-                    health insurance is for free (Familienversicherung), private
+                    This is paid for equally by the employer and the individual,
+                    but will be taken away from you paycheck -before tax- as a
+                    percentage of your income. Childrens statuatory health
+                    insurance is for free (Familienversicherung), private
                     insurance requires ist own payment.
                   </p>
                 </li>

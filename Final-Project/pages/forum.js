@@ -9,7 +9,7 @@ import { FaArrowDown } from "react-icons/fa";
 import CommentNumber from "@/components/CommentNumber";
 import { toast } from 'react-hot-toast';
 import { UserContext } from "@/contexts/UserContext";
-import ReportUser from "@/components/ReportUser";
+
 
 
 
@@ -235,7 +235,6 @@ const Forum = (props) => {
                         >
                           Delete
                         </button>
-                        <ReportUser/>
                       </>
                     )}
                   </div>

@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "@/components/Footer";
 import BreadCrumbs from "@/components/BreadCrumbs";
 
-export default function housing() {
+export default function Housing() {
   const breadCrumbs = [
     { name: "Home", url: "/" },
     { name: "Information", url: "/information" },
@@ -24,11 +24,11 @@ export default function housing() {
               There are many factors that can influence that and almost all of
               them depends you. It is not typical in germany that flats and
               houses have any furniture at all, not even a kitchen. That ist
-              important to have in mind when looking for a new place to stay. A
-              handy solution for getting settled or finding permanent housing
-              ist „Zwischenmiete“- meaning subrenting places of people who won’t
-              use their premises für a certain ammount of time (e.g. traveling
-              abrought){" "}
+              important to have in mind when looking for a new place to stay. .A
+              handy solution for getting settled or finding permanent housing is
+              Zwischenmiete meaning subrenting places of people who
+              will not use their premises for a certain amount of time e.g.
+              traveling abroad{" "}
             </p>
             <p className="mb-2 indent-4 text-lg">
               {" "}
@@ -74,7 +74,7 @@ export default function housing() {
                     >
                       ebay kleinanzeigen
                     </a>
-                    In your local area you can alway look for "walk in"
+                    In your local area you can alway look for walk in
                     companies that will provide you with some choice of
                     affordable places, and keep you informed if something pops
                     up.
@@ -111,15 +111,26 @@ export default function housing() {
                 <li className="mb-6 font-bold">
                   Other financial help available
                   <p className="text-gray-900 font-medium font-normal">
-                    <span className="font-semibold"> BaFöG </span> is a financial support you can apply for while still
-                    in school or university. You apply for ist at the 
-                    <span className="font-semibold"> Amt für Ausbildungsförderung</span>   when in school, and<span className="font-semibold"> Studentenwerk </span> 
-                    when in University <span className="font-semibold"> BaB </span> is a finacial support for people in
-                    apprenticeships without or with low income, your apply for
-                    it in your local <span className="font-semibold">Arbeitsagentur Bürgergeld</span> is financial
-                    support for non- or low-income people to secure the minimal
-                    living circumstances. The local <span className="font-semibold">Jobcenter</span> is the place for
-                    to apply.
+                    <span className="font-semibold"> BaFöG </span> is a
+                    financial support you can apply for while still in school or
+                    university. You apply for ist at the
+                    <span className="font-semibold">
+                      {" "}
+                      Amt für Ausbildungsförderung
+                    </span>{" "}
+                    when in school, and
+                    <span className="font-semibold"> Studentenwerk </span>
+                    when in University{" "}
+                    <span className="font-semibold"> BaB </span> is a finacial
+                    support for people in apprenticeships without or with low
+                    income, your apply for it in your local{" "}
+                    <span className="font-semibold">
+                      Arbeitsagentur Bürgergeld
+                    </span>{" "}
+                    is financial support for non- or low-income people to secure
+                    the minimal living circumstances. The local{" "}
+                    <span className="font-semibold">Jobcenter</span> is the
+                    place for to apply.
                   </p>
                 </li>
               </ul>
