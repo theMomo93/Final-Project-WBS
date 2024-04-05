@@ -1,7 +1,8 @@
 import Link from "next/link";
-import Footer from "@/Components/Footer";
 import BreadCrumbs from "@/Components/BreadCrumbs";
 import { FiChevronsRight } from "react-icons/fi";
+import React from "react";
+
 
 export default function Information() {
   const breadCrumbs = [
@@ -116,7 +117,7 @@ export default function Information() {
           </div>
         </section>
       </div>
-      <Footer />
+
     </>
   );
 }

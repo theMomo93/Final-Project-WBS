@@ -1,10 +1,11 @@
 import { useContext, useState } from "react";
-import Footer from "@/Components/Footer";
 import axios from "axios";
 import BreadCrumbs from "@/Components/BreadCrumbs";
 import { useRouter } from "next/router";
 import { UserContext } from "@/contexts/UserContext";
 import Link from "next/link";
+import React from "react";
+
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -166,7 +167,6 @@ export default function Login() {
           </div>
         </div>
       </section>
-      <Footer />
-    </div>
+   </div>
   );
 }

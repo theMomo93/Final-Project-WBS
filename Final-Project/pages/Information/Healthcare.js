@@ -1,5 +1,4 @@
-import React from "react";
-import Footer from "@/Components/Footer";
+
 import BreadCrumbs from "@/Components/BreadCrumbs";
 
 export default function Healthcare() {
@@ -169,7 +168,6 @@ export default function Healthcare() {
           </div>
         </div>
 
-        <Footer />
       </div>
     </>
   );

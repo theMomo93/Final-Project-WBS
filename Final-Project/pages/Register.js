@@ -1,10 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
-import Footer from "@/Components/Footer";
 import { useRouter } from 'next/router';
 import { toast } from 'react-hot-toast';
 import Link from "next/link";
-
+import React from "react";
 
 export default function Register() {
   const [username, setUsername]=useState("");
@@ -168,7 +167,7 @@ export default function Register() {
           </div>
         </div>
       </section>
-      <Footer />
+   
     </div>
   );
 }

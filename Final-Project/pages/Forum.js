@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
-import Footer from "@/Components/Footer";
 import axios from "axios";
 import withAuth from "./withAuth";
 import BreadCrumbs from "@/Components/BreadCrumbs";
@@ -246,7 +245,7 @@ const Forum = (props) => {
 
         
       </div>
-      <Footer />
+
     </>
   );
 };

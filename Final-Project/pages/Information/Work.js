@@ -1,5 +1,4 @@
-import React from "react";
-import Footer from "@/Components/Footer";
+
 import BreadCrumbs from "@/Components/BreadCrumbs";
 
 export default function Work() {
@@ -178,7 +177,6 @@ export default function Work() {
           </div>
         </div>
 
-        <Footer />
       </div>
     </>
   );

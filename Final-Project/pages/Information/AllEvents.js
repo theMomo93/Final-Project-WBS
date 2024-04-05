@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import BreadCrumbs from "@/Components/BreadCrumbs";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { UserContext } from "../../contexts/UserContext";
 import { IoSearchSharp } from "react-icons/io5";
 import EventComponent from "@/Components/EventComponent";
 import containsBannedWords from "@/Components/BannedWords";
@@ -11,7 +10,6 @@ export default function AllEvents() {
   const [allEvents, setAllEvents] = useState([]);
   const [searchCity, setSearchCity] = useState("");
   const [searchTime, setSearchTime] = useState("");
-  const { user } = useContext(UserContext);
   const [editEventId, setEditEventId] = useState(null);
   const [currentTime, setCurrentTime] = useState('');
 

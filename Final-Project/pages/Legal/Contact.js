@@ -1,4 +1,4 @@
-import Footer from "@/Components/Footer";
+
 import React, { useState } from "react";
 
 export default function Contact() {
@@ -142,7 +142,6 @@ export default function Contact() {
         </form>
       </div>
     </div>
-    <Footer/>
     </>
   );
 }

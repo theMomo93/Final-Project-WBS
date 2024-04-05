@@ -1,24 +1,13 @@
 import Navbar from "../Components/Navbar"
 import '@/styles/globals.css'
 import { UserProvider } from "../contexts/UserContext.js";
-import { Montserrat, Poppins, Merriweather, Ubuntu } from "@next/font/google";
+import {  Poppins  } from "@next/font/google";
 import { Toaster } from "react-hot-toast";
+import Footer from "@/Components/Footer";
 
 
 
-const montserrat = Montserrat({ 
-  subsets: ["latin"],
-  weight:["400", "700"],
-})
-const merriweather = Merriweather({
-  subsets: ["latin"],
-  weight:["400", "700"],
-})
 const poppins = Poppins({
-  subsets: ["latin"],
-  weight:["400", "700"],
-})
-const ubuntu = Ubuntu({
   subsets: ["latin"],
   weight:["400", "700"],
 })
@@ -36,6 +25,7 @@ function MyApp({ Component, pageProps }) {
      
       <Component {...pageProps} />
     </main>  
+    <Footer/>
     </UserProvider>
     </>
   );

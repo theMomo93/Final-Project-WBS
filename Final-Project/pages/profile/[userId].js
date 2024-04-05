@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import Footer from '@/Components/Footer';
+
 import { UserContext } from '@/contexts/UserContext';
 import { toast } from 'react-hot-toast';
 import { useRouter } from "next/router";
@@ -42,26 +42,6 @@ const UserProfile = () => {
       setUser(storedUser);
     }
 
-    //const fetchUserData = async () => {
-    //  try {
-     //   const response = await fetch(`http://localhost:5000/users/id/${storedUserId}`);
-     //   if (response.ok) {
-     //     const userData = await response.json();
-     //     console.log("User Data:", userData);
-     //     setUserData(userData);
-     //   } else {
-     //     console.error('Failed to fetch user data');
-     //   }
-     // } catch (error) {
-     //   console.error('Error during fetch:', error.message);
-     // } finally {
-    //    setLoading(false);
-    //  }
-   // };
-
-   // if (storedUserId) {
-     // fetchUserData();
-   // }
     
   }, []);
 
@@ -194,7 +174,7 @@ const UserProfile = () => {
       </div>
       
     </div>
-    <Footer/>
+
     </>
   );
 };

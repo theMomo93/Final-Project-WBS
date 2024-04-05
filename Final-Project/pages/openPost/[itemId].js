@@ -7,6 +7,8 @@ import CommentComponent from "@/Components/CommentComponent";
 import { toast } from 'react-hot-toast';
 import { UserContext } from "@/contexts/UserContext";
 import containsBannedWords from "@/Components/BannedWords";
+import React from "react";
+
 
 export default function OpenPost() {
   const router = useRouter();

@@ -1,5 +1,3 @@
-import React from "react";
-import Footer from "@/Components/Footer";
 import { useRouter } from "next/router";
 import BreadCrumbs from "@/Components/BreadCrumbs";
 import Image from "next/image";
@@ -142,7 +140,6 @@ const Home = () => {
             </section>
           </main>
         </div>
-        <Footer />
       </div>
     </>
   );

@@ -5,7 +5,6 @@ import BreadCrumbs from "@/Components/BreadCrumbs";
 import { toast } from 'react-hot-toast';
 import { UserContext } from '@/contexts/UserContext';
 import { useContext } from "react";
-import Footer from "@/Components/Footer";
 import containsBannedWords from "@/Components/BannedWords";
 
 export default function AddQuestion() {
@@ -128,7 +127,7 @@ export default function AddQuestion() {
           </button>
         </div>
       </div>
-      <Footer/>
+
     </>
   );
 }

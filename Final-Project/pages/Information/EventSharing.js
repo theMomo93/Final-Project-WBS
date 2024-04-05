@@ -1,8 +1,6 @@
-import React from "react";
 import BreadCrumbs from "@/Components/BreadCrumbs";
 import withAuth from "../withAuth";
 import { toast } from "react-hot-toast";
-import Footer from "@/Components/Footer";
 import { useContext, useState } from "react";
 import { UserContext } from "@/contexts/UserContext";
 import { useRouter } from "next/router";
@@ -191,7 +189,6 @@ function EventSharing() {
         </button>
       </form>
 
-      <Footer />
     </>
   );
 }

@@ -1,5 +1,3 @@
-import Footer from "@/Components/Footer";
-import React from "react";
 
 export default function Policy() {
   return (
@@ -105,7 +103,7 @@ export default function Policy() {
           </p>
         </div>
       </div>
-      <Footer />
+
     </div>
   );
 }

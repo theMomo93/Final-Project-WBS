@@ -1,5 +1,3 @@
-import React from "react";
-import Footer from "@/Components/Footer";
 import BreadCrumbs from "@/Components/BreadCrumbs";
 import Image from "next/image";
 import Aboutus from "../img/Aboutus.png";
@@ -59,7 +57,6 @@ export default function AboutUs() {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 }
