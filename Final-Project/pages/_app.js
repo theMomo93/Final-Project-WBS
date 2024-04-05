@@ -1,6 +1,6 @@
 import Navbar from "../Components/Navbar"
 import '@/styles/globals.css'
-import { UserProvider } from "../contexts/UserContext";
+import { UserProvider } from "../contexts/UserContext.js";
 import { Montserrat, Poppins, Merriweather, Ubuntu } from "@next/font/google";
 import { Toaster } from "react-hot-toast";
 

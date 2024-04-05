@@ -7,13 +7,13 @@ const Footer = () => {
     <footer className="bg-gray-800 text-white text-center py-4">
       <div className="w-full mx-auto max-w-screen-xl p-4 flex flex-col items-center justify-between">
         <div className="flex justify-center space-x-4 mb-auto">
-          <Link href="/Legal/policy" className="text-sm">
+          <Link href="/Legal/Policy" className="text-sm">
             Privacy Policy
           </Link>
-          <Link href="/Legal/terms" className="text-sm">
+          <Link href="/Legal/Terms" className="text-sm">
             Term of Service
           </Link>
-          <Link href="/Legal/contact" className="text-sm">
+          <Link href="/Legal/Contact" className="text-sm">
             Contact
           </Link>
         </div>

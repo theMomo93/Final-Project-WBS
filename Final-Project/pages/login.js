@@ -155,7 +155,7 @@ export default function Login() {
                 <p className="text-sm font-light text-gray-500 dark:text-gray-300">
                   You do not have an account? Join us!{" "}
                   <Link
-                    href="/register"
+                    href="/Register"
                     className="font-medium text-primary-00 hover:underline dark:text-primary-500"
                   >
                     Register!

@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from 'next/router';
-import Image from "next/image";
-import logoPort from "../img/logoPort.png"
 import { UserContext } from "@/contexts/UserContext";
 
 
@@ -114,13 +112,13 @@ const Navbar = () => {
           
             Home 
           </Link>
-          <Link href="/forum" className="text-white hover:animate-pulse">
+          <Link href="/Forum" className="text-white hover:animate-pulse">
             Forum
           </Link>
-          <Link href="/information" className="text-white hover:animate-pulse">
+          <Link href="/Information" className="text-white hover:animate-pulse">
             Information
           </Link>
-          <Link href="/aboutus" className="text-white hover:animate-pulse">
+          <Link href="/AboutUs" className="text-white hover:animate-pulse">
             About us
           </Link>
 
