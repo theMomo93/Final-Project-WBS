@@ -15,6 +15,10 @@ export default function AllEvents() {
   const [editEventId, setEditEventId] = useState(null);
   const [currentTime, setCurrentTime] = useState('');
 
+// Reload the window
+
+
+
   const [editedEvent, setEditedEvent] = useState({
     title: "",
     description: "",

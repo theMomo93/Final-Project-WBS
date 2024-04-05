@@ -3,6 +3,7 @@ import axios from "axios";
 import Footer from "@/components/Footer";
 import { useRouter } from 'next/router';
 import { toast } from 'react-hot-toast';
+import Link from "next/link";
 
 
 export default function Register() {
@@ -46,7 +47,7 @@ export default function Register() {
           <img
             className="w-10 h-10 mr-2 rounded-full"
             src="https://images.unsplash.com/photo-1630475338242-339bd74c449d?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="logo"
+            alt="logo blue background and yellow anchor"
           />
           Warm hearts and open minds
         </a>
@@ -57,7 +58,10 @@ export default function Register() {
           </h1>
          </div> 
         <div className="flex flex-row items-center justify-around px-16 py-18 mx-auto md:h-screen lg:py-0 w-fit shadow-xl">
-          <img className="hidden md:block custom-Image2" src="https://images.unsplash.com/photo-1607000975574-0b425df6975a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="placeholder" />
+          <img 
+          className="hidden md:block custom-Image2"
+           src="https://images.unsplash.com/photo-1607000975574-0b425df6975a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="writing -go for it in wooden scrabble piece" />
 
           <div className="w-full bg-white shadow-xl dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8 bg-gradient-to-r from-cyan-600 to-blue-700 text-black text-left">
@@ -152,12 +156,12 @@ export default function Register() {
                 </button>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-300">
                   Do you already have an account?{' '}
-                  <a
+                  <Link
                     href="/login"
                     className="font-medium text-primary-00 hover:underline dark:text-primary-500"
                   >
                     Log in here!
-                  </a>
+                  </Link>
                 </p>
               </form>
             </div>

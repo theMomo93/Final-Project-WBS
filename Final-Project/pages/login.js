@@ -4,8 +4,9 @@ import axios from "axios";
 import BreadCrumbs from "@/components/BreadCrumbs";
 import { useRouter } from "next/router";
 import { UserContext } from "@/contexts/UserContext";
+import Link from "next/link";
 
-export default function login() {
+export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setUser } = useContext(UserContext);
@@ -152,13 +153,13 @@ export default function login() {
                   Login to an account
                 </button>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-300">
-                  You don't have an account? Join us!{" "}
-                  <a
+                  You do not have an account? Join us!{" "}
+                  <Link
                     href="/register"
                     className="font-medium text-primary-00 hover:underline dark:text-primary-500"
                   >
                     Register!
-                  </a>
+                  </Link>
                 </p>
               </form>
             </div>

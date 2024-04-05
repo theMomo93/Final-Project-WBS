@@ -77,7 +77,7 @@ const UserProfile = () => {
       const formData = new FormData();
       formData.append("profileImage", image);
 
-      const response = await fetch(`http://localhost:5000/users/add/image/${storedUserId }`, {
+      const response = await fetch(`https://portgermanyserver.onrender.com/users/add/image/${storedUserId }`, {
         method: "POST",
         body: formData,
       });
@@ -107,7 +107,7 @@ const UserProfile = () => {
   }
   const handleDeleteUser = async () => {
     try {
-            const response = await fetch(`http://localhost:5000/users/delete/${userId}`, {
+            const response = await fetch(`https://portgermanyserver.onrender.com/users/delete/${userId}`, {
         method: "DELETE",
       });
 

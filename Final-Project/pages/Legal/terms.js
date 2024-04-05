@@ -1,7 +1,7 @@
 import Footer from '@/components/Footer';
 import React from 'react';
 
-export default function terms() {
+export default function Terms() {
   return (
     <div>
     <div className="bg-gray-100 min-h-screen flex flex-col justify-between mx-28 my-12 rounded p-8">
