@@ -12,7 +12,6 @@ import { UserContext } from "@/contexts/UserContext";
 
 
 
-
 const Forum = (props) => {
   
   const breadCrumbs = [{ name: "Forum", url: "/forum" }];
