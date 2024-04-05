@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
-import BreadCrumbs from "@/components/BreadCrumbs";
+import BreadCrumbs from "@/Components/BreadCrumbs";
 import { toast } from 'react-hot-toast';
 import { UserContext } from '@/contexts/UserContext';
 import { useContext } from "react";
-import Footer from "@/components/Footer";
-import containsBannedWords from "@/components/BannedWords";
+import Footer from "@/Components/Footer";
+import containsBannedWords from "@/Components/BannedWords";
 
 export default function AddQuestion() {
   const [title, setTitle] = useState("");

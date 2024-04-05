@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import containsBannedWords from "@/components/BannedWords";
+import containsBannedWords from "@/Components/BannedWords";
 import { toast } from 'react-hot-toast';
 
 const errorToast = (message) => {

@@ -1,15 +1,15 @@
 import React from "react";
-import BreadCrumbs from "@/components/BreadCrumbs";
+import BreadCrumbs from "@/Components/BreadCrumbs";
 import withAuth from "../withAuth";
 import { toast } from "react-hot-toast";
-import Footer from "@/components/Footer";
+import Footer from "@/Components/Footer";
 import { useContext, useState } from "react";
 import { UserContext } from "@/contexts/UserContext";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { FaCircleArrowRight } from "react-icons/fa6";
 import { FaArrowDown } from "react-icons/fa";
-import containsBannedWords from "@/components/BannedWords";
+import containsBannedWords from "@/Components/BannedWords";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";

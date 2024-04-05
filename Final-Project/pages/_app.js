@@ -1,4 +1,4 @@
-import Navbar from "../components/Navbar"
+import Navbar from "../Components/Navbar"
 import '@/styles/globals.css'
 import { UserProvider } from "../contexts/UserContext";
 import { Montserrat, Poppins, Merriweather, Ubuntu } from "@next/font/google";

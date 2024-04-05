@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Footer from "@/components/Footer";
-import BreadCrumbs from "@/components/BreadCrumbs";
+import Footer from "@/Components/Footer";
+import BreadCrumbs from "@/Components/BreadCrumbs";
 import { FiChevronsRight } from "react-icons/fi";
 
 export default function Information() {

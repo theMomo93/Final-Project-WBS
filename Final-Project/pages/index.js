@@ -1,7 +1,7 @@
 import React from "react";
-import Footer from "@/components/Footer";
+import Footer from "@/Components/Footer";
 import { useRouter } from "next/router";
-import BreadCrumbs from "@/components/BreadCrumbs";
+import BreadCrumbs from "@/Components/BreadCrumbs";
 import Image from "next/image";
 import homePage from "../img/homePageYellow.png";
 import { useState } from "react";

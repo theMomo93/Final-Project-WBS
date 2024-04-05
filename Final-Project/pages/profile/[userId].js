@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import Footer from '@/components/Footer';
+import Footer from '@/Components/Footer';
 import { UserContext } from '@/contexts/UserContext';
 import { toast } from 'react-hot-toast';
 import { useRouter } from "next/router";

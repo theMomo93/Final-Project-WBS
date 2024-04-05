@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import BreadCrumbs from "@/components/BreadCrumbs";
+import BreadCrumbs from "@/Components/BreadCrumbs";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { UserContext } from "../../contexts/UserContext";
 import { IoSearchSharp } from "react-icons/io5";
-import EventComponent from "@/components/EventComponent";
-import containsBannedWords from "@/components/BannedWords";
+import EventComponent from "@/Components/EventComponent";
+import containsBannedWords from "@/Components/BannedWords";
 
 export default function AllEvents() {
   const [allEvents, setAllEvents] = useState([]);

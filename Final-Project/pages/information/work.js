@@ -1,6 +1,6 @@
 import React from "react";
-import Footer from "@/components/Footer";
-import BreadCrumbs from "@/components/BreadCrumbs";
+import Footer from "@/Components/Footer";
+import BreadCrumbs from "@/Components/BreadCrumbs";
 
 export default function Work() {
   const breadCrumbs = [

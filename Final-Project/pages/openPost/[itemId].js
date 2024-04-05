@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useState, useEffect, useContext } from "react";
-import BreadCrumbs from "@/components/BreadCrumbs";
-import QuestionComponent from "@/components/QuestionComponent";
-import CommentComponent from "@/components/CommentComponent";
+import BreadCrumbs from "@/Components/BreadCrumbs";
+import QuestionComponent from "@/Components/QuestionComponent";
+import CommentComponent from "@/Components/CommentComponent";
 import { toast } from 'react-hot-toast';
 import { UserContext } from "@/contexts/UserContext";
-import containsBannedWords from "@/components/BannedWords";
+import containsBannedWords from "@/Components/BannedWords";
 
 export default function OpenPost() {
   const router = useRouter();

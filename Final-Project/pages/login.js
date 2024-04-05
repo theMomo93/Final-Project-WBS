@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
-import Footer from "@/components/Footer";
+import Footer from "@/Components/Footer";
 import axios from "axios";
-import BreadCrumbs from "@/components/BreadCrumbs";
+import BreadCrumbs from "@/Components/BreadCrumbs";
 import { useRouter } from "next/router";
 import { UserContext } from "@/contexts/UserContext";
 import Link from "next/link";

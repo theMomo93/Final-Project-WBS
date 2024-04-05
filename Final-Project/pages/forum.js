@@ -1,12 +1,12 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
-import Footer from "@/components/Footer";
+import Footer from "@/Components/Footer";
 import axios from "axios";
 import withAuth from "./withAuth";
-import BreadCrumbs from "@/components/BreadCrumbs";
+import BreadCrumbs from "@/Components/BreadCrumbs";
 import { FaArrowDown } from "react-icons/fa";
-import CommentNumber from "@/components/CommentNumber";
+import CommentNumber from "@/Components/CommentNumber";
 import { toast } from 'react-hot-toast';
 import { UserContext } from "@/contexts/UserContext";
 
