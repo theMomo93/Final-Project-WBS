@@ -26,24 +26,7 @@ const Navbar = () => {
       
     }
 
-   // const fetchUserData = async () => {
-   //   try {
-   //     const response = await fetch(`http://localhost:5000/users/id/${userId}`);
-   //     if (response.ok) {
-   //       const userData = await response.json();
-   //       console.log("User Data:", userData);
-   //       setUserData(userData);
-   //     } else {
-   //       console.error('Failed to fetch user data');
-   //     }
-   //   } catch (error) {
-   //     console.error('Error during fetch:', error.message);
-   //   } finally {
-    //   
-    //  }
-      
-   // };
-    // Check if the Google Translate script is already loaded
+   
     if (
       !isGoogleTranslateScriptLoaded &&
       (!window.google || !window.google.translate)
@@ -112,10 +95,10 @@ const Navbar = () => {
           
             Home 
           </Link>
-          <Link href="/Forum" className="text-white hover:animate-pulse">
+          <Link href="/forum" className="text-white hover:animate-pulse">
             Forum
           </Link>
-          <Link href="/Information" className="text-white hover:animate-pulse">
+          <Link href="/information" className="text-white hover:animate-pulse">
             Information
           </Link>
           <Link href="/AboutUs" className="text-white hover:animate-pulse">
@@ -127,9 +110,6 @@ const Navbar = () => {
     
           {user?._id ? (
   <>
-
-
-
   
     <Link href={`/profile/${user?._id}`} className="text-white hover:animate-pulse">
       User Profile
