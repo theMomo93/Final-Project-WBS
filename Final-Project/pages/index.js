@@ -4,6 +4,7 @@ import Image from "next/image";
 import homePage from "../img/homePageYellow.png";
 import { useState } from "react";
 
+
 const Home = () => {
   const [isParagraphVisible, setIsParagraphVisible] = useState(false);
   const router = useRouter();

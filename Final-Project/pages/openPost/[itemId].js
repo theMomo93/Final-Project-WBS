@@ -10,6 +10,7 @@ import containsBannedWords from "@/Components/BannedWords";
 
 
 
+
 export default function OpenPost() {
   const router = useRouter();
 
