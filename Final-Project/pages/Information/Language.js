@@ -6,7 +6,7 @@ export default function Language() {
   const breadCrumbs = [
     { name: "Home", url: "/" },
     { name: "Information", url: "/information" },
-    { name: "Language", url: "/information/language" },
+    { name: "Housing", url: "/information/language" },
   ];
   
   return (
