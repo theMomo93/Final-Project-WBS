@@ -87,13 +87,13 @@ const Forum = (props) => {
   
 
   function handleClick() {
-    router.push("/addQuestion");
+    router.push("/AddQuestion");
   }
   function handleEdit(itemId) {
-    router.push(`/editQuestion/${itemId}`);
+    router.push(`/EditQuestion/${itemId}`);
   }
   function handleOpenPost(itemId) {
-    router.push(`/openPost/${itemId}`);
+    router.push(`/OpenPost/${itemId}`);
   }
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);

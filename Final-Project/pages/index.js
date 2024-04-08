@@ -13,10 +13,10 @@ const Home = () => {
 const breadCrumbs = [{ name: "Home", url: "/" }];
 
   function handleRegister() {
-    router.push("/register");
+    router.push("/Register");
   }
   function handleLogin() {
-    router.push("/login");
+    router.push("/Login");
   }
   function handleClick() {
     setIsParagraphVisible(!isParagraphVisible);
