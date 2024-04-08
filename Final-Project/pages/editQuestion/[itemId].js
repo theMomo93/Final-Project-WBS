@@ -58,7 +58,7 @@ const AddQuestion = () => {
       });
       console.log("🚀 ~ response:", response);
 
-      if (response.data.success) router.push("/forum");
+      if (response.data.success) router.push("/Forum");
     } catch (error) {
       console.error("Error editing question:", error);
       // Handle error (e.g., show a message to the user)

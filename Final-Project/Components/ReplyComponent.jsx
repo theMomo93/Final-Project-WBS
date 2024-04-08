@@ -6,10 +6,6 @@ import { useContext } from 'react';
 import containsBannedWords from './BannedWords';
 
 
-
-
-
-
 const errorToast=(message)=>{
   toast.error(message, {
     style:{

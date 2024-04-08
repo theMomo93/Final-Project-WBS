@@ -5,8 +5,8 @@ import Footer from "@/Components/Footer";
 export default function Housing() {
   const breadCrumbs = [
     { name: "Home", url: "/" },
-    { name: "Information", url: "/Information" },
-    { name: "Housing", url: "/Information/Housing" },
+    { name: "Information", url: "/information" },
+    { name: "Housing", url: "/information/housing" },
   ];
   return (
     <>
