@@ -1,3 +1,4 @@
+import Footer from "@/Components/Footer";
 import React from "react";
 
 export default function Terms() {
@@ -70,7 +71,7 @@ export default function Terms() {
 
      
     </div>
-
+<Footer/>
     </div>
   );
 }

@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }) {
      
       <Component {...pageProps} />
     </main>  
-    <Footer/>
+
     </UserProvider>
     </>
   );

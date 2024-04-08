@@ -3,6 +3,7 @@ import { useRouter } from "next/router"; // Changed from 'next/navigation'
 import { useState, useEffect } from "react";
 import containsBannedWords from "@/Components/BannedWords";
 import { toast } from 'react-hot-toast';
+import Footer from "@/Components/Footer";
 
 const errorToast = (message) => {
   toast.error(message, {
@@ -99,6 +100,7 @@ const AddQuestion = () => {
           Ask Question
         </button>
       </div>
+      <Footer/>
     </div>
   );
 };

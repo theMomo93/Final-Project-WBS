@@ -1,5 +1,6 @@
 
 import BreadCrumbs from "@/Components/BreadCrumbs";
+import Footer from "@/Components/Footer";
 
 export default function Language() {
   const breadCrumbs = [
@@ -195,6 +196,7 @@ export default function Language() {
 
 
       </div>
+      <Footer/>
     </>
   );
 }

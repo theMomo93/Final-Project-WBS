@@ -7,6 +7,7 @@ import QuestionComponent from "@/Components/QuestionComponent";
 import CommentComponent from "@/Components/CommentComponent";
 import { UserContext } from "@/contexts/UserContext";
 import containsBannedWords from "@/Components/BannedWords";
+import Footer from "@/Components/Footer";
 
 
 
@@ -292,6 +293,7 @@ export default function OpenPost() {
       </div>
     </div>
   </div>
+  <Footer/>
 </>
   )
 }

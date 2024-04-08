@@ -6,6 +6,7 @@ import { toast } from 'react-hot-toast';
 import { UserContext } from '@/contexts/UserContext';
 import { useContext } from "react";
 import containsBannedWords from "@/Components/BannedWords";
+import Footer from "@/Components/Footer";
 
 export default function AddQuestion() {
   const [title, setTitle] = useState("");
@@ -118,7 +119,7 @@ export default function AddQuestion() {
           </button>
         </div>
       </div>
-
+<Footer/>
     </>
   );
 }

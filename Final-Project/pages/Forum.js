@@ -7,6 +7,7 @@ import { FaArrowDown } from "react-icons/fa";
 import CommentNumber from "@/Components/CommentNumber";
 import { toast } from 'react-hot-toast';
 import { UserContext } from "@/contexts/UserContext";
+import Footer from "@/Components/Footer";
 
 
 
@@ -242,7 +243,7 @@ const Forum = (props) => {
 
         
       </div>
-
+<Footer/>
     </>
   );
 };

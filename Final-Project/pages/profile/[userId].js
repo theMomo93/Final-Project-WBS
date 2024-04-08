@@ -3,6 +3,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { UserContext } from '@/contexts/UserContext';
 import { toast } from 'react-hot-toast';
 import { useRouter } from "next/navigation";
+import Footer from '@/Components/Footer';
 
 const UserProfile = () => {
  
@@ -174,7 +175,7 @@ const UserProfile = () => {
       </div>
       
     </div>
-
+<Footer/>
     </>
   );
 };

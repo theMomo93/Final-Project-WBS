@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { toast } from 'react-hot-toast';
 import Link from "next/link";
 import React from "react";
+import Footer from "@/Components/Footer";
 
 export default function Register() {
   const [username, setUsername]=useState("");
@@ -167,7 +168,7 @@ export default function Register() {
           </div>
         </div>
       </section>
-   
+   <Footer/>
     </div>
   );
 }

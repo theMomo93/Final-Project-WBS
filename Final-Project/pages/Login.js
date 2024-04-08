@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { UserContext } from "@/contexts/UserContext";
 import Link from "next/link";
 import React from "react";
+import Footer from "@/Components/Footer";
 
 
 export default function Login() {
@@ -167,6 +168,7 @@ export default function Login() {
           </div>
         </div>
       </section>
+      <Footer/>
    </div>
   );
 }

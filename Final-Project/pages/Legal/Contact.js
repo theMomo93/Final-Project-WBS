@@ -142,6 +142,7 @@ export default function Contact() {
         </form>
       </div>
     </div>
+    <Footer/>
     </>
   );
 }

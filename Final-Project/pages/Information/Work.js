@@ -1,5 +1,6 @@
 
 import BreadCrumbs from "@/Components/BreadCrumbs";
+import Footer from "@/Components/Footer";
 
 export default function Work() {
   const breadCrumbs = [
@@ -178,6 +179,7 @@ export default function Work() {
         </div>
 
       </div>
+      <Footer/>
     </>
   );
 }

@@ -2,6 +2,7 @@ import Link from "next/link";
 import BreadCrumbs from "@/Components/BreadCrumbs";
 import { FiChevronsRight } from "react-icons/fi";
 import React from "react";
+import Footer from "@/Components/Footer";
 
 
 export default function Information() {
@@ -102,7 +103,7 @@ export default function Information() {
           </div>
         </section>
       </div>
-
+<Footer/>
     </>
   );
 }

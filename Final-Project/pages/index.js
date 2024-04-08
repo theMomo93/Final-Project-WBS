@@ -3,6 +3,7 @@ import BreadCrumbs from "@/Components/BreadCrumbs";
 import Image from "next/image";
 import homePage from "../img/homePageYellow.png";
 import { useState } from "react";
+import Footer from "@/Components/Footer";
 
 
 const Home = () => {
@@ -143,6 +144,7 @@ const breadCrumbs = [{ name: "Home", url: "/" }];
           </main>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };
