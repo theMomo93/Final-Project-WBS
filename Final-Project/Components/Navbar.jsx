@@ -59,65 +59,66 @@ const Navbar = () => {
 
   return (
     <nav className="bg-gradient-to-r from-cyan-900 to-blue-950 shadow-lg">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center flex-wrap">
+      <div className="container mx-auto px-2 sm:px-6 lg:px-8 flex flex-wrap justify-between items-center">
         <img
-          className="w-16 h-16 mr-2 rounded-full border border-solid border-1 border-black"
+          className="w-12 h-12 sm:w-16 sm:h-16 mr-2 rounded-full border border-solid border-1 border-black"
           src="https://images.unsplash.com/photo-1630475338242-339bd74c449d?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="logo"
         />
-        <div className="m-0 text-white text-2xl sm:text-4xl font-bold">
+        <div className="m-0 text-white text-lg sm:text-2xl font-bold">
           Warm Hearts and Open Minds
         </div>
   
         {user?.profileImage && (
           <img
-            className="w-16 h-16 sm:w-20 sm:h-20 rounded-full mt-2 sm:mt-0 object-cover"
+            className="w-12 h-12 sm:w-16 sm:h-16 rounded-full mt-2 sm:mt-0 object-cover"
             src={user?.profileImage}
             alt="profile"
           />
         )}
   
-        <div className="space-x-4 mt-3">
-          <Link href="/" className="text-white hover:animate-pulse">
-            Home
-          </Link>
-          <Link href="/Forum" className="text-white hover:animate-pulse">
-            Forum
-          </Link>
-          <Link href="/Information" className="text-white hover:animate-pulse">
-            Information
-          </Link>
-          <Link href="/AboutUs" className="text-white hover:animate-pulse">
-            About us
-          </Link>
+        <div className="mt-3 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-end space-y-2 sm:space-x-4 sm:space-y-0">
+            <Link href="/" className="text-white hover:animate-pulse">
+              Home
+            </Link>
+            <Link href="/Forum" className="text-white hover:animate-pulse">
+              Forum
+            </Link>
+            <Link href="/Information" className="text-white hover:animate-pulse">
+              Information
+            </Link>
+            <Link href="/AboutUs" className="text-white hover:animate-pulse">
+              About us
+            </Link>
   
-          {user?._id ? (
-            <>
-              <Link
-                href={`/profile/${user?._id}`}
-                className="text-white hover:animate-pulse"
-              >
-                User Profile
-              </Link>
+            {user?._id ? (
+              <>
+                <Link
+                  href={`/profile/${user?._id}`}
+                  className="text-white hover:animate-pulse"
+                >
+                  User Profile
+                </Link>
   
-              <button
-                onClick={handleLogout}
-                className="text-white cursor-pointer hover:animate-pulse"
-              >
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <Link href="/Register" className="text-white hover:animate-pulse">
-                Register
-              </Link>
-              <Link href="/Login" className="text-white hover:animate-pulse">
-                Log in
-              </Link>
-            </>
-          )}
-  
+                <button
+                  onClick={handleLogout}
+                  className="text-white cursor-pointer hover:animate-pulse"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link href="/Register" className="text-white hover:animate-pulse">
+                  Register
+                </Link>
+                <Link href="/Login" className="text-white hover:animate-pulse">
+                  Log in
+                </Link>
+              </>
+            )}
+          </div>
           <hr className="m-4" />
           <div
             id="google_translate_element"
@@ -127,6 +128,7 @@ const Navbar = () => {
       </div>
     </nav>
   );
+  
           };  
 
 export default Navbar;
