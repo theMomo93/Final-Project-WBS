@@ -75,7 +75,7 @@ const Navbar = () => {
           <Link href="/" className="text-white hover:animate-pulse">
             Home
           </Link>
-          <Link href="/forum" className="text-white hover:animate-pulse">
+          <Link href="/Forum" className="text-white hover:animate-pulse">
             Forum
           </Link>
           <Link href="/Information" className="text-white hover:animate-pulse">
@@ -87,7 +87,7 @@ const Navbar = () => {
 
           {user?._id ? (
             <>
-              <Link href={`/profile/${user?._id}`} className="text-white hover:animate-pulse">
+              <Link href={`/Profile/${user?._id}`} className="text-white hover:animate-pulse">
                 User Profile
               </Link>
 
@@ -97,10 +97,10 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Link href="/register" className="text-white hover:animate-pulse">
+              <Link href="/Register" className="text-white hover:animate-pulse">
                 Register
               </Link>
-              <Link href="/login" className="text-white hover:animate-pulse">
+              <Link href="/Login" className="text-white hover:animate-pulse">
                 Log in
               </Link>
             </>
