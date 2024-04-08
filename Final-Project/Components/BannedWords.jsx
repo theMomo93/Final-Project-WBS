@@ -1,5 +1,3 @@
-import React from 'react'
-
 const bannedWords = ['fuck', 'fucker', 'motherfucker', "shit", "shithead", "slut", "bitch", "nigga", "nigger", "ass", "dick", "pussy"]; // Add your banned words here
 
 function containsBannedWords(content) {
