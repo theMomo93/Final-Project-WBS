@@ -8,7 +8,7 @@ import Footer from "@/Components/Footer";
 export default function Information() {
   const breadCrumbs = [
     { name: "Home", url: "/" },
-    { name: "Information", url: "/information" },
+    { name: "Information", url: "/Information" },
   ];
   return (
     <>
@@ -47,7 +47,7 @@ export default function Information() {
               </div>
 
               <div className="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/2">
-                <Link href="information/work">
+                <Link href="Information/Work">
                   <div className="p-4 bg-white rounded-b shadow-md transition-transform transform hover:scale-105 hover:bg-blue-50 duration-300">
                     <h2 className="text-3xl font-semibold text-black">Work</h2>
                     <p className="mt-2 text-l text-gray-700">
@@ -63,7 +63,7 @@ export default function Information() {
               </div>
 
               <div className="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/2">
-                <Link href="information/healthcare">
+                <Link href="Information/Healthcare">
                   <div className="p-4 bg-white rounded-b shadow-md transition-transform transform hover:scale-105 hover:bg-blue-50 duration-300">
                     <h2 className="text-3xl font-semibold text-black">
                       Health Insurance
@@ -81,7 +81,7 @@ export default function Information() {
               </div>
 
               <div className="w-full px-3 mb-6 lg:px-2 md:w-1/2 lg:w-1/2">
-                <Link href="information/housing">
+                <Link href="Information/Housing">
                   <div className="p-4 bg-white rounded-b shadow-md transition-transform transform hover:scale-105 hover:bg-blue-50 duration-300">
                     <h2 className="text-3xl font-semibold text-black">
                       Housing

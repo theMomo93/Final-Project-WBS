@@ -55,7 +55,7 @@ export default function OpenPost() {
 
 
   const breadCrumbs = [
-    { name: "Forum", url: "/forum" },
+    { name: "Forum", url: "/Forum" },
     { name: "Question", url: `/openPost/${itemId}` },
   ];
 

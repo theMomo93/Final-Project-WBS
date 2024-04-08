@@ -87,7 +87,7 @@ const Navbar = () => {
 
           {user?._id ? (
             <>
-              <Link href={`/Profile/${user?._id}`} className="text-white hover:animate-pulse">
+              <Link href={`/profile/${user?._id}`} className="text-white hover:animate-pulse">
                 User Profile
               </Link>
 
