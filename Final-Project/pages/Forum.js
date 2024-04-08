@@ -90,10 +90,10 @@ const Forum = (props) => {
     router.push("/AddQuestion");
   }
   function handleEdit(itemId) {
-    router.push(`/EditQuestion/${itemId}`);
+    router.push(`/editQuestion/${itemId}`);
   }
   function handleOpenPost(itemId) {
-    router.push(`/OpenPost/${itemId}`);
+    router.push(`/openPost/${itemId}`);
   }
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
