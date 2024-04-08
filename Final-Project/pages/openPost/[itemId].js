@@ -253,7 +253,8 @@ export default function OpenPost() {
             name="comment"
             className="w-200 h-200 border border-gray-300 p-2 rounded focus:outline-none focus:border-blue-500"
           ></textarea>
-          <button
+          <button 
+          type="button"
             onClick={(e) => handleAddComment(e)}
             className="bg-blue-500 mb-8 text-white p-2 rounded hover:bg-amber-400 text-black focus:outline-none mt-2 w-36"
           >
