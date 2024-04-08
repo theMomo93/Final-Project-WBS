@@ -8,7 +8,7 @@ import Footer from "@/Components/Footer";
 export default function Information() {
   const breadCrumbs = [
     { name: "Home", url: "/" },
-    { name: "Information", url: "/information" },
+    { name: "Information", url: "/Information" },
   ];
   return (
     <>
