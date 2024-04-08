@@ -122,7 +122,7 @@ export default function OpenPost() {
         setAllComments((prevComments) => [...prevComments, newComment]);
 
         successToast('Comment added successfully!');
-        
+        router.push(router.asPath);
     }
       console.log("🚀 ~ response:", response);
 
