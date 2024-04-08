@@ -240,7 +240,7 @@ export default function OpenPost() {
         >
           Comments section:
         </h3>
-        <form className="flex flex-col">
+        <div className="flex flex-col">
           <label
             htmlFor="comment"
             className="block text-gray-600 mb-2"
@@ -261,7 +261,7 @@ export default function OpenPost() {
           >
             Leave Comment
           </button>
-        </form>
+        </div>
         <div className={isEditing ? "overlay" : "hidden"} onClick={closeEditPopup}>
         
         </div>
