@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router"; // Changed from 'next/navigation'
 import { useState, useEffect } from "react";
 import containsBannedWords from "@/Components/BannedWords";
 import { toast } from 'react-hot-toast';
@@ -20,10 +20,15 @@ const AddQuestion = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(`https://portgermanyserver.onrender.com/question/get/one?id=${itemId}`);
-      console.log("response", response);
-      if (response.data.success) {
-        setQuestion(response.data.question);
+      try {
+        const response = await axios.get(`https://portgermanyserver.onrender.com/question/get/one?id=${itemId}`);
+        console.log("response", response);
+        if (response.data.success) {
+          setQuestion(response.data.question);
+        }
+      } catch (error) {
+        console.error("Error fetching question:", error);
+        // Handle error (e.g., show a message to the user)
       }
     };
 
@@ -40,7 +45,8 @@ const AddQuestion = () => {
 
   const handleSave = async () => {
     // Check for banned words in title and content
-    if (containsBannedWords(question.title) || containsBannedWords(question.content)) {
+     // Check for banned words in title and content
+     if (containsBannedWords(question.title) || containsBannedWords(question.content)) {
       errorToast('Your question contains banned words.');
       return;
     }
