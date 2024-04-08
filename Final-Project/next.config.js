@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  eslint: {
+    eslint: {
     ignoreDuringBuilds: true,
   },
-  webpack5: false, // Disable Webpack 5
 };
 
-module.exports = nextConfig;
+module.exports = nextConfig
+
+

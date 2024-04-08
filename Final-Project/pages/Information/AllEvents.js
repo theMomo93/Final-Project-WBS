@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import BreadCrumbs from "@/Components/BreadCrumbs";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { IoSearchSharp } from "react-icons/io5";
-import EventComponent from "@/Components/EventComponent";
-import containsBannedWords from "@/Components/BannedWords";
+
+const EventComponent = lazy(() => import("@/Components/EventComponent"));
+const containsBannedWords = lazy(() => import("@/Components/BannedWords"));
 
 export default function AllEvents() {
   const [allEvents, setAllEvents] = useState([]);
@@ -12,11 +13,6 @@ export default function AllEvents() {
   const [searchTime, setSearchTime] = useState("");
   const [editEventId, setEditEventId] = useState(null);
   const [currentTime, setCurrentTime] = useState('');
-
-// Reload the window
-
-
-
   const [editedEvent, setEditedEvent] = useState({
     title: "",
     description: "",
