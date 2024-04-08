@@ -66,6 +66,7 @@ const AddQuestion = () => {
   };
 
   return (
+    <>
     <div className="flex items-center justify-center h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-96">
         <h1 className="text-2xl font-semibold mb-4">Forum</h1>
@@ -100,8 +101,10 @@ const AddQuestion = () => {
           Ask Question
         </button>
       </div>
-      <Footer/>
+      
     </div>
+    <Footer/>
+    </>
   );
 };
 
