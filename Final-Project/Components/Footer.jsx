@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 
 const Footer = () => {
-  console.log('Footer rendered');
+  
   return (
     <footer className="bg-gray-800 text-white text-center py-4">
       <div className="w-full mx-auto max-w-screen-xl p-4 flex flex-col items-center justify-between">

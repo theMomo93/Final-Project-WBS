@@ -1,16 +1,16 @@
+import React from "react";
 import BreadCrumbs from "@/Components/BreadCrumbs";
 import withAuth from "../withAuth";
 import { toast } from "react-hot-toast";
+import Footer from "@/Components/Footer";
 import { useContext, useState } from "react";
 import { UserContext } from "@/contexts/UserContext";
-import { useRouter } from "next/router";
 import axios from "axios";
 import { FaCircleArrowRight } from "react-icons/fa6";
 import { FaArrowDown } from "react-icons/fa";
 import containsBannedWords from "@/Components/BannedWords";
-import DatePicker from "react-datepicker";
-
-import "react-datepicker/dist/react-datepicker.css";
+import Link from "next/link";
+import EventForm from "@/Components/EventForm";
 
 
 const errorToast = (message) => {
@@ -35,7 +35,7 @@ function EventSharing() {
   const [street, setStreet] = useState("");
   const [city, setCity] = useState("");
   const [username, setUsername] = useState("");
-  const router = useRouter();
+
 
   const breadCrumbs = [
     { name: "Home", url: "/" },
@@ -74,12 +74,8 @@ function EventSharing() {
       });
 
       if (response.data.success) {
-        // Reset input fields
-        setTitle("");
-        setTime(new Date());
-        setDescription("");
-        setStreet("");
-        setCity("");
+      
+      
         successToast("Event Added Successfully");
         window.location.reload();
       } else {
@@ -89,10 +85,6 @@ function EventSharing() {
       console.error("Error adding reply:", error);
     }
   };
-
-  function handleClick() {
-    router.push("/information/allEvents");
-  }
 
   return (
     <>
@@ -106,13 +98,15 @@ function EventSharing() {
         </p>
       </div>
       <div
-        onClick={handleClick}
+        
         className="flex items-center align-center justify-center"
       >
-        <button className="flex text-white p-6 m-4 bg-amber-400 rounded hover:text-black font-semibold">
+        <Link
+          href="/information/allEvents"
+         className="flex text-white p-6 m-4 bg-amber-400 rounded hover:text-black font-semibold">
           {" "}
           See all Events <FaCircleArrowRight className="ml-4 mt-1" />
-        </button>
+        </Link>
       </div>
       <div className="flex flex-col items-center justify-center text-center">
         <h1 className="text-4xl font-bold my-4 mb-4 mx-32 text-center">OR</h1>
@@ -121,74 +115,21 @@ function EventSharing() {
           <FaArrowDown className="ml-4 mt-1" />
         </p>
       </div>
+      <EventForm
+      title={title}
+      setTitle={setTitle}
+        time={time}
+        setTime={setTime}
+        description={description}
+        setDescription={setDescription}
+        street={street}
+        setStreet={setStreet}
+        city={city}
+        setCity={setCity}
+        handleSubmit={handleSubmit}
+      />
 
-      <form className="m-8 p-4 max-w-md mx-auto mt-8 p-8 border rounded-lg shadow-md bg-blue-50">
-        <label className="block mb-4">
-          <span className="text-gray-700">Title</span>
-          <input
-            type="text"
-            id="title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            className="mt-1 p-2 w-full border rounded-md"
-          />
-        </label>
-
-        <label className="block mb-4">
-          <span className="text-gray-700">Time</span>
-          <DatePicker
-            selected={time}
-            onChange={(date) => setTime(date)}
-            showTimeSelect
-            timeFormat="HH:mm"
-            timeIntervals={15}
-            dateFormat="MMMM d, yyyy h:mm aa"
-            className="mt-1 p-2 w-full border rounded-md"
-          />
-        </label>
-
-        <label className="block mb-4">
-          <span className="text-gray-700">Description</span>
-          <textarea
-            type="text"
-            id="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            className="mt-1 p-2 w-full border rounded-md"
-          />
-        </label>
-
-        <label className="block mb-4">
-          <span className="text-gray-700">Street</span>
-          <input
-            type="text"
-            id="street"
-            value={street}
-            onChange={(e) => setStreet(e.target.value)}
-            className="mt-1 p-2 w-full border rounded-md"
-          />
-        </label>
-
-        <label className="block mb-4">
-          <span className="text-gray-700">City</span>
-          <input
-            type="text"
-            id="city"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            className="mt-1 p-2 w-full border rounded-md"
-          />
-        </label>
-
-        <button
-          type="submit"
-          className="px-4 bg-amber-400 text-white p-2 rounded-md hover:bg-blue-950"
-          onClick={handleSubmit}
-        >
-          Add Event!
-        </button>
-      </form>
-
+      <Footer />
     </>
   );
 }
