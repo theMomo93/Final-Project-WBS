@@ -98,9 +98,6 @@ export default function OpenPost() {
 
   const handleAddComment = async () => {
     
-    // Check if the comment contains banned words
-
-
     const userId = localStorage.getItem("userId"); // Assuming user ID is stored in local storage
     //const user = localStorage.getItem("user");
     try {
@@ -122,7 +119,8 @@ export default function OpenPost() {
         setAllComments((prevComments) => [...prevComments, newComment]);
 
         successToast('Comment added successfully!');
-        router.push(router.asPath);
+        router.push(`/Forum/${user?._id}`);
+
     }
       console.log("🚀 ~ response:", response);
 
