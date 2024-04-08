@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { UserContext } from "@/contexts/UserContext";
 
 
@@ -70,10 +70,9 @@ const Navbar = () => {
     setUser({});
     // Redirect to the login page or any other desired page
     console.log(router)
-    router.push('/').then(() => {
+    router.push('/')
       // This code will run after the navigation is complete
-    
-    });
+  
   };
  
   return (

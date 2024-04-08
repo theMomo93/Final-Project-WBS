@@ -1,6 +1,6 @@
 import axios from "axios";
-import { useRouter } from "next/router";
-import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 import BreadCrumbs from "@/Components/BreadCrumbs";
 import { toast } from 'react-hot-toast';
 import { UserContext } from '@/contexts/UserContext';

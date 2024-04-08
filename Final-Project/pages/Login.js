@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import axios from "axios";
 import BreadCrumbs from "@/Components/BreadCrumbs";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { UserContext } from "@/contexts/UserContext";
 import Link from "next/link";
 import React from "react";
@@ -31,7 +31,7 @@ export default function Login() {
         localStorage.setItem("UserId", response.data.user._id);
 
         // Navigate to the user's profile and reload the page
-        router.push(`/profile/${response.data.user._id}`).then(() => {});
+        router.push(`/profile/${response.data.user._id}`);
       } else {
         console.error("Invalid response format:", response.data);
         alert("Invalid Email or Password");

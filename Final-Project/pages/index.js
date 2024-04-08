@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import BreadCrumbs from "@/Components/BreadCrumbs";
 import Image from "next/image";
 import homePage from "../img/homePageYellow.png";
