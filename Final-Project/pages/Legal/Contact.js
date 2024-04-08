@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-
+import Footer from "@/Components/Footer";
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
