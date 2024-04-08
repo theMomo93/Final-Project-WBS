@@ -78,8 +78,8 @@ const Navbar = () => {
           <Link href="/forum" className="text-white hover:animate-pulse">
             Forum
           </Link>
-          <Link href="/information" className="text-white hover:animate-pulse">
-            Information
+          <Link href="/Information" className="text-sm">
+            Contact
           </Link>
           <Link href="/AboutUs" className="text-white hover:animate-pulse">
             About us
