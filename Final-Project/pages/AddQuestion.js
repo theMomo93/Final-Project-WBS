@@ -58,7 +58,7 @@ export default function AddQuestion() {
 
         console.log("🚀 ~ response:", response);
 
-        router.push('/forum');
+        router.push('/Forum');
         successToast('Question asked successfully!');
       } else {
         console.error("User data not found in localStorage");
