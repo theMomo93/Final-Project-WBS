@@ -1,4 +1,4 @@
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import BreadCrumbs from "@/Components/BreadCrumbs";
 import Image from "next/image";
 import homePage from "../img/homePageYellow.png";
@@ -6,9 +6,10 @@ import { useState } from "react";
 
 const Home = () => {
   const [isParagraphVisible, setIsParagraphVisible] = useState(false);
-  const breadCrumbs = [{ name: "Home", url: "/" }];
-
   const router = useRouter();
+
+const breadCrumbs = [{ name: "Home", url: "/" }];
+
   function handleRegister() {
     router.push("/register");
   }

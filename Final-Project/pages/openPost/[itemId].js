@@ -1,13 +1,13 @@
-import axios from "axios";
+import React, { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
-import { useState, useEffect, useContext } from "react";
+import axios from "axios";
+import { toast } from 'react-hot-toast';
 import BreadCrumbs from "@/Components/BreadCrumbs";
 import QuestionComponent from "@/Components/QuestionComponent";
 import CommentComponent from "@/Components/CommentComponent";
-import { toast } from 'react-hot-toast';
 import { UserContext } from "@/contexts/UserContext";
 import containsBannedWords from "@/Components/BannedWords";
-import React from "react";
+
 
 
 export default function OpenPost() {

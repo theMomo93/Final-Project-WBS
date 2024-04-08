@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import BreadCrumbs from "@/Components/BreadCrumbs";
 import { toast } from 'react-hot-toast';
@@ -11,16 +11,15 @@ export default function AddQuestion() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [username, setUsername] = useState("");
-  const{user, setUser}=useContext(UserContext); // THIS IS IMPORTANT STUFF RIGHT
+  const { user, setUser } = useContext(UserContext); // THIS IS IMPORTANT STUFF RIGHT
 
-
- const errorToast=(message)=>{
-  toast.error(message, {
-    style:{
-      borderLeft: '15px solid #960018'
-    }
-  })
- }
+  const errorToast = (message) => {
+    toast.error(message, {
+      style: {
+        borderLeft: '15px solid #960018'
+      }
+    })
+  }
   const successToast = (message) => {
     toast.success(message, {
       style: {
@@ -36,14 +35,9 @@ export default function AddQuestion() {
 
   const router = useRouter();
 
-
-    // Scroll to the middle of the page when the component mounts
-
-
   const handleSave = async () => {
     try {
       if (!title || !content) {
-        // Display a notification when fields are empty
         errorToast('Please fill in all fields.');
         return;
       }
@@ -52,31 +46,28 @@ export default function AddQuestion() {
         return;
       }
 
-      
       if (user) {
         const storedUser = JSON.parse(localStorage.getItem("User"));
-    
+
         const response = await axios.post("https://portgermanyserver.onrender.com/question/add", {
           title,
           content,
           username: user.username,
         });
-        
+
         console.log("🚀 ~ response:", response);
 
         router.push('/forum');
         successToast('Question asked successfully!');
       } else {
-        // Handle the case when user data is not available
         console.error("User data not found in localStorage");
-
       }
     } catch (error) {
       console.error("Error posting question:", error);
-      // Handle error (e.g., show a message to the user)
     }
   };
-  function handleCancel(){
+
+  function handleCancel() {
     router.back();
   }
 

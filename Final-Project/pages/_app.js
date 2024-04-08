@@ -28,6 +28,7 @@ function MyApp({ Component, pageProps }) {
         <main className={poppins.className}>
           <Toaster position="top-center" />
           <Navbar />
+          
           <Component {...pageProps} />
         </main>  
         <Footer/>

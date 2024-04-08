@@ -1,6 +1,5 @@
-import React from "react";
-import { useState, useEffect, useContext } from "react";
-import { useRouter } from "next/navigation";
+import React, { useState, useEffect, useContext } from "react";
+import { useRouter } from "next/router";
 import axios from "axios";
 import withAuth from "./withAuth";
 import BreadCrumbs from "@/Components/BreadCrumbs";
@@ -12,15 +11,13 @@ import { UserContext } from "@/contexts/UserContext";
 
 
 const Forum = (props) => {
-  
+  const router = useRouter();
   const breadCrumbs = [{ name: "Forum", url: "/forum" }];
 
   const [questions, setQuestions] = useState([]);
   const [username, setUsername] = useState("");
   const [searchQuery, setSearchQuery] = useState('');
   const{user, setUser}=useContext(UserContext)
-
-  const router = useRouter();
 
   const errorToast=(message)=>{
     toast.error(message, {
