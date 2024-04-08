@@ -1,5 +1,5 @@
 {
-  "name": "animal-adoption-project",
+  "name": "port-germany",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -20,7 +20,6 @@
     "next-i18next": "^15.2.0",
     "popover": "^2.4.1",
     "react": "^18.2.0",
-    "react-datepicker": "^6.3.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^5.0.1",
