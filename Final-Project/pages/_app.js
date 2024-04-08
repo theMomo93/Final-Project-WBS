@@ -1,7 +1,7 @@
 import Navbar from "../Components/Navbar"
 import '@/styles/globals.css'
 import { UserProvider } from "../contexts/UserContext.js";
-import {  Poppins  } from "@next/font/google";
+import {  Poppins  } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import Footer from "@/Components/Footer";
 
