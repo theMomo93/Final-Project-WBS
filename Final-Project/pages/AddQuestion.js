@@ -58,7 +58,7 @@ export default function AddQuestion() {
 
         console.log("🚀 ~ response:", response);
 
-        router.push('/Forum');
+        router.push('/forum');
         successToast('Question asked successfully!');
       } else {
         console.error("User data not found in localStorage");
@@ -74,6 +74,7 @@ export default function AddQuestion() {
 
   return (
     <>
+    <div>
       <BreadCrumbs breadCrumbs={breadCrumbs} />
       <div className="flex items-center justify-center h-screen bg-white-100">
         <div className="bg-blue-50 p-12 rounded-lg shadow-xl w-4/5">
@@ -119,6 +120,8 @@ export default function AddQuestion() {
           </button>
         </div>
       </div>
+
+</div>
 <Footer/>
     </>
   );
