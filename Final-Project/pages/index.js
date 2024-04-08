@@ -5,12 +5,11 @@ import homePage from "../img/homePageYellow.png";
 import { useState } from "react";
 import Footer from "@/Components/Footer";
 
-
 const Home = () => {
   const [isParagraphVisible, setIsParagraphVisible] = useState(false);
   const router = useRouter();
 
-const breadCrumbs = [{ name: "Home", url: "/" }];
+  const breadCrumbs = [{ name: "Home", url: "/" }];
 
   function handleRegister() {
     router.push("/Register");
@@ -77,10 +76,10 @@ const breadCrumbs = [{ name: "Home", url: "/" }];
                 </div>
               </div>
             </section>
-            <section className="flex flex-col items-center justify-center  w-full">
-              <div className="w-full max-w-4xl px-24 pb-12 text-center mt-8  border-solid border-slate-800 border-x-2">
-                <h1 className="text-5xl text-blue-900 leading-tight font-bold my-8">
-                  Our Goal: Easy access to Information.
+            <section className="flex flex-col items-center justify-center w-full">
+              <div className="w-full max-w-4xl px-8 sm:px-24 pb-6 text-center mt-8 border-solid border-slate-800 border-x-2">
+                <h1 className="text-5xl text-blue-900 leading-tight font-bold my-6">
+                  Easy access to Information.
                 </h1>
                 <p className="text-gray-700">
                   At Port Germany, our goal is to gather valuable information in
@@ -91,8 +90,8 @@ const breadCrumbs = [{ name: "Home", url: "/" }];
                   transition into a new chapter of life.
                 </p>
 
-                <h1 className="text-5xl text-blue-900 leading-tight font-bold my-8">
-                  What We Offer: Your Comprehensive Resource Hub
+                <h1 className="text-5xl text-blue-900 leading-tight font-bold my-6">
+                  What We Offer: Your Resource Hub
                 </h1>
                 <p className="text-gray-700">
                   Our user-friendly platform invites you to register and join
@@ -101,34 +100,34 @@ const breadCrumbs = [{ name: "Home", url: "/" }];
                   fingertips.
                 </p>
 
-                <h1 className="text-5xl text-blue-900 leading-tight font-bold my-8">
+                <h1 className="text-5xl text-blue-900 leading-tight font-bold my-6">
                   Together, We Build Bridges
                 </h1>
                 <p className="text-gray-700">
-                  Port Germany is more than a platform; it&apos;s a community that
-                  understands the importance of unity in diversity. Our
+                  Port Germany is more than a platform; it&apos;s a community
+                  that understands the importance of unity in diversity. Our
                   commitment is to empower you with the knowledge and support
                   needed to thrive in your new environment. Register today and
                   embark on a journey where information meets community,
                   creating a seamless integration experience for all. Welcome to
-                  Port Germany  Where Your Journey Begins!
+                  Port Germany Where Your Journey Begins!
                 </p>
               </div>
 
-              <div className="w-full p-8 bg-white rounded-md shadow-md mt-16">
-                <h1 className="text-3xl text-blue-900 font-bold text-center mb-4">
+              <div className="w-full p-4 sm:p-8 bg-white rounded-md shadow-md mt-8">
+                <h1 className="text-3xl text-blue-900 font-bold text-center mb-2">
                   Disclaimer:
                 </h1>
                 <div className="flex justify-center">
                   <button
-                    className="mb-2 md:mb-0 mr-0 md:mr-2 text-white bg-amber-400 py-4 px-4 hover:text-black rounded text-l font-semibold"
+                    className="mb-2 md:mb-0 mr-0 md:mr-2 text-white bg-amber-400 py-3 px-4 hover:text-black rounded text-lg font-semibold"
                     onClick={handleClick}
                   >
                     Show
                   </button>
                 </div>
                 {isParagraphVisible && (
-                  <p className="text-sm text-gray-500 text-center p-8">
+                  <p className="text-sm text-gray-500 text-center p-4">
                     The content presented on this website has been compiled and
                     created as a final project for the WBS course in Fullstack
                     Development by a student. While efforts have been made to
@@ -144,7 +143,7 @@ const breadCrumbs = [{ name: "Home", url: "/" }];
           </main>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };
