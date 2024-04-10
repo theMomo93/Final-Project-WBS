@@ -6,6 +6,8 @@ import { UserContext } from "@/contexts/UserContext";
 import Link from "next/link";
 import React from "react";
 import Footer from "@/Components/Footer";
+import { toast } from 'react-hot-toast';
+
 
 
 export default function Login() {
@@ -60,7 +62,7 @@ export default function Login() {
 
   const breadCrumbs = [
     { name: "Home", url: "/" },
-    { name: "Log in", url: "/login" },
+    { name: "Log in", url: "/Login" },
   ];
   return (
     <div>
