@@ -96,8 +96,8 @@ export default function OpenPost() {
     }
   }, [itemId]);
 
-  const handleAddComment = async (e) => {
-    e.preventDefault();
+  const handleAddComment = async () => {
+    
     
     const userId = localStorage.getItem("userId"); // Assuming user ID is stored in local storage
     //const user = localStorage.getItem("user");
