@@ -169,7 +169,7 @@ export default function ReplyComponent({ commentId, username }) {
   };
 return (
     <>
-      <div>
+      <div className="s:flex s:flex-col s:items-center s:justify-center">
         <button
           className='mx-4 text-base'
           onClick={() => setIsFormVisible(!isFormVisible)}
@@ -207,33 +207,34 @@ return (
         </button>
   
         {areRepliesVisible && (
-          <div className="px-4 py-2 text-l block">
-            {allReplies.map((reply) => (
-              <div key={reply._id} className="mb-4 rounded border border-solid border-gray-800 bg-white p-4  ">
-                <div className="flex flex-col">
-                  <span className="text-sm text-gray-500 mb-2">Reply by {reply.username}:</span>
-                  <p className="text-gray-800 mr-2 px-8">{reply.content}</p>
-                </div>
-                {reply.username === user.username && (
-                  <div className="inline-flex space-x-2  mt-4 justify-end w-full">
-                    <button
-                      onClick={() => handleDeleteReply(reply._id)}
-                      className="text-sm hover:text-red-600 dark:text-gray-400"
-                    >
-                      Delete
-                    </button>
-                    <button
-                      onClick={() => openEditPopup(reply._id, reply.content)}
-                      className="text-sm text-blue-500 hover:text-blue-500 dark:text-gray-400"
-                    >
-                      Edit
-                    </button>
-                  </div>
-                )}
-              </div>
-            ))}
+  <div className="s:px-0 px-4 py-2 text-sm block ">
+    {allReplies.map((reply) => (
+      <div key={reply._id} className="mb-3 rounded border border-solid border-gray-800 bg-white p-3 ">
+        <div className="flex flex-col">
+          <span className="s:text-xs text-gray-500 mb-1">Reply by {reply.username}:</span>
+          <p className="text-gray-800">{reply.content}</p>
+        </div>
+        {reply.username === user.username && (
+          <div className="flex justify-start mt-2">
+            <button
+              onClick={() => handleDeleteReply(reply._id)}
+              className="s:text-xs hover:text-red-600 dark:text-gray-400 mr-2"
+            >
+              Delete
+            </button>
+            <button
+              onClick={() => openEditPopup(reply._id, reply.content)}
+              className="s:text-xs text-blue-500 hover:text-blue-500 dark:text-gray-400"
+            >
+              Edit
+            </button>
           </div>
         )}
+      </div>
+    ))}
+  </div>
+)}
+
 
         <div className={isEditing ? "overlay" : "hidden"} onClick={closeEditPopup}>
           

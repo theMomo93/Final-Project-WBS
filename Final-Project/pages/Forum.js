@@ -108,7 +108,7 @@ const Forum = (props) => {
     <>
       <BreadCrumbs breadCrumbs={breadCrumbs} />
       <div className="w-full max-w-screen-xl mx-auto mt-8 px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-center text-center m-3">
+        <div className="flex flex-col items-center justify-center text-center">
           <h1 className="text-4xl font-bold mx-4 sm:mx-0 mb-4 text-center">
             Forum and Rules:
           </h1>
@@ -186,14 +186,14 @@ const Forum = (props) => {
                   key={item._id}
                   className="mb-4 shadow-md m-2 flex flex-col justify-between relative bg-white hover:bg-blue-50 "
                 >
-                  <h2 className="text-xl font-bold mb-2 ml-2 p-4">
+                  <h2 className="text-xl font-bold mb-2  p-4">
                     {item.title}
                     <span className="text-xs font-light mb-2 ml-4">
                       posted by {item.username}
                     </span>
                   </h2>
-                  <hr className="w-1/4 ml-4 h-1 bg-blue-900 mr-2" />
-                  <p className="text-gray-600 p-4 mt-2 ml-2 ">{item.content}</p>
+                  <hr className="w-1/4 ml-4 h-1 bg-blue-900" />
+                  <p className="text-gray-600 p-4 mt-2">{item.content}</p>
                   <div className="flex flex-col font-normal ml-4"></div>
 
                   <div className="flex-wrap items-start justify-start shadow-md">
@@ -219,7 +219,7 @@ const Forum = (props) => {
                     </h3>
 
                     {item.username === user.username && (
-                      <div className="ml-2 flex items-center ">
+                      <div className="ml-4 flex items-center ">
                         <button
                           onClick={() => handleEdit(item._id)}
                           className="block px-2 sm:px-4 py-2 text-gray-600 hover:text-blue-600 m-2"
