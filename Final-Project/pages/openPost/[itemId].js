@@ -98,39 +98,32 @@ export default function OpenPost() {
 
   const handleAddComment = async () => {
     
-    
     const userId = localStorage.getItem("userId"); // Assuming user ID is stored in local storage
     //const user = localStorage.getItem("user");
     try {
-     if (containsBannedWords(comment)) {
-      errorToast('Your comment contains banned words.');
-      return;
-    }
-      
+      if (containsBannedWords(comment)) {
+          errorToast('Your comment contains banned words.');
+          return;
+      }
+
       const response = await axios.post("https://portgermanyserver.onrender.com/comment/add", {
-        content: comment,
-        questionId: itemId,
-        userId: user._id,
-        username: user.username,
+          content: comment,
+          questionId: itemId,
+          userId: user._id,
+          username: user.username,
       });
-      
-      console.log("This is username:" ,username)
+
       if (response.data.success) {
-        const newComment = response.data.comment; // Assuming your API returns the newly added comment
-        setAllComments((prevComments) => [...prevComments, newComment]);
+          const newComment = response.data.comment;
+          setAllComments((prevComments) => [...prevComments, newComment]);
+          successToast('Comment added successfully!');
+      }
 
-        successToast('Comment added successfully!');
-        
-
-    }
-      console.log("🚀 ~ response:", response);
-
-      
-    } catch (error) {
+  } catch (error) {
       console.error("Error adding comment:", error);
-      
-    }
-  };
+      errorToast('An error occurred while adding your comment.');
+  }
+};
 
   useEffect(() => {
     const fetchData = async () => {
