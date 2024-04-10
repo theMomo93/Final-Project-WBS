@@ -130,7 +130,9 @@ const handleAddComment = async () => {
     if (response.data.success) {
       const newComment = response.data.comment;
       setAllComments((prevComments) => [...prevComments, newComment]);
+      setComment("");
       successToast('Comment added successfully!');
+      
       fetchComments(); // Fetch comments again after adding a new comment
     }
   } catch (error) {
