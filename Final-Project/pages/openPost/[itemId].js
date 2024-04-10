@@ -100,7 +100,7 @@ export default function OpenPost() {
     e.preventDefault();
     
     const userId = localStorage.getItem("userId"); // Assuming user ID is stored in local storage
-    //const user = localStorage.getItem("user");
+   
     try {
      if (containsBannedWords(comment)) {
       errorToast('Your comment contains banned words.');

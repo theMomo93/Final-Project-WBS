@@ -56,10 +56,10 @@ export default function Register() {
   }
   return (
     <div>
-      <section className="bg-white-100 dark:bg-white-800">
+      <section className="bg-white-100 dark:bg-white-800 p-2">
         <a
           href="#"
-          className="flex items-center mb-6 text-4xl font-semibold text-gray-900 dark:text-black justify-center mt-16"
+          className="flex items-center mb-6 text-4xl font-semibold text-gray-900 dark:text-black justify-center mt-8"
         >
           <img
             className="w-10 h-10 mr-2 rounded-full"
@@ -69,12 +69,12 @@ export default function Register() {
           Warm hearts and open minds
         </a>
         <div className="flex">
-        <h1 className="m-auto text-xl ">
+        <h1 className="mx-auto text-xl pb-2 ">
             Log in to access features such as Forum and Event
             Sharing!
           </h1>
          </div> 
-        <div className="flex flex-row items-center justify-around px-16 py-18 mx-auto md:h-screen lg:py-0 w-fit shadow-xl">
+        <div className="flex flex-row items-center justify-around px-8 py-18 mx-auto md:h-screen lg:py-0 w-fit shadow-xl">
           <img 
           className="hidden md:block custom-Image2"
            src="https://images.unsplash.com/photo-1607000975574-0b425df6975a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

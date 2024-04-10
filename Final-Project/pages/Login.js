@@ -67,7 +67,7 @@ export default function Login() {
   return (
     <div>
       <BreadCrumbs breadCrumbs={breadCrumbs} />
-      <section className="bg-white-100 dark:bg-white-800">
+      <section className="bg-white-100 dark:bg-white-800 p-2">
         <a
           href="#"
           className="flex items-center mb-6 text-4xl font-semibold text-gray-900 dark:text-black justify-center mt-16"
@@ -86,7 +86,7 @@ export default function Login() {
             Sharing!
           </h1>
         </div>
-        <div className="bg-gray-50 flex flex-row items-center justify-around px-16  mx-auto md:h-screen bg-gray-50 lg:py-0 w-fit shadow-2xl">
+        <div className="p-2 bg-gray-50 flex flex-row items-center justify-around px-8  mx-auto md:h-screen bg-gray-50 lg:py-0 w-fit shadow-2xl">
           <img
             
             className="hidden md:block  custom-Image"
@@ -140,29 +140,9 @@ export default function Login() {
                   />
                 </div>
                 <div className="flex items-start">
-                  <div className="flex items-center h-5">
-                    <input
-                      id="terms"
-                      aria-describedby="terms"
-                      type="checkbox"
-                      className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                      required=""
-                    />
-                  </div>
+          
                   <div className="ml-3 text-sm">
-                    <label
-                    required
-                      htmlFor="terms"
-                      className="font-light text-gray-500 dark:text-gray-300"
-                    >
-                      I accept the{" "}
-                      <a
-                        className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                        href="#"
-                      >
-                        Terms and Conditions
-                      </a>
-                    </label>
+
                   </div>
                 </div>
                 <button

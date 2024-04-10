@@ -171,7 +171,7 @@ return (
     <>
       <div className="s:flex s:flex-col s:items-center s:justify-center">
         <button
-          className='mx-4 text-base'
+          className='mx-2 text-base'
           onClick={() => setIsFormVisible(!isFormVisible)}
         >
           {isFormVisible ? '' : 'Reply'}
@@ -192,24 +192,24 @@ return (
               required
               onChange={(e) => setReply(e.target.value)}
             ></textarea>
-            <button className='mx-2 hover:text-green-400 text-base' type="submit">Reply</button>
-            <button className='mx-2 hover:text-amber-400 text-base' onClick={handleCancelReply} type="button">Cancel</button>
+            <button className='mx-2 s:mx-0 hover:text-green-400 text-base' type="submit">Reply</button>
+            <button className='mx-2 s:mx-0 hover:text-amber-400 text-base' onClick={handleCancelReply} type="button">Cancel</button>
           </form>
         )}
   
         <br />
   
         <button
-          className="mx-4 mt-2 text-base"
+          className="mx-2 s:mx-0 mt-2 text-base"
           onClick={() => setAreRepliesVisible(!areRepliesVisible)}
         >
           {areRepliesVisible ? `Hide  (${numReplies})` : `Show Replies (${numReplies})`}
         </button>
   
         {areRepliesVisible && (
-  <div className="s:px-0 px-4 py-2 text-sm block ">
+  <div className="py-2 text-sm block ">
     {allReplies.map((reply) => (
-      <div key={reply._id} className="mb-3 rounded border border-solid border-gray-800 bg-white p-3 ">
+      <div key={reply._id} className="mb-3 rounded border border-solid border-gray-800 bg-white m-0 p-3">
         <div className="flex flex-col">
           <span className="s:text-xs text-gray-500 mb-1">Reply by {reply.username}:</span>
           <p className="text-gray-800">{reply.content}</p>
@@ -224,7 +224,7 @@ return (
             </button>
             <button
               onClick={() => openEditPopup(reply._id, reply.content)}
-              className="s:text-xs text-blue-500 hover:text-blue-500 dark:text-gray-400"
+              className="s:text-xs text-l text-blue-500 hover:text-blue-500 dark:text-gray-400"
             >
               Edit
             </button>

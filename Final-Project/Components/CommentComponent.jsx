@@ -8,9 +8,9 @@ export default function CommentComponent({ allComments, username, handleDeleteCo
 
   return (
     <div>
-      <div className="block px-4 py-2 text-xl">
+      <div className="block py-2 text-xl">
         {allComments.map((comment) => (
-          <div key={comment._id} className="s:p-2 p-8 mb-6 bg-gray-100 rounded-lg shadow-xl">
+          <div key={comment._id} className="s:p-2 p-4 mb-6 bg-gray-100 rounded-lg shadow-xl">
             <footer className="flex justify-between items-center mb-2">
               <div className="flex items-center">
                 <p className="inline-flex items-center mr-3 text-xl text-amber-600 font-semibold">
@@ -18,7 +18,7 @@ export default function CommentComponent({ allComments, username, handleDeleteCo
                 </p>
               </div>
             </footer>
-            <p className="text-gray-800 dark:text-gray-800">{comment.content}</p>
+            <p className="p-2 text-gray-800 dark:text-gray-800">{comment.content}</p>
             {comment.username === user.username && (
               <div className="inline-flex space-x-2 mb-4 mt-4">
                 <button
