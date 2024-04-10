@@ -96,8 +96,9 @@ export default function OpenPost() {
     }
   }, [itemId]);
 
-  const handleAddComment = async () => {
-   
+  const handleAddComment = async (e) => {
+    e.preventDefault();
+    
     const userId = localStorage.getItem("userId"); // Assuming user ID is stored in local storage
     //const user = localStorage.getItem("user");
     try {
@@ -119,7 +120,7 @@ export default function OpenPost() {
         setAllComments((prevComments) => [...prevComments, newComment]);
 
         successToast('Comment added successfully!');
-        
+        router.push(`/Forum/${user?._id}`);
 
     }
       console.log("🚀 ~ response:", response);
@@ -227,11 +228,10 @@ export default function OpenPost() {
       // Implement error handling (e.g., show a message to the user)
     }
   };
-  
   return (
     <>
   <BreadCrumbs breadCrumbs={breadCrumbs} />
-  <div className="flex justify-center items-center">
+  <div className="flex justify-center items-center h-screen">
   <div className="w-10/12 m-8 flex justify-center align-center ">
     <div className="bg-blue-50 border rounded-md p-8 shadow-md w-full">
       <QuestionComponent question={question} />
@@ -289,7 +289,7 @@ export default function OpenPost() {
   allComments={allComments} 
   handleDeleteComment={handleDeleteComment} 
   handleEditComment={handleEditComment}
-  username={user ? user.username : ''}
+  username={username}
 />        
       </div>
     </div>
