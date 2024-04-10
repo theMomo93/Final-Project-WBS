@@ -4,6 +4,7 @@ import React from "react";
 
 export default function Policy() {
   return (
+    <>
     <div className="bg-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8 flex flex-col justify-between">
       <div className="container mx-auto max-w-3xl">
         <h1 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">Privacy Policy</h1>
@@ -73,8 +74,9 @@ export default function Policy() {
           This privacy policy is subject to change without notice. We recommend reviewing it periodically for any updates.
         </p>
       </div>
-      <Footer/>
     </div>
+    <Footer/>
+    </>
   );
   
 }

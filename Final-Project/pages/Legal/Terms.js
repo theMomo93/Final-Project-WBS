@@ -3,6 +3,7 @@ import React from "react";
 
 export default function Terms() {
   return (
+    <>
     <div className="bg-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8 flex flex-col justify-between">
       <div className="container mx-auto max-w-3xl">
         <h1 className="text-xl sm:text-3xl font-bold mb-6 sm:mb-8">Terms of Service</h1>
@@ -67,8 +68,10 @@ export default function Terms() {
           For any questions or concerns regarding these Terms of Service, please contact us at <span className="text-blue-600">mkaminska93@gmail.com</span>.
         </p>
       </div>
-      <Footer/>
+     
     </div>
+ <Footer/>
+    </>
   );
   
 }
