@@ -216,20 +216,20 @@ const Forum = (props) => {
 </h3>
 
                     {item.username === user.username && (
-                      <>
-                        <button
-                          onClick={() => handleEdit(item._id)}
-                          className="block px-4 py-2 text-gray-600 hover:text-blue-600 m-2"
-                        >
-                          Edit
-                        </button>
-                        <button
-                          onClick={() => handleDeleteQuestion(item._id)}
-                          className="block px-4 py-2 text-gray-600 hover:text-red-600 m-2"
-                        >
-                          Delete
-                        </button>
-                      </>
+                   <div className="flex items-center">
+                   <button
+                     onClick={() => handleEdit(item._id)}
+                     className="block px-2 sm:px-4 py-2 text-gray-600 hover:text-blue-600 m-2"
+                   >
+                     Edit
+                   </button>
+                   <button
+                     onClick={() => handleDeleteQuestion(item._id)}
+                     className="block px-2 sm:px-4 py-2 text-gray-600 hover:text-red-600 m-2"
+                   >
+                     Delete
+                   </button>
+                 </div>
                     )}
                   </div>
                 </div>
