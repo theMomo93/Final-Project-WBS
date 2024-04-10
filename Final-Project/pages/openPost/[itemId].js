@@ -234,7 +234,7 @@ export default function OpenPost() {
   <div className="flex justify-center items-center">
   <div className="w-10/12 m-8 flex justify-center align-center ">
     <div className="bg-blue-50 border rounded-md p-8 shadow-md w-full">
-      <QuestionComponent question={question} />
+    {question && <QuestionComponent question={question} />}
       <div>
         <h3
           className="block text-xl font-semibold px-4 py-2 text-gray-600 "
