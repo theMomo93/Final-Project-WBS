@@ -49,76 +49,77 @@ export default function Contact() {
   };
 
   return (
-    <>
-      <div className="flex flex-col items-center justify-center p-6 sm:p-10 md:p-12 lg:p-16 bg-blue-50">
-        <h1 className="text-4xl sm:text-5xl mb-4 font-semibold text-center">Contact Us!</h1>
-        <p className="bg-blue-50 mb-6 sm:mb-8 lg:mb-12 p-4 sm:p-6 lg:p-8 text-lg sm:text-xl text-center">
-          Welcome to our Contact Us page! We are thrilled that you are considering reaching out to us. Whether you have a question, comment, or just want to say hello, we are here and eager to hear from you. Your feedback is invaluable to us as we strive to improve and provide you with the best possible experience.
-        </p>
-        <div className="w-full max-w-[600px] sm:max-w-[800px] border shadow-2xl shadow-blue-950 border-solid p-6 sm:p-8 lg:p-12 rounded border-black">
-          <form onSubmit={handleSubmit}>
-            <div className="mb-4 sm:mb-6">
-              <label htmlFor="name" className="mb-2 block text-base sm:text-lg font-medium font-semibold">Full Name</label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Full Name"
-                value={formData.name}
-                onChange={handleInputChange}
-                className="w-full rounded-md border border-black bg-white py-2 sm:py-3 px-4 sm:px-6 text-base sm:text-lg font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-              />
-            </div>
-            <div className="mb-4 sm:mb-6">
-              <label htmlFor="email" className="mb-2 block text-base sm:text-lg font-medium font-semibold">Email Address</label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                placeholder="example@domain.com"
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-2 sm:py-3 px-4 sm:px-6 text-base sm:text-lg font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-              />
-            </div>
-            <div className="mb-4 sm:mb-6">
-              <label htmlFor="subject" className="mb-2 block text-base sm:text-lg font-medium font-semibold">Subject</label>
-              <input
-                type="text"
-                name="subject"
-                id="subject"
-                value={formData.subject}
-                onChange={handleInputChange}
-                placeholder="Enter your subject"
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-2 sm:py-3 px-4 sm:px-6 text-base sm:text-lg font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-              />
-            </div>
-            <div className="mb-4 sm:mb-6">
-              <label htmlFor="message" className="mb-2 block text-base sm:text-lg font-medium font-semibold">Message</label>
-              <textarea
-                rows="4"
-                name="message"
-                id="message"
-                value={formData.message}
-                onChange={handleInputChange}
-                placeholder="Type your message"
-                className="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-2 sm:py-3 px-4 sm:px-6 text-base sm:text-lg font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-              ></textarea>
-            </div>
-            <div className="text-center">
-              <button
-                type="submit"
-                aria-label="Send mail"
-                className="font-semibold bg-amber-400 py-2 px-6 sm:px-8 rounded text-white hover:text-black"
-              >
-                Send mail
-              </button>
-            </div>
-          </form>
-        </div>
+  <>
+    <div className="flex flex-col items-center justify-center p-6 sm:p-10 md:p-12 lg:p-16 bg-blue-50">
+      <h1 className="text-4xl sm:text-5xl mb-4 font-semibold text-center">Contact Us!</h1>
+      <p className="bg-blue-50 mb-6 sm:mb-8 lg:mb-12 p-4 sm:p-6 lg:p-8 text-lg sm:text-xl text-center">
+        Welcome to our Contact Us page! We are thrilled that you are considering reaching out to us. Whether you have a question, comment, or just want to say hello, we are here and eager to hear from you. Your feedback is invaluable to us as we strive to improve and provide you with the best possible experience.
+      </p>
+      <div className="w-full max-w-[600px] sm:max-w-[800px] border shadow-2xl shadow-blue-950 border-solid p-6 sm:p-8 lg:p-12 rounded border-black">
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4 sm:mb-6">
+            <label htmlFor="name" className="mb-2 block text-base sm:text-lg font-medium font-semibold">Full Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Full Name"
+              value={formData.name}
+              onChange={handleInputChange}
+              className="w-full rounded-md border border-black bg-white py-2 sm:py-3 px-4 sm:px-6 text-base sm:text-lg font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+            />
+          </div>
+          <div className="mb-4 sm:mb-6">
+            <label htmlFor="email" className="mb-2 block text-base sm:text-lg font-medium font-semibold">Email Address</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              placeholder="example@domain.com"
+              className="w-full rounded-md border border-[#e0e0e0] bg-white py-2 sm:py-3 px-4 sm:px-6 text-base sm:text-lg font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+            />
+          </div>
+          <div className="mb-4 sm:mb-6">
+            <label htmlFor="subject" className="mb-2 block text-base sm:text-lg font-medium font-semibold">Subject</label>
+            <input
+              type="text"
+              name="subject"
+              id="subject"
+              value={formData.subject}
+              onChange={handleInputChange}
+              placeholder="Enter your subject"
+              className="w-full rounded-md border border-[#e0e0e0] bg-white py-2 sm:py-3 px-4 sm:px-6 text-base sm:text-lg font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+            />
+          </div>
+          <div className="mb-4 sm:mb-6">
+            <label htmlFor="message" className="mb-2 block text-base sm:text-lg font-medium font-semibold">Message</label>
+            <textarea
+              rows="4"
+              name="message"
+              id="message"
+              value={formData.message}
+              onChange={handleInputChange}
+              placeholder="Type your message"
+              className="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-2 sm:py-3 px-4 sm:px-6 text-base sm:text-lg font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+            ></textarea>
+          </div>
+          <div className="text-center">
+            <button
+            onClick={constructMailtoLink}
+              type="submit"
+              aria-label="Send mail"
+              className="font-semibold bg-amber-400 py-2 px-6 sm:px-8 rounded text-white hover:text-black"
+            >
+              Send mail
+            </button>
+          </div>
+        </form>
       </div>
-      <Footer/>
-    </>
-  );
-  
+    </div>
+    <Footer/>
+  </>
+);
+
 }
