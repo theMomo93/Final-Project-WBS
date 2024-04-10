@@ -42,11 +42,10 @@ export default function Contact() {
   };
   const constructMailtoLink = () => {
     const { name, email, subject, message } = formData;
-    const body = `\nFull Name: ${name}\nEmail Address: ${email}\nSubject: ${subject}\nMessage: ${message}`;
-    return `mailto:mkaminska93@gmail.com?subject=${encodeURIComponent(
-      subject
-    )} ${encodeURIComponent(body)}`;
+    const body = `Full Name: ${name}%0AEmail Address: ${email}%0ASubject: ${subject}%0AMessage: ${message}`;
+    return `mailto:mkaminska93@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
+  
 
   return (
     <>
