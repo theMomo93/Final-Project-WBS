@@ -96,57 +96,54 @@ export default function OpenPost() {
     }
   }, [itemId]);
 
-  const handleAddComment = async () => {
-    
-    const userId = localStorage.getItem("userId"); // Assuming user ID is stored in local storage
-    //const user = localStorage.getItem("user");
-    try {
-      if (containsBannedWords(comment)) {
-          errorToast('Your comment contains banned words.');
-          return;
-      }
+  const fetchComments = async () => {
+  try {
+    const response = await fetch(
+      `https://portgermanyserver.onrender.com/comment/get/all/${itemId}`
+    );
+    const data = await response.json();
 
-      const response = await axios.post("https://portgermanyserver.onrender.com/comment/add", {
-          content: comment,
-          questionId: itemId,
-          userId: user._id,
-          username: user.username,
-      });
-
-      if (response.data.success) {
-          const newComment = response.data.comment;
-          setAllComments((prevComments) => [...prevComments, newComment]);
-          successToast('Comment added successfully!');
-          window.location.reload(false);
-      }
-
+    if (data.success) {
+      setAllComments([...data.allComments]);
+    }
   } catch (error) {
-      console.error("Error adding comment:", error);
-      errorToast('An error occurred while adding your comment.');
+    console.error("Error fetching comments:", error.message);
   }
 };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `https://portgermanyserver.onrender.com/comment/get/all/${itemId}`
-        );
-        const data = await response.json();
-
-        if (data.success) {
-          setAllComments([...data.allComments]);
-          
-        }
-      } catch (error) {
-        console.error("Error fetching comments:", error.message);
-      }
-    };
-
-    if (itemId) {
-      fetchData();
+const handleAddComment = async () => {
+  const userId = localStorage.getItem("userId");
+  //const user = localStorage.getItem("user");
+  try {
+    if (containsBannedWords(comment)) {
+      errorToast('Your comment contains banned words.');
+      return;
     }
-  }, [itemId]);
+
+    const response = await axios.post("https://portgermanyserver.onrender.com/comment/add", {
+      content: comment,
+      questionId: itemId,
+      userId: user._id,
+      username: user.username,
+    });
+
+    if (response.data.success) {
+      const newComment = response.data.comment;
+      setAllComments((prevComments) => [...prevComments, newComment]);
+      successToast('Comment added successfully!');
+      fetchComments(); // Fetch comments again after adding a new comment
+    }
+  } catch (error) {
+    console.error("Error adding comment:", error);
+    errorToast('An error occurred while adding your comment.');
+  }
+};
+
+useEffect(() => {
+  if (itemId) {
+    fetchComments();
+  }
+}, [itemId]);
 
 
 
