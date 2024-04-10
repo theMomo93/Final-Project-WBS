@@ -108,7 +108,7 @@ const Forum = (props) => {
     <>
       <BreadCrumbs breadCrumbs={breadCrumbs} />
       <div className="w-full max-w-screen-xl mx-auto mt-8 px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-center text-center">
+        <div className="flex flex-col items-center justify-center text-center m-3">
           <h1 className="text-4xl font-bold mx-4 sm:mx-0 mb-4 text-center">
             Forum and Rules:
           </h1>

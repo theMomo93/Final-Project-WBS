@@ -25,9 +25,8 @@ export default function CommentNumber({ questionId }) {
   }, [questionId]); 
 
   return (
-    <div className='bg-amber-400 p-2 rounded text-white hover:text-black'>
-      {commentCount !== null ? (
-        <p>Comment  here ({ " " + commentCount + " " })</p>
+<div className='bg-amber-400 p-2 rounded text-white hover:text-black whitespace-nowrap overflow-hidden overflow-ellipsis'>       {commentCount !== null ? (
+        <p>Comment here ({ " " + commentCount + " " })</p>
       ) : (
         <p>Loading...</p>
       )}
