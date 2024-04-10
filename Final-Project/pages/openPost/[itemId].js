@@ -132,7 +132,7 @@ const handleAddComment = async () => {
       setAllComments((prevComments) => [...prevComments, newComment]);
       setComment("");
       successToast('Comment added successfully!');
-      
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
       fetchComments(); // Fetch comments again after adding a new comment
     }
   } catch (error) {
