@@ -17,7 +17,7 @@ const withAuth = (WrappedComponent) => {
   
         if (!user) {
           // Redirect to the login page with a query parameter or state
-          router.replace("/login");
+          router.replace("/Login");
         }
       }, [router]);
   

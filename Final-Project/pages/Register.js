@@ -6,11 +6,27 @@ import Link from "next/link";
 import React from "react";
 import Footer from "@/Components/Footer";
 
+
 export default function Register() {
   const [username, setUsername]=useState("");
   const [email, setEmail]=useState("");
   const [password, setPassword]=useState("");
   const router = useRouter();
+
+  const errorToast=(message)=>{
+    toast.error(message, {
+      style:{
+        borderLeft: '15px solid #960018'
+      }
+    })
+   }
+    const successToast = (message) => {
+      toast.success(message, {
+        style: {
+          borderLeft: '15px solid #28a745'
+        },
+      });
+    };
 
   const handleRegister = async (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
@@ -25,16 +41,16 @@ export default function Register() {
   
       if (response.data.success) {
         console.log("Response", response.data);
-        toast.success("Registration was successful!")
+        successToast("Registration was successful!")
         router.push('/login');
       } else {
         // Handle unsuccessful registration
         console.log('Registration failed:', response.data.message);
-        toast.success("Registration failed.!")
+        errorToast("Registration failed.!")
       }
     } catch (error) {
       // Handle any errors that occurred during the request
-      console.error('Error during registration:', error.message);
+      errorToast('Error during registration:', error.message);
     }
   }
   return (
@@ -157,7 +173,7 @@ export default function Register() {
                 <p className="text-sm font-light text-gray-500 dark:text-gray-300">
                   Do you already have an account?{' '}
                   <Link
-                    href="/login"
+                    href="/Login"
                     className="font-medium text-primary-00 hover:underline dark:text-primary-500"
                   >
                     Log in here!

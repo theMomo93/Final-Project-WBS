@@ -14,6 +14,21 @@ export default function Login() {
   const { setUser } = useContext(UserContext);
   const router = useRouter();
 
+
+  const errorToast=(message)=>{
+    toast.error(message, {
+      style:{
+        borderLeft: '15px solid #960018'
+      }
+    })
+   }
+    const successToast = (message) => {
+      toast.success(message, {
+        style: {
+          borderLeft: '15px solid #28a745'
+        },
+      });
+    };
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -25,7 +40,7 @@ export default function Login() {
       if (response.data.success) {
         console.log(response.data.user);
         setUser(response.data.user);
-
+        successToast("Login Successful! Welcome!")
         // Store user data in localStorage
 
         localStorage.setItem("User", JSON.stringify(response.data.user));
@@ -35,11 +50,11 @@ export default function Login() {
         router.push(`/profile/${response.data.user._id}`);
       } else {
         console.error("Invalid response format:", response.data);
-        alert("Invalid Email or Password");
+        errorToast("Invalid Email or Password");
       }
     } catch (error) {
       console.error("Error during login:", error);
-      alert("An error occurred during login");
+      errorToast("An error occurred during login, try again later");
     }
   };
 
