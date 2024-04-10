@@ -117,6 +117,7 @@ export default function OpenPost() {
           const newComment = response.data.comment;
           setAllComments((prevComments) => [...prevComments, newComment]);
           successToast('Comment added successfully!');
+          window.location.reload(false);
       }
 
   } catch (error) {
