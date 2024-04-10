@@ -120,7 +120,7 @@ export default function OpenPost() {
         setAllComments((prevComments) => [...prevComments, newComment]);
 
         successToast('Comment added successfully!');
-        router.push(`/Forum/${user?._id}`);
+        router.push(`/openPost/${user?._id}`);
 
     }
       console.log("🚀 ~ response:", response);
