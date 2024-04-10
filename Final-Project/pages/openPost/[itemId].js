@@ -231,7 +231,7 @@ export default function OpenPost() {
   return (
     <>
   <BreadCrumbs breadCrumbs={breadCrumbs} />
-  <div className="flex justify-center items-center h-screen">
+  <div className="flex justify-center items-center">
   <div className="w-10/12 m-8 flex justify-center align-center ">
     <div className="bg-blue-50 border rounded-md p-8 shadow-md w-full">
       <QuestionComponent question={question} />
