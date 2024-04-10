@@ -110,13 +110,12 @@ const Forum = (props) => {
   return (
     <>
       <BreadCrumbs breadCrumbs={breadCrumbs} />
-      <div className="w-full max-w-screen-xl mx-auto mt-8">
-        <div className="flex flex-col items-center justify-center text-center">
-        
-          <h1 className="text-4xl font-bold mx-28 mb-4 text-center">
-            Forum and Rules:</h1>
-            <ol className="mb-4 text-justify list-decimal ">
-              <li className="text-2xl">
+      <div className="w-full max-w-screen-xl mx-auto mt-8 px-4 sm:px-6 lg:px-8">
+  <div className="flex flex-col items-center justify-center text-center">
+    <h1 className="text-4xl font-bold mx-4 sm:mx-0 mb-4 text-center">
+      Forum and Rules:
+    </h1>
+    <ol className="mb-4 text-justify list-decimal">              <li className="text-2xl">
                <span className="font-semibold text-2xl hover:amber-400">Be Respectful:</span>  Treat others courteously, avoiding personal
                 attacks and offensive language.
               </li>
@@ -140,15 +139,14 @@ const Forum = (props) => {
           
           <p className="text-xl underline mb-2">Ask Your Questions here: </p><FaArrowDown className="text-2xl"/>
           <button
-            className="w-96 text-white bg-amber-400 hover:text-black font-bold py-2 px-4 rounded mt-4"
-            onClick={handleClick}
-          >
+      className="w-full sm:w-96 text-white bg-amber-400 hover:text-black font-bold py-2 px-4 rounded mt-4"
+      onClick={handleClick}
+    >
             Ask Question
           </button>
           
         </div>
-        <div className="flex flex-col items-center justify-end text-center pt-2 pb-4 mt-2">
-  
+        <div className="flex flex-col items-center justify-end text-center pt-2 pb-4 mt-2">  
   <div className="relative">
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -172,9 +170,9 @@ const Forum = (props) => {
 
 
 
-        <div className="flex items-center justify-center">
-          <div className="w-10/12 m-8">
-            <div className=" border rounded-md p-12 shadow-md w-full bg-gray-100">
+<div className="flex items-center justify-center">
+    <div className="w-full sm:w-10/12 m-4 sm:m-8">
+      <div className="border rounded-md p-4 sm:p-12 shadow-md w-full bg-gray-100">
               {filteredQuestions.map((item) => (
                 <div
                   key={item._id}
