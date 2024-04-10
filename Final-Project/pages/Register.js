@@ -51,7 +51,7 @@ export default function Register() {
       }
     } catch (error) {
       // Handle any errors that occurred during the request
-      errorToast('Error during registration:', error.message);
+      errorToast('Error during registration: email or login already exists', error.message);
     }
   }
   return (
