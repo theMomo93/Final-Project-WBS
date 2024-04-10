@@ -42,6 +42,7 @@ export default function Register() {
       if (response.data.success) {
         console.log("Response", response.data);
         successToast("Registration was successful!")
+        successToast("Now you can login!")
         router.push('/Login');
      
       } else {

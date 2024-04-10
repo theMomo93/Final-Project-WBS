@@ -96,11 +96,10 @@ export default function OpenPost() {
     }
   }, [itemId]);
 
-  const handleAddComment = async (e) => {
-    e.preventDefault();
-    
-    const userId = localStorage.getItem("userId"); // Assuming user ID is stored in local storage
+  const handleAddComment = async () => {
    
+    const userId = localStorage.getItem("userId"); // Assuming user ID is stored in local storage
+    //const user = localStorage.getItem("user");
     try {
      if (containsBannedWords(comment)) {
       errorToast('Your comment contains banned words.');
@@ -120,7 +119,7 @@ export default function OpenPost() {
         setAllComments((prevComments) => [...prevComments, newComment]);
 
         successToast('Comment added successfully!');
-        router.push(`/Forum/${user?._id}`);
+        
 
     }
       console.log("🚀 ~ response:", response);
@@ -228,6 +227,7 @@ export default function OpenPost() {
       // Implement error handling (e.g., show a message to the user)
     }
   };
+  
   return (
     <>
   <BreadCrumbs breadCrumbs={breadCrumbs} />
@@ -289,7 +289,7 @@ export default function OpenPost() {
   allComments={allComments} 
   handleDeleteComment={handleDeleteComment} 
   handleEditComment={handleEditComment}
-  username={username}
+  username={user ? user.username : ''}
 />        
       </div>
     </div>

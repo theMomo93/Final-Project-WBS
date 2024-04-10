@@ -3,9 +3,9 @@ import ReplyComponent from './ReplyComponent';
 import { UserContext } from "../contexts/UserContext";
 import { useContext } from 'react';
 
-export default function CommentComponent({ allComments, username, handleDeleteComment, handleEditComment }) {
+export default function CommentComponent({ allComments,username, handleDeleteComment, handleEditComment }) {
   const { user, setUser } = useContext(UserContext);
-
+console.log("user Comment Component", username)
   return (
     <div>
       <div className="block py-2 text-xl">
@@ -61,7 +61,7 @@ export default function CommentComponent({ allComments, username, handleDeleteCo
               <div className='w-full'>
                 <ReplyComponent
                   commentId={comment._id}
-                  username={username}
+                  username={user.username}
                 />
               </div>
             </div>
