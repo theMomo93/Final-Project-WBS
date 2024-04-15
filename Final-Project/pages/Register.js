@@ -42,8 +42,8 @@ export default function Register() {
       if (response.data.success) {
         console.log("Response", response.data);
         successToast("Registration was successful!")
-        successToast("Now you can login!")
-        router.push('/Login');
+         router.push('/Login');
+         successToast("Now you can login!")
      
       } else {
         // Handle unsuccessful registration
@@ -71,7 +71,7 @@ export default function Register() {
         </a>
         <div className="flex">
         <h1 className="mx-auto text-xl pb-2 ">
-            Log in to access features such as Forum and Event
+            Register in to access features such as Forum and Event
             Sharing!
           </h1>
          </div> 
