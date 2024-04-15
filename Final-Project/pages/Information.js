@@ -14,11 +14,11 @@ export default function Information() {
       <BreadCrumbs breadCrumbs={breadCrumbs} />
       <div className="mx-8 p-4 sm:p-12 h-auto px-2 sm:px-16 flex flex-wrap align-center justify-center">
       <div className="mx-8 p-4 sm:p-12 h-auto px-2 sm:px-16">
-  <h1 className="text-4xl font-bold mx-4 sm:mx-8 mb-2 mb:w-screen sm:mb-4 max-w-screen text-center">
+  <h1 className="text-4xl font-bold mx-4 sm:mx-8 mb-2 mb:w-screen sm:mb-4 max-w-screen text-center flex flex-wrap mx-8">
     Welcome, to our Information Page, choose a category:
   </h1>
 
-  <p className="text-lg mb-4 sm:mb-8 mx-4 sm:mx-52 text-center flex flex-wrap w-screen">
+  <p className="text-lg mb-4 sm:mb-8 mx-4 sm:mx-52 text-center flex flex-wrap w-screen mx-8">
     New to Germany and not quite sure how everything works? Our topics may offer you useful information about living, working and staying in Germany.
   </p>
 </div>
