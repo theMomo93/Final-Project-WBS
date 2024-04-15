@@ -12,17 +12,18 @@ export default function Healthcare() {
     <>
       <BreadCrumbs breadCrumbs={breadCrumbs} />
       <div className="bg-gray-50">
-        <div className="flex flex-wrap">
-          <div className="w-full p-4 lg:p-12">
-            <h1 className="text-3xl lg:text-4xl font-bold mb-4 ">Health Care in Germany</h1>
-            <p className="text-lg lg:text-xl">
-              Everyone has a right to basic healthcare no matter their financial
-              status or immigration status. Virtually anyone can receive
-              emergency treatment or simple doctor visit to receive medications.
-              The most of the costs for the treatment are covered by your
-              healthcare provider.
-            </p>
-            <p className="mb-2 text-lg lg:text-xl">
+        <div className="flex">
+          <div className="w-2/3 p-12">
+            <h1 className="text-3xl font-bold mb-4 ">Health Care in Germany</h1>
+            <p className="indent-4 text-lg">
+  Everyone has a right to basic healthcare no matter their financial
+  status or immigration status. Virtually anyone can receive
+  emergency treatment or simple doctor visit to receive medications.
+  The most of the costs for the treatment are covered by your
+  healthcare provider.{" "}
+</p>
+            <p className="mb-2 indent-4 text-lg">
+              {" "}
               Not only physical health is valued in Germany. Mental illnesses
               also plays an important role in life and they are treated like so.
               They are also treated by the Doctors who often refer person
@@ -30,10 +31,10 @@ export default function Healthcare() {
             </p>
 
             <div>
-              <h1 className="text-3xl lg:text-4xl font-bold pt-8 mt-12 mb-4">
+              <h1 className="text-3xl font-bold pt-8 mt-12 mb-4">
                 Healthcare System
               </h1>
-              <ul className="list-disc ml-6 text-lg lg:text-xl">
+              <ul className="list-disc ml-6 text-lg">
                 <li className="mb-6 font-bold ">
                   Early Detection Program (Children)
                   <p className="text-gray-900 font-medium font-normal">
@@ -100,9 +101,9 @@ export default function Healthcare() {
             </div>
           </div>
 
-          <div className="w-full p-4 lg:p-8">
+          <div className="w-1/3 p-8">
             <div className="bg-gray-200 p-4">
-              <h2 className="text-xl lg:text-2xl font-semibold mb-4">Useful Links</h2>
+              <h2 className="text-xl font-semibold mb-4">Useful Links</h2>
               <ul>
                 <li className="mb-1">
                   <a
@@ -162,11 +163,12 @@ export default function Healthcare() {
             </div>
             <img
               src="https://img.freepik.com/free-photo/medicine-uniform-healthcare-medical-workers-day-concept_185193-108329.jpg?w=360&t=st=1707291808~exp=1707292408~hmac=fcdd53055fca1df2d7ea082c98589e87782310bad1d4766942f0bed3e63857ce"
-              className="w-full h-auto mt-4"
+              className="w-fit h-fit mt-4"
               alt="a person sitting at the desk writing notes"
             />
           </div>
         </div>
+
       </div>
       <Footer/>
     </>
