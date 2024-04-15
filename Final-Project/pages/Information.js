@@ -13,17 +13,16 @@ export default function Information() {
     <>
       <BreadCrumbs breadCrumbs={breadCrumbs} />
       <div className="mx-auto p-4 sm:p-12 h-auto px-2 sm:px-16 flex flex-wrap align-center justify-center">
-        <div className="mx-auto p-4 sm:p-12 h-auto px-2 sm:px-16">
-          <h1 className="text-4xl font-bold mx-4 sm:mx-28 mb-2 sm:mb-4 text-center">
-            Welcome, to our Information Page, choose a category:
-          </h1>
+      <div className="mx-auto p-4 sm:p-12 h-auto px-2 sm:px-16">
+  <h1 className="text-4xl font-bold mx-4 sm:mx-8 mb-2 mb:w-screen sm:mb-4 max-w-screen text-center">
+    Welcome, to our Information Page, choose a category:
+  </h1>
 
-          <p className="text-lg mb-4 sm:mb-8 mx-4 sm:mx-52 text-center">
-            New to Germany and not quite sure how everything works? Our topics
-            may offer you useful information about living, working and staying
-            in Germany.
-          </p>
-        </div>
+  <p className="text-lg mb-4 sm:mb-8 mx-4 sm:mx-52 text-center">
+    New to Germany and not quite sure how everything works? Our topics may offer you useful information about living, working and staying in Germany.
+  </p>
+</div>
+
 
         <section className="flex items-center lg:h-screen/2 font-poppins dark:bg-gray-50 pb-24">
           <div className="justify-center max-w-6xl px-4 py-4 mx-auto lg:py-0">

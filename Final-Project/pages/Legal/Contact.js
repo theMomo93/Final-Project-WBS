@@ -30,9 +30,6 @@ export default function Contact() {
     // Log the email body
     console.log("Email body:", emailBody);
 
-    // Now you can use a library or send a request to your server to handle the email sending
-
-    // Clear form data after submission
     setFormData({
       name: "",
       email: "",
@@ -46,7 +43,6 @@ export default function Contact() {
     return `mailto:mkaminska93@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
   
-
   return (
     <>
       <div className="flex flex-col items-center justify-center p-6 sm:p-10 bg-blue-50">
