@@ -42,8 +42,8 @@ const Forum = (props) => {
       }
     } catch (error) {
       console.error("Error parsing user data:", error);
-      // Handle the error as needed
-      errorToast("Please Register and Login to access");
+      
+      errorToast("Please Register and/ or  Login to access Forum");
     }
   }, []);
 
