@@ -18,7 +18,7 @@ export default function Information() {
     Welcome, to our Information Page, choose a category:
   </h1>
 
-  <p className="text-lg mb-4 sm:mb-8 mx-4 sm:mx-52 text-center w-screen">
+  <p className="text-lg mb-4 sm:mb-8 mx-4 sm:mx-52 text-center flex flex-wrap w-screen">
     New to Germany and not quite sure how everything works? Our topics may offer you useful information about living, working and staying in Germany.
   </p>
 </div>
