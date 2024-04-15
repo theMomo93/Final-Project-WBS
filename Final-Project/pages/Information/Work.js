@@ -13,10 +13,10 @@ export default function Work() {
     <>
       <BreadCrumbs breadCrumbs={breadCrumbs} />
       <div className="bg-gray-50">
-        <div className="flex">
-          <div className="w-2/3 p-12">
+        <div className="flex flex-wrap">
+          <div className="w-full sm:w-2/3 p-8">
             <h1 className="text-3xl font-bold mb-4 ">Can I work in Germany?</h1>
-            <p className="text-lg">
+            <p className="indent-4 text-lg">
   Working in Germany depends on your nationality:{" "}
   <span className="font-semibold">EU/EEA Nationals: </span>
               No work permit needed, unrestricted access to the job market.
@@ -104,7 +104,7 @@ export default function Work() {
             </div>
           </div>
 
-          <div className="w-1/3 p-8">
+          <div className="p-8 s:w-screen md:w-1/3 ">
             <div className="bg-gray-200 p-4">
               <h2 className="text-xl font-semibold mb-4">Useful Links</h2>
               <ul>
@@ -172,7 +172,7 @@ export default function Work() {
             </div>
             <img
               src="https://img.freepik.com/free-photo/beautiful-young-woman-home-office-working-from-home-teleworking-concept_144627-46786.jpg?w=360&t=st=1710147835~exp=1710148435~hmac=08ddb730683df936abe8a7864b5536e27ab3e6223173debd8b0d088397aaf412"
-              className="w-fit h-fit mt-4"
+              className="md:w-fit md:h-fit mt-4 hide-on-small"
               alt="a person sitting at the desk writing notes"
             />
           </div>

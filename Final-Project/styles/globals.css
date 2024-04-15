@@ -77,3 +77,11 @@ object-fit:cover;
 border: 1px solid black;
   }
 
+
+
+
+  @media (max-width: 768px) { /* Adjust the maximum width as needed */
+    .hide-on-small {
+      display: none;
+    }
+  }

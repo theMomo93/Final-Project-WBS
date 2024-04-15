@@ -12,8 +12,8 @@ export default function Healthcare() {
     <>
       <BreadCrumbs breadCrumbs={breadCrumbs} />
       <div className="bg-gray-50">
-        <div className="flex">
-          <div className="w-2/3 p-12">
+        <div className="flex flex-wrap">
+          <div className="w-full sm:w-2/3 p-8">
             <h1 className="text-3xl font-bold mb-4 ">Health Care in Germany</h1>
             <p className="indent-4 text-lg">
   Everyone has a right to basic healthcare no matter their financial
@@ -101,10 +101,10 @@ export default function Healthcare() {
             </div>
           </div>
 
-          <div className="w-1/3 p-8">
+          <div className="p-8 s:w-screen md:w-1/3 ">
             <div className="bg-gray-200 p-4">
               <h2 className="text-xl font-semibold mb-4">Useful Links</h2>
-              <ul>
+              <ul className="">
                 <li className="mb-1">
                   <a
                     href="https://www.rki.de/EN/Home/homepage_node.html"
@@ -163,7 +163,7 @@ export default function Healthcare() {
             </div>
             <img
               src="https://img.freepik.com/free-photo/medicine-uniform-healthcare-medical-workers-day-concept_185193-108329.jpg?w=360&t=st=1707291808~exp=1707292408~hmac=fcdd53055fca1df2d7ea082c98589e87782310bad1d4766942f0bed3e63857ce"
-              className="w-fit h-fit mt-4"
+              className="md:w-fit md:h-fit mt-4 hide-on-small"
               alt="a person sitting at the desk writing notes"
             />
           </div>

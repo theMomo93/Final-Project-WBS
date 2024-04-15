@@ -13,19 +13,19 @@ export default function Language() {
     <>
       <BreadCrumbs breadCrumbs={breadCrumbs} />
       <div className="bg-gray-50">
-        <div className="flex">
-          <div className="w-2/3 p-12">
+        <div className="flex flex-wrap">
+          <div className="w-full sm:w-2/3 p-8">
             <h1 className="text-3xl font-bold mb-4">
               Learning German Language
             </h1>
-            <p className="text-lg">
+            <p className="indent-4 text-lg">
               Learning the language of the country you live in is super
               important. It helps you find jobs easily, understand rental
               agreements, and communicate/make friends. When you speak the local
               language, getting around, shopping, and dealing with everyday
               struggles become much simpler.
             </p>
-            <p className="mb-8 text-lg">
+            <p className="mb-8 indent-4 text-lg">
               It&apos;s not just about words; it&apos;s about feeling at home and
               connecting with the people around you. So, if you&apos;re in a new
               place, learning the language is like having a super useful tool
@@ -120,7 +120,7 @@ export default function Language() {
             </div>
           </div>
 
-          <div className="w-1/3 p-8">
+          <div className="p-8 s:w-screen md:w-1/3 ">
             <div className="bg-gray-200 p-4">
               <h2 className="text-xl font-semibold mb-2">Useful Links</h2>
               <ul>
@@ -188,7 +188,7 @@ export default function Language() {
             </div>
             <img
               src="https://img.freepik.com/free-photo/unrecognizable-woman-sitting-desk-indoors-writing-planner_1098-17626.jpg?w=360&t=st=1707134189~exp=1707134789~hmac=9261cbb7abf3983598f7b2bde03a1d19760215a0e004fd5a6ea56c067e505de7"
-              className="w-fit h-fit mt-4"
+              className="md:w-fit md:h-fit mt-4 hide-on-small"
               alt="a person sitting at the desk writing notes"
             />
           </div>
