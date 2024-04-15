@@ -12,8 +12,8 @@ export default function Healthcare() {
     <>
       <BreadCrumbs breadCrumbs={breadCrumbs} />
       <div className="bg-gray-50">
-        <div className="flex flex-wrap justify-between">
-          <div className="w-full lg:w-2/3 p-4 lg:p-12">
+        <div className="flex flex-wrap">
+          <div className="w-full p-4 lg:p-12">
             <h1 className="text-3xl lg:text-4xl font-bold mb-4 ">Health Care in Germany</h1>
             <p className="text-lg lg:text-xl">
               Everyone has a right to basic healthcare no matter their financial
@@ -100,7 +100,7 @@ export default function Healthcare() {
             </div>
           </div>
 
-          <div className="w-full lg:w-1/3 p-4 lg:p-8">
+          <div className="w-full p-4 lg:p-8">
             <div className="bg-gray-200 p-4">
               <h2 className="text-xl lg:text-2xl font-semibold mb-4">Useful Links</h2>
               <ul>
