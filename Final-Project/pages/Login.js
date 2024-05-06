@@ -140,10 +140,11 @@ export default function Login() {
                   />
                 </div>
                 <div className="flex items-start">
-          
                   <div className="ml-3 text-sm">
+                 <Link href="/forgotPassword" className="text-white hover:underline" >Forgot Password?/</Link>
 
                   </div>
+                  
                 </div>
                 <button
                   type="submit"
