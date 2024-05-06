@@ -143,12 +143,16 @@ export const handleDeleteUser=async(req, res)=>{
 
 
 export const handleForgotPassword = async (req, res) => {
-  try{
+  try {
     console.log("this is handleForgotPassword", req.body);
-    res.send({success:true});
-    
-  }catch (error) {
+    // Assuming you have some user data to send back
+    const userData = {
+      email: req.body.email,
+      // Other user data
+    };
+    res.send({ success: true, user: userData });
+  } catch (error) {
     console.log("error in handleForgotPassword", error.message);
     res.status(500).send(error.message);
   }
-}
+};
