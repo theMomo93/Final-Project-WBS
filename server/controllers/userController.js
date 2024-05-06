@@ -140,3 +140,15 @@ export const handleDeleteUser=async(req, res)=>{
   res.status(500).send({success:false, error: error.message});
 }
 }
+
+
+export const handleForgotPassword = async (req, res) => {
+  try{
+    console.log("this is handleForgotPassword", req.body);
+    res.send({success:true});
+    
+  }catch (error) {
+    console.log("error in handleForgotPassword", error.message);
+    res.status(500).send(error.message);
+  }
+}

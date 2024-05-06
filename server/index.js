@@ -16,6 +16,7 @@ app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
 
+connectDB();
 
 app.use('/users', userRoutes); // Use the user routes
 app.use("/question", questionRoutes);
@@ -23,7 +24,7 @@ app.use("/comment", commentRoutes);
 app.use("/reply", replyRoutes);
 app.use("/event", eventRoutes);
 
-connectDB();
+
 
 const PORT = 5000;
 app.listen(PORT, () => {

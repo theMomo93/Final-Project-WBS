@@ -6,7 +6,8 @@ import {
     handleUser,
     uploadProfileImage,
     handleGetUsername,
-    handleDeleteUser
+    handleDeleteUser,
+    handleForgotPassword
     
     
 } from "../controllers/userController.js";
@@ -20,4 +21,5 @@ router.get("/id/:id", handleUser );
 router.post("/add/image/:id", uploadCloudinary.single("profileImage"), uploadProfileImage);
 router.get("/username/:username", handleGetUsername );
 router.delete("/delete/:id", handleDeleteUser)
+router.post("/forgotPassword", handleForgotPassword);
 export default router;
