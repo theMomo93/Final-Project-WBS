@@ -1,8 +1,6 @@
 import User from "../models/User.js";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import sendMail from "../utils/sendForgotPasswordEmail.js";
-
 export const handleRegister = async (req, res) => {
   try {
     
@@ -142,26 +140,4 @@ export const handleDeleteUser=async(req, res)=>{
 }
 }
 
-
-export const handleForgotPassword = async (req, res) => {
-  try{
-  const user = await User.findOne({
-    $or: [
-      { email: req.body.emailOrUsername },
-    ],
-  });
-  console.log("🚀 ~ user:", user);
-
-  if (!user) return res.send({ success: false, error: "User not found" });
-
-
-  sendForgotPassEmail(user.email);
-
-  res.send({ success: true });
-} catch (error) {
-  console.log("🚀 ~ error in handleForgotPass:", error.message);
-
-  res.status(500).send(error.message);
-}
-};
 
